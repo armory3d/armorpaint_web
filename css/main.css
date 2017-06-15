@@ -3127,6 +3127,7 @@ a.btn.external:after {
     border-bottom: thin solid #1a1a1a;
     background-image: url(../img/title.jpg);
     background-size: cover;
+    background-position: center;
     box-shadow: 2px 2px 0 rgba(95, 95, 95, 0.1)
 }
 
