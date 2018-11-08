@@ -20,13 +20,24 @@
 
       <div style="margin:0 auto; max-width: 800px;">
       <p>Before proceeding, please <a href="https://armorpaint.org/manual/">read the manual</a> first to know what parts need more work. The preview version has many rough edges and the experience may be frustrating.</p>
-      <p>All future updates are included for free. Thank you for supporting further ArmorPaint development!</p>
+      <p>All updates are included for free. Thank you for enabling further ArmorPaint development!</p>
       </div>
 
       <script src="https://gumroad.com/js/gumroad-embed.js"></script>
       <div class="gumroad-product-embed" data-gumroad-product-id="armorpaint"><a href="https://gumroad.com/l/armorpaint">Loading...</a></div>
 
+      <br><b><span id="spanstatus">...</span></b> people already supported the project.
+      <br>Suggest new features or get in touch on the <a href = "https://armorpaint.org/community.html">community page</a>.
+
+      <br>
       <br>ArmorPaint is also available on <a href="https://armory.itch.io/armorpaint">itch.io</a>.
+
+      <script type="text/javascript">
+        $.get("https://luboslenco.github.io/fund_import/index.html", function(data) {
+          data = JSON.parse(data);
+          $("#spanstatus").html("" + data.paint + "");
+        });
+      </script>
 
     </div>
   </div>
