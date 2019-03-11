@@ -149,11 +149,25 @@
         </div>
         <div class="uk-flex-first uk-flex-last@l">
           <h2 class="uk-heading-divider ro-text-header">Release Info</h2>
-          New builds are made available during development. The latest release is marked as:
+          Current release is marked as:
           <ul>
-            <li>Version: 0.6 dev</li>
-            <li>Updated: March 8, 2019</li>
+            <li>Version: <span id="spanversion">...</span></li>
+            <li>Updated: <span id="spanupdated">...</span></li>
           </ul>
+
+          <script type="text/javascript">
+            $.get("https://luboslenco.gitlab.io/armorpaint/index.html", function(data) {
+              data = JSON.parse(data);
+              var s = data.version + '';
+              var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+              var year = s[0] + s[1];
+              var month = s[2] + s[3];
+              var day = s[4] === '0' ? s[5] : s[4] + s[5];
+              $("#spanversion").html("" + data.name + "");
+              $("#spanupdated").html("" + months[parseInt(month) - 1] + ' ' + day + ', 20' + year + "");
+            });
+          </script>
+
           <p>🖌🎨</p>
         </div>
       </div>
