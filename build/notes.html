@@ -1,0 +1,21 @@
+
+  <!-- Main Content -->
+  
+  <div class="uk-section uk-section-secondary uk-section-medium">
+    <div class="uk-container uk-container-large" style="text-align: left;">
+
+      <h2 class="uk-heading-divider ro-text-header"></h2>
+      <div style="margin:0 auto; max-width: 800px;">
+      <span id="spannotes">...</span>
+      <br/>
+      <a href="https://github.com/armory3d/armorpaint/commits/master">View commits</a>
+      </div>
+
+      <script type="text/javascript">
+        $.get("https://luboslenco.gitlab.io/armorpaint/notes.html", function(data) {
+          $("#spannotes").html("" + data + "");
+        });
+      </script>
+
+    </div>
+  </div>
