@@ -9,7 +9,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="uk-section uk-section-secondary uk-section-medium">
     <div class="uk-container uk-container-large" style="text-align: center;">
 
@@ -25,17 +25,9 @@
 
       <br><b><span id="spanstatus">...</span></b> people already supported the project.❤️
       <br>Follow development on <a href = "https://github.com/armory3d/armorpaint">GitHub</a>. ArmorPaint is also available on <a href="https://armory.itch.io/armorpaint">itch.io</a>.
-
-      <script type="text/javascript">
-        $.get("https://luboslenco.gitlab.io/fund_import/index.html", function(data) {
-          data = JSON.parse(data);
-          $("#spanstatus").html("" + data.paint + "");
-        });
-      </script>
-
     </div>
   </div>
-  
+
   <div id="workflow" class="uk-section uk-section-secondary uk-section-medium">
     <div class="uk-container uk-container-large">
       <div class="uk-child-width-expand@l uk-text-center uk-text-left@l uk-grid-medium" uk-grid>
@@ -50,22 +42,37 @@
             <li>Updated: <span id="spanupdated">...</span></li>
             <li><a href="notes.html">What's new</a></li>
           </ul>
-
-          <script type="text/javascript">
-            $.get("https://luboslenco.gitlab.io/armorpaint/index.html", function(data) {
-              data = JSON.parse(data);
-              var s = data.version + '';
-              var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-              var year = s[0] + s[1];
-              var month = s[2] + s[3];
-              var day = s[4] === '0' ? s[5] : s[4] + s[5];
-              $("#spanversion").html("" + data.name + "");
-              $("#spanupdated").html("" + months[parseInt(month) - 1] + ' ' + day + ', 20' + year + "");
-            });
-          </script>
+          <h2 class="uk-heading-divider ro-text-header">Fund</h2>
+          Make ArmorPaint develop even faster:
+          <ul>
+            <li>Join <a href="https://gumroad.com/l/armorpaint-fund">development fund</a></li>
+            <li>Status: <span id="spanfund">...</span></li>
+            <li>Subscribing is optional, all updates are free</li>
+          </ul>
 
           <p>🖌🎨</p>
         </div>
       </div>
     </div>
   </div>
+
+  <script type="text/javascript">
+    $.get("https://luboslenco.gitlab.io/fund_import/index.html", function(data) {
+      data = JSON.parse(data);
+      $("#spanstatus").html("" + data.paint + "");
+      $("#spanfund").html("€" + data.val + "/m, " + data.subs + " subscribers");
+    });
+  </script>
+
+  <script type="text/javascript">
+    $.get("https://luboslenco.gitlab.io/armorpaint/index.html", function(data) {
+      data = JSON.parse(data);
+      var s = data.version + '';
+      var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      var year = s[0] + s[1];
+      var month = s[2] + s[3];
+      var day = s[4] === '0' ? s[5] : s[4] + s[5];
+      $("#spanversion").html("" + data.name + "");
+      $("#spanupdated").html("" + months[parseInt(month) - 1] + ' ' + day + ', 20' + year + "");
+    });
+  </script>
