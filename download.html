@@ -22,149 +22,122 @@
   <!-- Font Loading -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans">
   <!-- Custom CSS -->
-  <link href="css/style.css" rel="stylesheet">
-  <!-- lets make sure our anchors will always work when coming from a different page-->
-  <SCRIPT LANGUAGE=JavaScript>
-    function now() {
-      window.location.reload(true);
-    }
-  </SCRIPT>
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<body class="uk-flex uk-flex-column ro-text-content" uk-height-viewport>
-  <!-- Disappearing Header -->
-  <div class="uk-section uk-section-secondary uk-padding-remove" style="z-index: -1;" uk-sticky="bottom: #offset">
-    <div class="uk-cover-container uk-height-large uk-text-center">
-      <img src="img/FeaturedCover.jpg" alt="Cover Image" uk-cover>
-      <div class="uk-position-center uk-background-secondary uk-light">
-        <img src="img\Logo.png" alt="Template Logo">
-        <div class="uk-text-lead uk-text-uppercase ro-text-logo uk-margin-small-top uk-margin-small-bottom">ARMORPAINT</div>
-      </div>
-    </div>
-  </div>
-  <!-- Navagation -->
-  <div class="uk-section uk-padding-remove">
-    <!-- large screen nav -->
-    <div class="uk-visible@l" uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
-      <div class="uk-background-secondary uk-light">
-        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
-          <div class="uk-navbar-center">
-            <ul class="uk-navbar-nav uk-text-capitalize">
-              <li>
-                <!--<a href="#top" uk-scroll="duration: 500">home</a>-->
-                <a href="index.html">home</a>
-              </li>
-              <!--<li>
-                <a href="#">features</a>
-                <div class="uk-navbar-dropdown uk-width-auto uk-text-center uk-padding-small" uk-drop="boundary: !nav; boundary-align: true; pos: bottom-justify;">
-                  <ul class="uk-nav uk-navbar-dropdown-nav">
-                    <li><a href="#workflow" uk-scroll="duration: 500;offset: 0">workflow</a></li>
-                    <li><a href="#renderer" uk-scroll="duration: 500;offset: 0">renderer</a></li>
-                    <li><a href="#nodes" uk-scroll="duration: 500;offset: 0">nodes</a></li>
-                    <li><a href="#engine" uk-scroll="duration: 500;offset: 0">engine</a></li>
-                    <li><a href="#platforms" uk-scroll="duration: 500;offset: 0">platforms</a></li>
-                    <li><a href="#animations" uk-scroll="duration: 500;offset: 0">Animations</a></li>
-                  </ul>
-                </div>
-              </li>-->
-              <li><a href="news.html">news</a></li>
-              <li><a href="https://armorpaint.org/manual">manual</a></li>
-              <li><a href="community.html">community</a></li>
-              <li><a href="download.html">download</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </div>
-    <!-- mobile nav-->
-    <div class="uk-background-secondary uk-light uk-hidden@l uk-position-fixed uk-position-bottom-left uk-width-1-1" style="z-index: 980; border:0;" uk-sticky-fixed>
-      <button class="uk-button uk-button-default uk-width-1-1" style="border:0;" type="button" uk-toggle="target: #offcanvas-slide">
-                <span uk-icon="icon: menu"></span> MENU</button>
-    </div>
-    <div id="offcanvas-slide" uk-offcanvas="bg-close: true">
-      <div class="uk-offcanvas-bar">
-        <button class="uk-offcanvas-close" type="button" uk-close></button>
-        <ul class="uk-nav uk-nav-default">
-          <!-- <li> -->
-            <!-- <a href="#top" uk-scroll="duration: 500" class="uk-offcanvas-close uk-position-left uk-position-relative">home</a> -->
-          <!-- </li> -->
-          <!-- <li class="uk-nav-divider"></li> -->
-          <li><a href="index.html">home</a></li>
-          <li><a href="news.html">news</a></li>
-          <li><a href="https://armorpaint.org/manual">manual</a></li>
-          <li><a href="community.html">community</a></li>
-          <li><a href="download.html">download</a></li>
-          <!-- <li class="uk-nav-divider"></li>
-          <li class="uk-nav-header">Features</li>
-          <li><a href="#workflow" uk-scroll="duration: 500;offset: 0">workflow</a></li>
-          <li><a href="#renderer" uk-scroll="duration: 500;offset: 0">renderer</a></li>
-          <li><a href="#nodes" uk-scroll="duration: 500;offset: 0">nodes</a></li>
-          <li><a href="#engine" uk-scroll="duration: 500;offset: 0">engine</a></li>
-          <li><a href="#platforms" uk-scroll="duration: 500;offset: 0">platforms</a></li>
-          <li><a href="#animations" uk-scroll="duration: 500;offset: 0">Animations</a></li>
-          <li class="uk-nav-divider"></li>-->
-        </ul>
+<body class="ro-text-content">
 
-      </div>
+  <!-- large screen nav -->
+  <div class="uk-visible@l" uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+    <div class="uk-background-secondary uk-light">
+      <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+        <div class="uk-navbar-left uk-margin-left">
+          <a href="index.html"><img src="img\Logo.png" style="max-height: 50px" ></a>
+          <div class="uk-margin-left"><a href="index.html">ARMORPAINT</a></div>
+        </div>
+        <div class="uk-navbar-right uk-margin-right">
+          <ul class="uk-navbar-nav uk-text-capitalize">
+            <li><a href="index.html">home</a></li>
+            <li><a href="news.html">news</a></li>
+            <li><a href="https://armorpaint.org/manual">manual</a></li>
+            <li><a href="community.html">community</a></li>
+          </ul>
+          <a class="uk-button uk-button-default" href="download.html">download</a>
+        </div>
+      </nav>
     </div>
   </div>
 
-  <!-- Main Content -->
-  <div class="uk-section uk-section-secondary uk-section-medium">
-    <div class="uk-container uk-container-large" style="max-width: 900px">
-      <div class="uk-child-width-expand@l uk-text-center uk-text-left@l uk-grid-medium" uk-grid>
-        <div>
-          <img src="img/a.jpg">
+  <!-- mobile nav-->
+  <div class="uk-background-secondary uk-light uk-hidden@l uk-position-fixed uk-position-bottom-left uk-width-1-1" style="z-index: 980; border:0;" uk-sticky-fixed>
+    <button class="uk-button uk-button-default uk-width-1-1" style="border:0;" type="button" uk-toggle="target: #offcanvas-slide">
+              <span uk-icon="icon: menu"></span> MENU</button>
+  </div>
+  <div id="offcanvas-slide" uk-offcanvas="bg-close: true">
+    <div class="uk-offcanvas-bar">
+      <button class="uk-offcanvas-close" type="button" uk-close></button>
+      <ul class="uk-nav uk-nav-default uk-text-uppercase">
+        <li><a href="index.html">home</a></li>
+        <li><a href="news.html">news</a></li>
+        <li><a href="https://armorpaint.org/manual">manual</a></li>
+        <li><a href="community.html">community</a></li>
+        <li><a href="download.html">download</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="uk-cover-container uk-height-large">
+    <img src="img/FeaturedCover.jpg" alt="Cover Image" uk-cover>
+    <!-- <div class="uk-position-center">
+      <div class="ro-text-header-big" style="color: #fff">
+        3D Painting Software
+      </div>
+    </div> -->
+  </div>
+
+  <div class="uk-section uk-section-secondary">
+    <div class="uk-child-width-expand@l" uk-grid style="margin: 0">
+      <div class="uk-flex-last uk-flex-first@l" style="padding: 0">
+        <script src="https://gumroad.com/js/gumroad-embed.js"></script>
+        <div class="gumroad-product-embed" data-gumroad-product-id="armorpaint">
+          <a href="https://gumroad.com/l/armorpaint">Loading...</a>
+        </div>
+      </div>
+      <div class="uk-flex-first uk-flex-last@l" style="padding: 0;">
+        <div class="uk-margin-left uk-margin-top" style="padding: 80px;">
+          <h2 class="uk-heading-divider ro-text-header">ArmorPaint Preview</h2>
+          Before proceeding, please <a href="https://armorpaint.org/manual/">read the manual</a> first to know what parts need more work. The preview version has many rough edges and the experience may be frustrating.<br><br>
+          All updates are included for free. Thank you for enabling further ArmorPaint development!
         </div>
       </div>
     </div>
   </div>
 
-  <div class="uk-section uk-section-secondary uk-section-medium">
-    <div class="uk-container uk-container-large" style="text-align: center;">
-
-      <h2 class="uk-heading-divider ro-text-header">ArmorPaint Preview</h2>
-
-      <div style="margin:0 auto; max-width: 800px;">
-      <p>Before proceeding, please <a href="https://armorpaint.org/manual/">read the manual</a> first to know what parts need more work. The preview version has many rough edges and the experience may be frustrating.</p>
-      <p>All updates are included for free. Thank you for enabling further ArmorPaint development!</p>
-      </div>
-
-      <script src="https://gumroad.com/js/gumroad-embed.js"></script>
-      <div class="gumroad-product-embed" data-gumroad-product-id="armorpaint"><a href="https://gumroad.com/l/armorpaint">Loading...</a></div>
-
-      <br><b><span id="spanstatus">...</span></b> people already supported the project.❤️
-      <br>Follow development on <a href = "https://github.com/armory3d/armorpaint">GitHub</a>. ArmorPaint is also available on <a href="https://armory.itch.io/armorpaint">itch.io</a>.
-    </div>
-  </div>
-
-  <div id="workflow" class="uk-section uk-section-secondary uk-section-medium">
-    <div class="uk-container uk-container-large">
-      <div class="uk-child-width-expand@l uk-text-center uk-text-left@l uk-grid-medium" uk-grid>
-        <div class="uk-flex-last uk-flex-first@l">
-          <img src="img/ava.png">
-        </div>
-        <div class="uk-flex-first uk-flex-last@l">
-          <h2 class="uk-heading-divider ro-text-header">Release Info</h2>
-          Current release is marked as:
+  <div class="uk-section uk-section-secondary">
+    <div class="uk-child-width-expand@l" uk-grid style="margin: 0">
+      <div style="padding: 0">
+        <div class="uk-margin-left uk-margin-top" style="padding: 80px;">
+          <h2 class="uk-heading-divider ro-text-header">Release</h2>
           <ul>
             <li>Version: <span id="spanversion">...</span></li>
             <li>Updated: <span id="spanupdated">...</span></li>
             <li><a href="notes.html">What's new</a></li>
           </ul>
-          <h2 class="uk-heading-divider ro-text-header">Fund</h2>
-          Make ArmorPaint develop even faster:
-          <ul>
-            <li>Join <a href="https://gumroad.com/l/armorpaint-fund">development fund</a></li>
-            <li>Status: <span id="spanfund">...</span></li>
-            <li>Subscribing is optional, all updates are free</li>
-          </ul>
-
           <p>🖌🎨</p>
         </div>
       </div>
+      <div style="padding: 0">
+        <img src="img/a.jpg">
+      </div>
     </div>
+  </div>
+
+  <div class="uk-section uk-section-secondary">
+    <div class="uk-child-width-expand@l" uk-grid style="margin: 0">
+      <div class="uk-flex-last uk-flex-first@l" style="padding: 0">
+        <img src="img/c.jpg">
+      </div>
+      <div class="uk-flex-first uk-flex-last@l" style="padding: 0;">
+        <div class="uk-margin-left uk-margin-top" style="padding: 80px;">
+          <h2 class="uk-heading-divider ro-text-header">Development</h2>
+          <ul>
+          <li><b><span id="spanstatus">...</span></b> people already supported the project ❤️</li>
+          <li>Follow development on <a href = "https://github.com/armory3d/armorpaint">GitHub</a></li>
+          <li>Join <a href="https://gumroad.com/l/armorpaint-fund">development fund</a> (<span id="spanfund">...</span>)</li>
+          <li>ArmorPaint is also available on <a href="https://armory.itch.io/armorpaint">itch.io</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="uk-section uk-section-secondary">
+    <br><br><br><br>
+    <div align="center">
+      <img src="img/ava.png">
+    </div>
+    <br><br><br><br>
   </div>
 
   <script type="text/javascript">
@@ -188,9 +161,10 @@
     });
   </script>
   <!-- Footer Content -->
-  <div class="uk-section uk-section-default ro-background-darksecondary uk-light uk-section-small ro-footer">
-    <div class="uk-container uk-container-small uk-text-center uk-text-muted">
-      <div class="uk-child-width-expand uk-text-center uk-grid-small" uk-grid>
+  <div class="ro-background-darksecondary">
+    <br><br>
+    <div class="uk-container uk-container-small">
+      <div class="uk-child-width-expand" uk-grid>
         <div class="uk-text-left">
           <br><a style="color: #666" href="https://github.com/armory3d/armorpaint">GitHub</a>
           <br><a style="color: #666" href="https://github.com/armory3d/armorpaint/issues">Tracker</a>
@@ -208,11 +182,10 @@
         </div>
       </div>
     </div>
+    <br><br><br>
   </div>
   <!-- UIkit JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit.min.js" integrity="sha256-2O4R+j0Pq+XLeUlXkPznJ0HrSkHA9keocNhV+csu6Zo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit-icons.min.js" integrity="sha256-w38UjohynFpNOMjhZJ/oUIo/Md7D4tpQQJri5qDDTlE=" crossorigin="anonymous"></script>
-
 </body>
-
 </html>

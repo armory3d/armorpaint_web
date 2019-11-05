@@ -22,164 +22,162 @@
   <!-- Font Loading -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans">
   <!-- Custom CSS -->
-  <link href="css/style.css" rel="stylesheet">
-  <!-- lets make sure our anchors will always work when coming from a different page-->
-  <SCRIPT LANGUAGE=JavaScript>
-    function now() {
-      window.location.reload(true);
-    }
-  </SCRIPT>
+  <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-<body class="uk-flex uk-flex-column ro-text-content" uk-height-viewport>
-  <!-- Disappearing Header -->
-  <div class="uk-section uk-section-secondary uk-padding-remove" style="z-index: -1;" uk-sticky="bottom: #offset">
-    <div class="uk-cover-container uk-height-large uk-text-center">
-      <img src="img/FeaturedCover.jpg" alt="Cover Image" uk-cover>
-      <div class="uk-position-center uk-background-secondary uk-light">
-        <img src="img\Logo.png" alt="Template Logo">
-        <div class="uk-text-lead uk-text-uppercase ro-text-logo uk-margin-small-top uk-margin-small-bottom">ARMORPAINT</div>
-      </div>
-    </div>
-  </div>
-  <!-- Navagation -->
-  <div class="uk-section uk-padding-remove">
-    <!-- large screen nav -->
-    <div class="uk-visible@l" uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
-      <div class="uk-background-secondary uk-light">
-        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
-          <div class="uk-navbar-center">
-            <ul class="uk-navbar-nav uk-text-capitalize">
-              <li>
-                <!--<a href="#top" uk-scroll="duration: 500">home</a>-->
-                <a href="index.html">home</a>
-              </li>
-              <!--<li>
-                <a href="#">features</a>
-                <div class="uk-navbar-dropdown uk-width-auto uk-text-center uk-padding-small" uk-drop="boundary: !nav; boundary-align: true; pos: bottom-justify;">
-                  <ul class="uk-nav uk-navbar-dropdown-nav">
-                    <li><a href="#workflow" uk-scroll="duration: 500;offset: 0">workflow</a></li>
-                    <li><a href="#renderer" uk-scroll="duration: 500;offset: 0">renderer</a></li>
-                    <li><a href="#nodes" uk-scroll="duration: 500;offset: 0">nodes</a></li>
-                    <li><a href="#engine" uk-scroll="duration: 500;offset: 0">engine</a></li>
-                    <li><a href="#platforms" uk-scroll="duration: 500;offset: 0">platforms</a></li>
-                    <li><a href="#animations" uk-scroll="duration: 500;offset: 0">Animations</a></li>
-                  </ul>
-                </div>
-              </li>-->
-              <li><a href="news.html">news</a></li>
-              <li><a href="https://armorpaint.org/manual">manual</a></li>
-              <li><a href="community.html">community</a></li>
-              <li><a href="download.html">download</a></li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </div>
-    <!-- mobile nav-->
-    <div class="uk-background-secondary uk-light uk-hidden@l uk-position-fixed uk-position-bottom-left uk-width-1-1" style="z-index: 980; border:0;" uk-sticky-fixed>
-      <button class="uk-button uk-button-default uk-width-1-1" style="border:0;" type="button" uk-toggle="target: #offcanvas-slide">
-                <span uk-icon="icon: menu"></span> MENU</button>
-    </div>
-    <div id="offcanvas-slide" uk-offcanvas="bg-close: true">
-      <div class="uk-offcanvas-bar">
-        <button class="uk-offcanvas-close" type="button" uk-close></button>
-        <ul class="uk-nav uk-nav-default">
-          <!-- <li> -->
-            <!-- <a href="#top" uk-scroll="duration: 500" class="uk-offcanvas-close uk-position-left uk-position-relative">home</a> -->
-          <!-- </li> -->
-          <!-- <li class="uk-nav-divider"></li> -->
-          <li><a href="index.html">home</a></li>
-          <li><a href="news.html">news</a></li>
-          <li><a href="https://armorpaint.org/manual">manual</a></li>
-          <li><a href="community.html">community</a></li>
-          <li><a href="download.html">download</a></li>
-          <!-- <li class="uk-nav-divider"></li>
-          <li class="uk-nav-header">Features</li>
-          <li><a href="#workflow" uk-scroll="duration: 500;offset: 0">workflow</a></li>
-          <li><a href="#renderer" uk-scroll="duration: 500;offset: 0">renderer</a></li>
-          <li><a href="#nodes" uk-scroll="duration: 500;offset: 0">nodes</a></li>
-          <li><a href="#engine" uk-scroll="duration: 500;offset: 0">engine</a></li>
-          <li><a href="#platforms" uk-scroll="duration: 500;offset: 0">platforms</a></li>
-          <li><a href="#animations" uk-scroll="duration: 500;offset: 0">Animations</a></li>
-          <li class="uk-nav-divider"></li>-->
-        </ul>
+<body class="ro-text-content">
 
-      </div>
-    </div>
-  </div>
-
-  <!-- Main Content -->
-
-  <!-- <div id="workflow" class="uk-section uk-section-secondary uk-section-medium">
-    <div class="uk-container uk-container-large">
-      <div class="uk-child-width-expand@l uk-text-center uk-text-left@l uk-grid-medium" uk-grid>
-        <div class="uk-flex-last uk-flex-first@l">
-          <img src="img/b.jpg">
+  <!-- large screen nav -->
+  <div class="uk-visible@l" uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+    <div class="uk-background-secondary uk-light">
+      <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+        <div class="uk-navbar-left uk-margin-left">
+          <a href="index.html"><img src="img\Logo.png" style="max-height: 50px" ></a>
+          <div class="uk-margin-left"><a href="index.html">ARMORPAINT</a></div>
         </div>
-      </div>
+        <div class="uk-navbar-right uk-margin-right">
+          <ul class="uk-navbar-nav uk-text-capitalize">
+            <li><a href="index.html">home</a></li>
+            <li><a href="news.html">news</a></li>
+            <li><a href="https://armorpaint.org/manual">manual</a></li>
+            <li><a href="community.html">community</a></li>
+          </ul>
+          <a class="uk-button uk-button-default" href="download.html">download</a>
+        </div>
+      </nav>
     </div>
-  </div> -->
+  </div>
 
-  <div id="workflow" class="uk-section uk-section-secondary uk-section-medium">
-    <div class="uk-container uk-container-large">
-      <div class="uk-child-width-expand@l uk-text-center uk-text-left@l uk-grid-medium" uk-grid>
-        <div class="uk-flex-last uk-flex-first@l">
+  <!-- mobile nav-->
+  <div class="uk-background-secondary uk-light uk-hidden@l uk-position-fixed uk-position-bottom-left uk-width-1-1" style="z-index: 980; border:0;" uk-sticky-fixed>
+    <button class="uk-button uk-button-default uk-width-1-1" style="border:0;" type="button" uk-toggle="target: #offcanvas-slide">
+              <span uk-icon="icon: menu"></span> MENU</button>
+  </div>
+  <div id="offcanvas-slide" uk-offcanvas="bg-close: true">
+    <div class="uk-offcanvas-bar">
+      <button class="uk-offcanvas-close" type="button" uk-close></button>
+      <ul class="uk-nav uk-nav-default uk-text-uppercase">
+        <li><a href="index.html">home</a></li>
+        <li><a href="news.html">news</a></li>
+        <li><a href="https://armorpaint.org/manual">manual</a></li>
+        <li><a href="community.html">community</a></li>
+        <li><a href="download.html">download</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="uk-cover-container uk-height-large">
+    <img src="img/FeaturedCover.jpg" alt="Cover Image" uk-cover>
+    <!-- <div class="uk-position-center">
+      <div class="ro-text-header-big" style="color: #fff">
+        3D Painting Software
+      </div>
+    </div> -->
+  </div>
+
+  <div class="uk-section uk-section-secondary">
+      <div class="uk-child-width-expand@l" uk-grid style="margin: 0">
+        <div class="uk-flex-last uk-flex-first@l" style="padding: 0">
           <img src="img/x.jpg">
         </div>
-        <div class="uk-flex-first uk-flex-last@l">
-          <h2 class="uk-heading-divider ro-text-header">PBR Texture Painting</h2>
-          <p>ArmorPaint is a stand-alone software designed for physically-based texture painting. Drag &amp; drop your 3D models and start painting. Receive instant visual feedback in the viewport as you paint.</p>
-          <p>ArmorPaint produces textures usable with PBR-capable engines such as Unreal and Unity.</p>
+        <div class="uk-flex-first uk-flex-last@l" style="padding: 0;">
+          <div class="uk-margin-left uk-margin-top" style="padding: 80px;">
+            <h2 class="uk-heading-divider ro-text-header">3D Painting Software</h2>
+            ArmorPaint is a stand-alone software designed for physically-based texture painting. Drag &amp; drop your 3D models and start painting. Receive instant visual feedback in the viewport as you paint.
+          </div>
         </div>
       </div>
-    </div>
   </div>
 
-  <div id="renderer" class="uk-section uk-section-secondary uk-section-medium">
-    <div class="uk-container uk-container-large">
-      <div class="uk-child-width-expand@l uk-text-center uk-text-left@l uk-grid-medium" uk-grid>
-        <div>
-          <h2 class="uk-heading-divider ro-text-header">Node Based</h2>
-          <p>Work fast with the convenience of nodes. Paint with complex, fully procedural materials using the proven workflow. Apart from materials, brush nodes are used to create painting patterns and procedural brushes.</p>
+  <div class="uk-section uk-section-secondary">
+      <div class="uk-child-width-expand@l" uk-grid style="margin: 0">
+        <div style="padding: 0">
+          <div class="uk-margin-left uk-margin-top" style="padding: 80px;">
+            <h2 class="uk-heading-divider ro-text-header">Node Based</h2>
+            Work fast with the convenience of nodes. Paint with fully procedural materials. Build fill layers with material nodes. Use brush nodes to create patterns and procedural brushes.
+          </div>
         </div>
-        <div>
+        <div style="padding: 0">
           <img src="img/2.jpg">
         </div>
       </div>
-    </div>
   </div>
-  <div id="nodes" class="uk-section uk-section-secondary uk-section-medium">
-    <div class="uk-container uk-container-large">
-      <div class="uk-child-width-expand@l uk-text-center uk-text-left@l uk-grid-medium" uk-grid>
-        <div class="uk-flex-last uk-flex-first@l">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/qNHeNetQNvE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <br/>
-          <div style="color: #666">Model by Ricardo28roi</div></div>
+
+  <div class="uk-section uk-section-secondary">
+      <div class="uk-child-width-expand@l" uk-grid style="margin: 0">
+        <div class="uk-flex-last uk-flex-first@l video-container">
+          <iframe style="width: 100%; padding: 0" src="https://www.youtube.com/embed/qNHeNetQNvE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
         <div class="uk-flex-first uk-flex-last@l">
-          <h2 class="uk-heading-divider ro-text-header">GPU Accelerated</h2>
-          <p>ArmorPaint is designed from scratch to run completely on the GPU. This results in a smooth 4K painting experience even on a medium-power integrated hardware. Up to 16K texture painting is seamless using a high-end graphics card.</p>
+          <div class="uk-margin-left uk-margin-top" style="padding: 80px;">
+            <h2 class="uk-heading-divider ro-text-header">GPU Accelerated</h2>
+            ArmorPaint is designed from scratch to run completely on the GPU. This results in a smooth 4K painting experience on a medium-power integrated hardware. Up to 16K texture painting is seamless using a high-end graphics card.
+          </div>
         </div>
       </div>
-    </div>
   </div>
-  <div id="engine" class="uk-section uk-section-secondary uk-section-medium">
-    <div class="uk-container uk-container-large">
-      <div class="uk-child-width-expand@l uk-text-center uk-text-left@l uk-grid-medium" uk-grid>
-        <div>
-          <h2 class="uk-heading-divider ro-text-header">Ray Tracing</h2>
-          <p>Currently in development - upcoming releases will feature ray-traced baking, painting effects and viewport rendering. ArmorPaint is powered by an in-house <a href="https://armory3d.org">3D rendering engine</a> to achieve the best painting experience.</p>
+
+  <div class="uk-section uk-section-secondary">
+      <div class="uk-child-width-expand@l" uk-grid style="margin: 0">
+        <div style="padding: 0">
+          <div class="uk-margin-left uk-margin-top" style="padding: 80px;">
+            <h2 class="uk-heading-divider ro-text-header">Ray Tracing</h2>
+            <i>In development</i> - ray-traced baking, painting effects and viewport rendering features running on Direct3D12 and Vulkan are in progress. ArmorPaint is powered by an in-house 3D rendering engine to achieve the best painting experience.
+          </div>
         </div>
-        <div><img src="img/rtbot.jpg"><br/>
+        <div style="padding: 0">
+          <img src="img/rtbot.jpg">
         </div>
       </div>
-    </div>
+  </div>
+
+  <div class="uk-section uk-section-secondary">
+      <div class="uk-child-width-expand@l" uk-grid style="margin: 0">
+        <div class="uk-flex-last uk-flex-first@l video-container">
+          <iframe style="width: 100%; padding: 0" src="https://www.youtube.com/embed/fsnTsKbyCxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="uk-flex-first uk-flex-last@l">
+          <div class="uk-margin-left uk-margin-top" style="padding: 80px;">
+            <h2 class="uk-heading-divider ro-text-header">Live Link</h2>
+            <i>In development</i> - integrate ArmorPaint into existing 3D software using the live-link plugins. Unreal Engine and Unity plugins are scheduled to come out with the upcoming ArmorPaint release.
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="uk-section uk-section-secondary">
+      <div class="uk-child-width-expand@l" uk-grid style="margin: 0">
+        <div style="padding: 0">
+          <div class="uk-margin-left uk-margin-top" style="padding: 80px;">
+            <h2 class="uk-heading-divider ro-text-header">Baking</h2>
+            Bake texture maps for high-poly models instantly on your GPU. First ArmorPaintDXR builds featuring hardware accelerated ray-traced baking are now available for download.
+          </div>
+        </div>
+        <div style="padding: 0">
+          <img src="img/bake.jpg">
+        </div>
+      </div>
+  </div>
+
+  <div class="uk-section uk-section-secondary">
+      <div class="uk-child-width-expand@l" uk-grid style="margin: 0">
+        <div class="uk-flex-last uk-flex-first@l" style="padding: 0">
+          <img src="img/plugin.jpg">
+        </div>
+        <div class="uk-flex-first uk-flex-last@l" style="padding: 0;">
+          <div class="uk-margin-left uk-margin-top" style="padding: 80px;">
+            <h2 class="uk-heading-divider ro-text-header">Plugins</h2>
+            ArmorPaint bets heavily on extensibility. Enhance any part of the software through plugins with god-mode powers. Integrate new node systems or build custom material nodes.
+          </div>
+        </div>
+      </div>
   </div>
   <!-- Footer Content -->
-  <div class="uk-section uk-section-default ro-background-darksecondary uk-light uk-section-small ro-footer">
-    <div class="uk-container uk-container-small uk-text-center uk-text-muted">
-      <div class="uk-child-width-expand uk-text-center uk-grid-small" uk-grid>
+  <div class="ro-background-darksecondary">
+    <br><br>
+    <div class="uk-container uk-container-small">
+      <div class="uk-child-width-expand" uk-grid>
         <div class="uk-text-left">
           <br><a style="color: #666" href="https://github.com/armory3d/armorpaint">GitHub</a>
           <br><a style="color: #666" href="https://github.com/armory3d/armorpaint/issues">Tracker</a>
@@ -197,11 +195,10 @@
         </div>
       </div>
     </div>
+    <br><br><br>
   </div>
   <!-- UIkit JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit.min.js" integrity="sha256-2O4R+j0Pq+XLeUlXkPznJ0HrSkHA9keocNhV+csu6Zo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit-icons.min.js" integrity="sha256-w38UjohynFpNOMjhZJ/oUIo/Md7D4tpQQJri5qDDTlE=" crossorigin="anonymous"></script>
-
 </body>
-
 </html>
