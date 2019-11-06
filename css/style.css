@@ -59,3 +59,17 @@
   left: 0;
   height: 100%;
 }
+
+.cover-container {
+  height: 300px;
+}
+
+@media screen and (min-width : 1200px) {
+  .text-container {
+    padding: 80px;
+  }
+
+  .cover-container {
+    height: 550px;
+  }
+}
