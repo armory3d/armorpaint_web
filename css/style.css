@@ -64,6 +64,12 @@
   height: 300px;
 }
 
+.manual-container {
+  position: fixed;
+  width: 100%;
+  height: calc(100% - 38px);
+}
+
 @media screen and (min-width : 1200px) {
   .text-container {
     padding: 80px;
@@ -71,5 +77,11 @@
 
   .cover-container {
     height: 550px;
+  }
+
+  .manual-container {
+    position: fixed;
+    width: 100%;
+    height: calc(100% - 80px);
   }
 }
