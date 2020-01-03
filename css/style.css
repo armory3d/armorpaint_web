@@ -65,7 +65,7 @@
 }
 
 .manual-container {
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: calc(100% - 38px);
 }
@@ -80,7 +80,7 @@
   }
 
   .manual-container {
-    position: fixed;
+    position: absolute;
     width: 100%;
     height: calc(100% - 80px);
   }
