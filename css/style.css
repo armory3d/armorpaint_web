@@ -66,6 +66,7 @@
 
 .manual-container {
   position: absolute;
+  overflow: scroll;
   width: 100%;
   height: calc(100% - 38px);
 }
@@ -81,6 +82,7 @@
 
   .manual-container {
     position: absolute;
+    overflow: scroll;
     width: 100%;
     height: calc(100% - 80px);
   }
