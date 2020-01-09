@@ -12,3 +12,4 @@ writeHtml('news.html');
 writeHtml('community.html');
 writeHtml('download.html');
 writeHtml('notes.html');
+writeHtml('howto.html');
