@@ -13,3 +13,4 @@ writeHtml('community.html');
 writeHtml('download.html');
 writeHtml('notes.html');
 writeHtml('howto.html');
+writeHtml('library.html');
