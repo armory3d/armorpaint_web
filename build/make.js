@@ -14,3 +14,5 @@ writeHtml('download.html');
 writeHtml('notes.html');
 writeHtml('howto.html');
 writeHtml('library.html');
+writeHtml('gallery.html');
+writeHtml('blog.html');
