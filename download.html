@@ -128,7 +128,7 @@
           <ul>
           <li><b><span id="spanstatus">...</span></b> people already supported the project ❤️</li>
           <li>Follow development on <a href="https://github.com/armory3d/armorpaint">GitHub</a></li>
-          <li>Join <a href="https://gumroad.com/l/armorpaint-fund">development fund</a> (<span id="spanfund">...</span>)</li>
+          <li>Join <a href="https://gumroad.com/l/armorpaint-fund">development fund</a></li>
           <li>ArmorPaint is also available on <a href="https://armory.itch.io/armorpaint">itch.io</a></li>
           </ul>
         </div>
@@ -154,7 +154,6 @@
     $.get("https://luboslenco.gitlab.io/fund_import/index.html", function(data) {
       data = JSON.parse(data);
       $("#spanstatus").html("" + data.paint + "");
-      $("#spanfund").html("€" + data.val + "/m, " + data.subs + " subscribers");
     });
   </script>
 
