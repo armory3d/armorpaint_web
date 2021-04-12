@@ -18,7 +18,8 @@ fs.rmdirSync('../img/cloud', { recursive: true });
 fs.mkdirSync('../img/cloud');
 
 cloud_grid = `
-<div class="uk-section-secondary" style="justify-content: center; display: grid; grid-template-columns: 130px 130px 130px 130px 130px 130px;">
+<div class="uk-section uk-section-secondary">
+<div style="justify-content: center; display: grid; grid-template-columns: repeat(auto-fill, 140px); max-width: 900px; margin: auto;">
 `;
 
 let icon_folders = [
@@ -36,12 +37,12 @@ for (folder of icon_folders) {
 		if (file.endsWith(folder.indexOf('/materials') > 0 ? '.png' : '.jpg')) {
 			fs.copyFileSync(folder + '/' + file, '../img/cloud/' + file);
 			label = file.slice(0, -9);
-			if (label.length > 14) label = label.substring(0, 12) + '...';
-			cloud_grid += '<div align="center"><img width="100px" src="img/cloud/' + file + '"/><br>' + label + '<br><br></div>';
+			if (label.length > 13) label = label.substring(0, 11) + '...';
+			cloud_grid += '<div style="width: 70%; text-align: center; margin: auto;"><img src="img/cloud/' + file + '"/><br>' + label + '<br><br></div>';
 		}
 	});
 }
 
-cloud_grid += '</div>';
+cloud_grid += '</div></div>';
 cloud_grid += '<div class="uk-section uk-section-secondary"><div class="uk-text-center">Contains assets from <a href="https://cc0textures.com/">CC0 Textures</a> and <a href="https://hdrihaven.com/">HDRI Haven</a>. ❤️ Licensed under CC0.<br><br></div></div>';
 writeHtml('cloud.html', cloud_grid);
