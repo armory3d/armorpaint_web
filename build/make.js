@@ -23,8 +23,8 @@ cloud_grid = `
 `;
 
 let icon_folders = [
-	'../../armorpaint_cloud/public/cloud/materials/scanned',
 	'../../armorpaint_cloud/public/cloud/materials/procedural',
+	'../../armorpaint_cloud/public/cloud/materials/scanned',
 	'../../armorpaint_cloud/public/cloud/materials/cc0',
 	'../../armorpaint_cloud/public/cloud/decals',
 	'../../armorpaint_cloud/public/cloud/brushes',
