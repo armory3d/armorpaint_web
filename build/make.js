@@ -19,7 +19,7 @@ fs.mkdirSync('../img/cloud');
 
 cloud_grid = `
 <div class="uk-section uk-section-secondary">
-<div style="justify-content: center; display: grid; grid-template-columns: repeat(auto-fill, 140px); max-width: 900px; margin: auto;">
+<div style="justify-content: center; display: grid; grid-template-columns: repeat(auto-fill, 170px); max-width: 900px; margin: auto;">
 `;
 
 let icon_folders = [
@@ -34,11 +34,12 @@ let icon_folders = [
 
 for (folder of icon_folders) {
 	fs.readdirSync(folder).forEach(file => {
-		if (file.endsWith(folder.indexOf('/materials') > 0 ? '.png' : '.jpg')) {
+		let isMaterial = folder.indexOf('/materials') > 0;
+		if (file.endsWith(isMaterial ? '.png' : '.jpg')) {
 			fs.copyFileSync(folder + '/' + file, '../img/cloud/' + file);
 			label = file.slice(0, -9);
 			if (label.length > 13) label = label.substring(0, 11) + '...';
-			cloud_grid += '<div style="width: 70%; text-align: center; margin: auto;"><img src="img/cloud/' + file + '"/><br>' + label + '<br><br></div>';
+			cloud_grid += '<div style="width: 70%; text-align: center; margin: auto;"><img src="' + (isMaterial ? 'img/cloud_raytraced/' : 'img/cloud/') + file + '"/><br>' + label + '<br><br></div>';
 		}
 	});
 }
