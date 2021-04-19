@@ -45,6 +45,6 @@ for (folder of icon_folders) {
 }
 
 cloud_grid += '</div></div>';
-cloud_grid += '<div class="uk-section uk-section-secondary"><div class="uk-text-center">Contains assets from <a href="https://cc0textures.com/">CC0 Textures</a> and <a href="https://hdrihaven.com/">HDRI Haven</a>. ❤️ Licensed under CC0.<br><br></div></div>';
+cloud_grid += '<div class="uk-section uk-section-secondary"><div class="uk-text-center">Contains assets from <a href="https://armorlab.org/">ArmorLab</a>, <a href="https://cc0textures.com/">CC0 Textures</a> and <a href="https://hdrihaven.com/">HDRI Haven</a>. ❤️ Licensed under CC0.<br><br></div></div>';
 cloud_grid += '<div class="uk-section uk-section-secondary"><div align="center"><img src="img/e.jpg"></div></div>';
 writeHtml('cloud.html', cloud_grid);
