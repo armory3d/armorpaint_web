@@ -13,6 +13,7 @@ writeHtml('community.html');
 writeHtml('download.html');
 writeHtml('notes.html');
 writeHtml('howto.html');
+writeHtml('privacy.html');
 
 fs.rmdirSync('../img/cloud', { recursive: true });
 fs.mkdirSync('../img/cloud');
