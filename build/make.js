@@ -15,7 +15,7 @@ writeHtml('notes.html');
 writeHtml('howto.html');
 writeHtml('privacy.html');
 
-fs.rmdirSync('../img/cloud', { recursive: true });
+fs.rmSync('../img/cloud', { recursive: true });
 fs.mkdirSync('../img/cloud');
 
 cloud_grid = `

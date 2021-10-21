@@ -96,18 +96,475 @@
       <div style="margin:0 auto; max-width: 800px;">
       <br>
       <h2 class="uk-heading-divider ro-text-header">Release Notes</h2>
-      <span id="spannotes">...</span>
+
+<!-- <b>v0.9</b> - <i>TBD</i><br/>
+<ul>
+<li>...</li>
+<li><i>In development</i> - <a href="https://armorpaint.org/news">news</a> - <a href="https://github.com/armory3d/armorpaint/commits/master">all commits</a> - <a href="https://github.com/armory3d/armorpaint/issues">request features</a></li>
+</ul>
+<br/><br/> -->
+
+<a href="https://www.youtube.com/watch?v=OWL69vBLRHc">v0.8</a> - <i>2021.10</i><br/>
+<img src="img/ap08.jpg" style="max-width: 640px"><br/>
+<p><a href="http://armorpaint.org/download">ArmorPaint 0.8</a> is now available on desktop, iPad and Android!
+<br><br>
+This release brings the ArmorPaint cloud, ray-traced rendering and baking, refined UI, decal layers, unlimited masking, edge wear materials and many more improvements to the painting experience. You can check the list below or examine the commit history on GitHub.
+<br><br>
+While many new features are added, the main focus of this release is the stability, bug fixing and even better performance. I have had an amazing time developing ArmorPaint 0.8 and can not wait to continue onto 0.9. Thank you for making the project thrive.</p>
+<p><a href="https://armorpaint.org/download">Download ArmorPaint</a> | <a href="https://github.com/armory3d/armorpaint">Build from Source</a></p>
+<div style="justify-content: center; display: grid; grid-template-columns: repeat(auto-fill, 260px); max-width: 900px; margin: auto;">
+  <div style="width: 90%; text-align: center; margin: auto;"><iframe style="width: 100%; padding: 0" src="https://www.youtube.com/embed/OWL69vBLRHc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  <div style="width: 90%; text-align: center; margin: auto;"><iframe style="width: 100%; padding: 0" src="https://www.youtube.com/embed/DxvUSOSzkTU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  <div style="width: 90%; text-align: center; margin: auto;"><iframe style="width: 100%; padding: 0" src="https://www.youtube.com/embed/hSJOVDt6HEE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  <div style="width: 90%; text-align: center; margin: auto;"><img src="img/notes/0.jpg"/></div>
+  <div style="width: 90%; text-align: center; margin: auto;"><img src="img/notes/1.jpg"/></div>
+  <div style="width: 90%; text-align: center; margin: auto;"><img src="img/notes/2.jpg"/></div>
+  <div style="width: 90%; text-align: center; margin: auto;"><img src="img/notes/3.jpg"/></div>
+  <div style="width: 90%; text-align: center; margin: auto;"><img src="img/notes/4.jpg"/></div>
+  <div style="width: 90%; text-align: center; margin: auto;"><img src="img/notes/5.jpg"/></div>
+  <div style="width: 90%; text-align: center; margin: auto;"><img src="img/notes/6.jpg"/></div>
+  <div style="width: 90%; text-align: center; margin: auto;"><img src="img/notes/7.jpg"/></div>
+  <div style="width: 90%; text-align: center; margin: auto;"><img src="img/notes/8.jpg"/></div>
+</div>
+<ul>
+<li>Added ArmorPaint Cloud at 'Browser tab - Cloud' - built-in online asset library</li>
+<li>Added iPadOS build to the App Store</li>
+<li>Added Android build to Google Play</li>
+<li>Added support for unlimited masks per layer</li>
+<li>Added support for mask blending</li>
+<li>Added 'import_svg' plugin - support for .svg format</li>
+<li>Added 'import_usd' plugin - support for .usdc format</li>
+<li>Added support for importing and exporting keymaps</li>
+<li>Added 'Preferences - Show Asset Names' option</li>
+<li>Added 'Preferences - Wrap Mouse' option</li>
+<li>Added 'Menu - Camera - Zoom in/out' operators</li>
+<li>Added support for grouping layers</li>
+<li>Added support for setting group opacity</li>
+<li>Added support for node groups</li>
+<li>Added support for packing layer textures</li>
+<li>Added Browser tab to status bar</li>
+<li>Added Script tab to status bar</li>
+<li>Added Console tab to status bar</li>
+<li>Added Fonts tab to status bar</li>
+<li>Added brush radius increase and decrease shortcuts</li>
+<li>Added 'Bake tool - Vertex Color' baker</li>
+<li>Added stencil mask support via brush nodes</li>
+<li>Added lazy mouse support via brush nodes</li>
+<li>Added directional brush support via brush nodes</li>
+<li>Added 'Random' brush node for creating jitter</li>
+<li>Added 'Preferences - Usage - Live Brush Preview' option</li>
+<li>Added Theme tab to preferences</li>
+<li>Added localization support</li>
+<li>Added shortcut for swapping brush and eraser</li>
+<li>Added shortcut for hiding stencil</li>
+<li>Added 'Preferences - Pen - sensitivity' option</li>
+<li>Added 'Preferences - Interface - Camera Speed' option</li>
+<li>Added 'Preferences - Interface - Direction to Zoom' option</li>
+<li>Added 'Preferences - Interface - Restore - Import...' option for importing config file</li>
+<li>Added 'Preferences - Usage - Default Workspace' option</li>
+<li>Added 'Preferences - Usage - Dilate' option</li>
+<li>Added 'minecraft' and 'unigine' export presets</li>
+<li>Added 'Material' workspace for composing and exporting materials</li>
+<li>Added 'Bake' workspace for texture baking</li>
+<li>Added option to bake material into textures</li>
+<li>Added option to export layer mask into file</li>
+<li>Added 'Mobile' renderer option to 'Preferences - Viewport'</li>
+<li>Added font previews to Fonts tab</li>
+<li>Added 'hello_node_brush' plugin - custom brush node</li>
+<li>Added 'viewport_celshade' plugin - custom viewport shader</li>
+<li>Added 'texture_breakdown' plugin</li>
+<li>Added 'tiled' option to 2D view</li>
+<li>Added 'rotate_envmap' operator</li>
+<li>Added layer and mask clear operators</li>
+<li>Added mask invert operator</li>
+<li>Added 'File - Open Recent...' list</li>
+<li>Added 'File - New Project... - Aspect Ratio' option</li>
+<li>Added 'File - Reimport Textures' operator</li>
+<li>Added new toolbar icons (courtesy of Sven Möller)</li>
+<li>Added 'Material' node - reference other materials inside material</li>
+<li>Added 'Curvature Bake' node - access curvature in material nodes</li>
+<li>Added support for Vulkan</li>
+<li>Added experimental VKRT (Vulkan raytracing) build for Linux</li>
+<li>Added live preview of the selected node in node editor</li>
+<li>Added fill masks</li>
+<li>Added decal layers</li>
+<li>Added 'Warp', 'Shader', 'Script' material nodes</li>
+<li>Added 'Picker' material node</li>
+<li>Added decal mask feature - hold ctrl to use decal as brush mask</li>
+<li>Added 'Menu - Viewport - Toggle Fullscreen'</li>
+<li>Added 'Atlases' tab to texture export</li>
+<li>Added 'Open Containing Directory...' button to textures tab</li>
+<li>Added visibility control to Meshes tab</li>
+<li>Added option to pack assets into .arm file when exporting materials or brushes</li>
+<li>Added Swatches tab</li>
+<li>Added 'Meshes tab - Geometry to Origin'</li>
+<li>Added normal and height blending for layers</li>
+<li>Added 'Preferences - Usage - Default Layer Resolution' option</li>
+<li>Added color space option for texture export</li>
+<li>Added directional (smudge) option for blur tool</li>
+<li>Added 'UV Island' fill mode</li>
+<li>Added drag and drop support on iOS and Android</li>
+<li>Improved utf8 path handling on Windows</li>
+<li>Improved viewing individual layer channels in 2D view</li>
+<li>Improved error logging</li>
+<li>Improved ray-tracing performance, reduced memory usage</li>
+<li>Improved path-traced viewport mode</li>
+<li>Improved brush radius scaling using a pen</li>
+<li>Improved painting in 2D view</li>
+<li>Improved layer management</li>
+<li>Improved command line arguments</li>
+<li>Improved touch input</li>
+<li>Improved color wheel (RGB, HSV, Hex input)</li>
+<li>Improved opacity handling for fill layers</li>
+<li>Improved 'Blur' material node</li>
+<li>Improved paint dilation</li>
+<li>Improved 'Parse Transforms' option for .fbx format</li>
+<li>Improved .obj exporter</li>
+<li>Improved 'Bump' material node</li>
+<li>Improved nodes undo</li>
+<li>Improved interface layout</li>
+<li>Fixed clone tool usage in 2D view</li>
+<li>Fixed network path handling on Windows</li>
+<li>Fixed running from protected path on Windows</li>
+<li>Fixed parsing of input sockets for custom nodes</li>
+<li>Fixed 3D cursor positioning when normal map is painted</li>
+<li>Fixed per-layer channel visibility</li>
+<li>Fixed emission channel export</li>
+<li>Fixed decal edge filtering</li>
+<li>Fixed setting a mouse cursor on Linux</li>
+<li>Fixed saving font assets in project file</li>
+<li>Fixed support for non-square decals and stencils</li>
+<li>Fixed importing geometry containing concave polygons</li>
+<li>Fixed distract-free mode UI align</li>
+<li>Fixed color space management for image nodes</li>
+<li>Use drag and drop to reorder layers</li>
+<li>Use vertical tabs in preferences window</li>
+<li>Use vertex colors in materials via attribute material node</li>
+<li>Import vertex color data via .fbx and .blend formats</li>
+<li>Import and export for brushes</li>
+<li>Import brush from texture</li>
+<li>Draw brush preview icons</li>
+<li>macOS builds are now signed</li>
+<li>macOS builds are now powered by Metal</li>
+<li>macOS builds are now universal (arm64 + x64)</li>
+<li>macOS retina support</li>
+<li>Initial VR support</li>
+<li>Initial support for high refresh rate displays</li>
+<li>Display asset name in tooltip</li>
+<li>Faster envmap import</li>
+<li>Save camera in project file</li>
+<li>Double click to rename layer</li>
+<li>Atlases will show up in mesh filters</li>
+<li>Scripting / expressions for UI value input ('4.4 * Math.PI')</li>
+<li>Sleep when window is inactive</li>
+<li>Auto-enable plugin on associated file import</li>
+<li>Remember window layout</li>
+<li>Base layer acts like regular layer</li>
+<li>Multi-pass layer draw - show up to 256 layers in viewport at once</li>
+<li>Show checker background for transparent layer</li>
+<li>Show .arm material previews in Browser tab</li>
+<li>Show uv map of selected object in 2D view</li>
+<li><a href="https://github.com/PiloeGAO/Blender-ArmorPaintLiveLink">Check out</a> Blender live-link</li>
+<li><a href="https://github.com/PiloeGAO/Maya-ArmorPaintLiveLink">Check out</a> Maya live-link</li>
+</ul>
+<br/><br/>
+
+<b>v0.7</b> - <i>2020.1</i><br/>
+<img src="img/ap07.jpg" style="max-width: 640px"><br/>
+<ul>
+<li>Added support for .psd, .bmp, .gif formats</li>
+<li>Added single material export</li>
+<li>Added blend modes for layers</li>
+<li>Added blend modes for brush</li>
+<li>Added plugin manager</li>
+<li>Added 'auto-save' plugin</li>
+<li>Added 'hello-node' plugin - custom material node</li>
+<li>Added 'console' plugin - run commands</li>
+<li>Added 'profiler' plugin - performance graph</li>
+<li>Added 'converter' plugin - convert .arm files into .json</li>
+<li>Added 'import_tiff' plugin - support for .tiff format</li>
+<li>Added 'import_stl' plugin - support for .stl format</li>
+<li>Added 'import_gltf' plugin - support for .gltf/.glb format (alpha)</li>
+<li>Added 'uv_unwrap' plugin - auto-generate uvs / unwrap active mesh</li>
+<li>Added 'theme-editor' plugin</li>
+<li>Added box selection to node editor</li>
+<li>Added per-fill-layer uv control</li>
+<li>Added option to split .obj mesh by groups or materials</li>
+<li>Added 'decal tool - scale x' option for non-square decals</li>
+<li>Added 'menu - file - reimport mesh'</li>
+<li>Added 'menu - viewport - split view'</li>
+<li>Added 'preferences - restore' button</li>
+<li>Added 'preferences - native file browser' option</li>
+<li>Added 'preferences - viewport - vignette' option</li>
+<li>Added 'preferences - usage - dilate radius' option</li>
+<li>Added texture export presets</li>
+<li>Added 'layer' material node - drop layer onto node canvas</li>
+<li>Added 'layer mask' material node - drop layer mask onto node canvas</li>
+<li>Added 'blur (image)' material node</li>
+<li>Added experimental dxr build</li>
+<li>Added path-trace (dxr) viewport mode</li>
+<li>Added ao (dxr) bake</li>
+<li>Added bent normal (dxr) bake</li>
+<li>Added lightmap (dxr) bake</li>
+<li>Added thickness (dxr) bake</li>
+<li>Added normal-map bake from high-poly</li>
+<li>Added height bake from high-poly</li>
+<li>Added dilation pass to baking</li>
+<li>Added 'up axis' option for relevant bake types</li>
+<li>Added support for drag and dropping multiple files at once</li>
+<li>Added popup for editing RGBA node sockets</li>
+<li>Improved gizmo</li>
+<li>Improved height paint</li>
+<li>Improved .obj importer</li>
+<li>Improved .blend importer</li>
+<li>Improved outliner</li>
+<li>Improved node drawing performance</li>
+<li>Improved layer handling performance</li>
+<li>Improved key detection on linux</li>
+<li>Fixed handling of accented filepaths</li>
+<li>Fixed brush mask on linux</li>
+<li>Fixed copy-paste on linux</li>
+<li>Fixed window title updating on linux</li>
+<li>Fixed file association</li>
+<li>Fixed envmap import</li>
+<li>Fixed object mask for fill layers</li>
+<li>Fixed height displacement scale</li>
+<li>Fixed blurry text on windows</li>
+<li>Fixed texture filtering option for image node</li>
+<li>Fixed key repeat for text edit</li>
+<li>Updated dark and light themes</li>
+<li>Updated menu bar structure</li>
+<li>Reduced gpu memory usage</li>
+<li>Faster texture loading</li>
+<li>Undo for layer opacity and blending</li>
+<li>Undo for node canvas</li>
+<li>Adjustable viewport clip distance</li>
+<li>Remember window size and position</li>
+<li>Open node search on link drag</li>
+<li>Resizable ui panels</li>
+<li>Duplicate material</li>
+<li>Use brush ruler (shift) to draw lines</li>
+<li>Auto-set 2x scale on high-res displays</li>
+<li>Flat shading for viewport modes inspecting pbr channels</li>
+<li>Picker tool works on non-base layer</li>
+<li>Picker tool shows texture coordinate in 2d view</li>
+<li>Export single texture from textures tab</li>
+<li>Eraser takes hardness and opacity into account</li>
+<li>Export textures as udim tiles for udim projects</li>
+<li><a href="https://github.com/armory3d/armorpaint_plugins/tree/master/proc_texsynt">Download</a> 'texture-synthesis' plugin preview</li>
+<li><a href="https://github.com/armory3d/armorpaint_unreal">Download</a> Unreal Engine live-link preview</li>
+<li><a href="https://github.com/armory3d/armorpaint_unity">Download</a> Unity Engine live-link preview</li>
+</ul>
+<br/><br/>
+
+<a href="https://www.youtube.com/watch?v=qNHeNetQNvE">v0.6</a> - <i>2019.8</i><br/>
+<img src="img/ap06.jpg" style="max-width: 640px"><br/>
+<ul>
+<li>Added configurable keymap</li>
+<li>Added keymap presets</li>
+<li>Added viewport compass</li>
+<li>Added fill layers</li>
+<li>Added decal preview</li>
+<li>Added symmetry painting</li>
+<li>Added undo for layer and mask operations</li>
+<li>Added undo history view</li>
+<li>Added triplanar mapping</li>
+<li>Added option to recalculate normals</li>
+<li>Added option to flip normals</li>
+<li>Added uv rotate slider</li>
+<li>Added face fill to fill tool</li>
+<li>Added D3D11 support</li>
+<li>Added brush ruler</li>
+<li>Added scene workspace</li>
+<li>Added text tool</li>
+<li>Added clone tool</li>
+<li>Added blur tool</li>
+<li>Added picker tool</li>
+<li>Added particle tool</li>
+<li>Added 3d brush cursor with topological warp</li>
+<li>Added brush angle and depth rejection</li>
+<li>Added support for brush masks</li>
+<li>Added new project popup</li>
+<li>Added material picker</li>
+<li>Added layer masking</li>
+<li>Added layer context menu</li>
+<li>Added layer opacity</li>
+<li>Added support for painting in 2d view</li>
+<li>Added preliminary udim support</li>
+<li>Added .arm mesh exporter</li>
+<li>Added pen pressure settings</li>
+<li>Added console plugin</li>
+<li>Added texture view</li>
+<li>Added curvature baker</li>
+<li>Added world normal baker</li>
+<li>Added position baker</li>
+<li>Added texcoord baker</li>
+<li>Added material id baker</li>
+<li>Added object id baker</li>
+<li>Added node search</li>
+<li>Added support for 16/32bit texture painting</li>
+<li>Added .exr texture exporter</li>
+<li>Added metallic-occlusion-smoothness export preset</li>
+<li>Added pixel paint tools</li>
+<li>Added bake axis to bake tool</li>
+<li>Added .ttf file importer</li>
+<li>Improved .obj exporter</li>
+<li>Improved opacity handling</li>
+<li>Improved ui layout</li>
+<li>Improved brush precision</li>
+<li>Improved keyboard shortcuts</li>
+<li>Improved warning messages</li>
+<li>Improved .hdr importer</li>
+<li>Improved window resize</li>
+<li>Improved color id picker</li>
+<li>Improved project importer</li>
+<li>Improved eraser tool</li>
+<li>Improved height paint</li>
+<li>Improved up axis handling</li>
+<li>Improved math node</li>
+<li>Improved bump node</li>
+<li>improved temporal anti-aliasing</li>
+<li>Improved decal tool with opacity masking</li>
+<li>Fixed ortho camera</li>
+<li>Fixed up axis conversion</li>
+<li>Fixed layered decals</li>
+<li>New clustered renderer</li>
+<li>Show mesh wireframe</li>
+<li>Material and brush renaming</li>
+<li>Use area light in viewport</li>
+<li>Handle 256 layers (32 per draw)</li>
+<li>Handle shader errors</li>
+<li>Native file dialogs</li>
+<li>Show blurred environment map</li>
+<li>View layer mask in 2d view</li>
+<li>Parse emission</li>
+<li>Faster texture exporter</li>
+<li>Merge layers</li>
+<li>Duplicate layers</li>
+<li>Apply mask to layer</li>
+<li>LZ4 project compression</li>
+<li>Camera orbit controls</li>
+<li>Export visible layers</li>
+<li>Show gpu name in about popup</li>
+<li>Import materials from .arm project file</li>
+<li>Improt materials from .blend file</li>
+<li>Set material name on folder import</li>
+<li>Write default config</li>
+<li>Rotate light shortcut</li>
+<li>Drag and drop materials from shelf</li>
+<li>Exit prompt on unsaved project</li>
+<li>Enabled alt+mouse navigation</li>
+<li>Painting is 23% faster</li>
+<li>Layer storage takes 34% less gpu mem</li>
+<li>Mesh storage takes 43% less gpu mem</li>
+<li>Startup is 72% faster</li>
+<li>Importing .obj meshes is 59% faster </li>
+</ul>
+<br/><br/>
+
+<a href="https://www.youtube.com/watch?v=0LrMx2mmWi0">v0.5</a> - <i>2018.11</i><br/>
+<img src="img/ap05.jpg" style="max-width: 640px"><br/>
+<ul>
+<li>Added support for unlimited undo</li>
+<li>Added support for basic unwrap when no uvs are found</li>
+<li>Added .blend importer</li>
+<li>Added support for project save and load</li>
+<li>Added support for importing multiple objects</li>
+<li>Added objects - mask property</li>
+<li>Added .obj exporter</li>
+<li>Added .hdr environment map importer</li>
+<li>Added ui scale support for node view</li>
+<li>Added color space setting to image node</li>
+<li>Added new material nodes</li>
+<li>Improved performance, reduced cpu and gpu usage</li>
+<li>Improved .obj and .fbx importers</li>
+<li>Improved 2D view</li>
+<li>Improved ui layout</li>
+<li>Improved ambient occlusion baking</li>
+<li>Cleaner directory structure</li>
+<li>Display uv map in 2D view</li>
+<li>Reduced program size</li>
+<li>Instant material preview on node changes</li>
+<li>Importing meshes is 30% faster</li>
+<li>Fixed drag and drop support on linux</li>
+<li>Fixed text field editing on linux</li>
+<li>Added support for pen pressure on linux</li>
+<li>Fixed window resize on macos</li>
+<li>Handle up to 5 layers</li>
+<li>Textures can be exported in .jpg and .png formats</li>
+<li>Color space during export can be configured</li>
+<li>Per-channel paint masking</li>
+<li>Implemented arcball, orbit and fly camera types</li>
+<li>Configurable up axis</li>
+<li>Auto-save preferences</li>
+<li>Drag and drop a folder with PBR textures to generate material</li>
+</ul>
+<br/><br/>
+
+<a href="https://www.youtube.com/watch?v=OzRqXIsvahg">v0.4</a> - <i>2018.7</i><br/>
+<img src="img/ap04.jpg" style="max-width: 640px"><br/>
+<ul>
+<li>Added support for height paint</li>
+<li>Added support for undo</li>
+<li>Added decal tool</li>
+<li>Added 2D view</li>
+<li>Improved gpu usage</li>
+<li>Improved linux compatibility</li>
+<li>Cleaner directory structure</li>
+<li>Live material preview</li>
+</ul>
+<br/><br/>
+
+<a href="https://www.youtube.com/watch?v=jnsRWOFUsQs">v0.3</a> - <i>2018.5</i><br/>
+<img src="img/ap03.jpg" style="max-width: 640px"><br/>
+<ul>
+<li>Added eraser tool</li>
+<li>Added support for color id maps</li>
+<li>Added support for multiple layers</li>
+<li>Added support for pen pressure on windows</li>
+<li>Added support for themes</li>
+<li>Added support for plugins</li>
+<li>Improved ui layout</li>
+<li>Improved ui scaling</li>
+<li>Improved material shelf</li>
+<li>Improved paint bleed</li>
+<li>Reduced idle gpu usage</li>
+</ul>
+<br/><br/>
+
+<a href="https://www.youtube.com/watch?v=cEveXIFsVF4">v0.2</a> - <i>2018.2</i><br/>
+<img src="img/ap02.jpg" style="max-width: 640px"><br/>
+<ul>
+<li>Added support for .fbx model import</li>
+<li>Added camera fov property</li>
+<li>Added ambient occlusion baking</li>
+<li>Added support for ui scaling</li>
+<li>Added brush x-ray property</li>
+<li>Added brush nodes</li>
+<li>Improved ui layout</li>
+<li>Import .jpg, .png, .tga, .hdr image formats</li>
+<li>Creating multiple materials and brushes in shelf</li>
+</ul>
+<br/><br/>
+
+<a href="https://www.youtube.com/watch?v=5YIvj3yIP00">v0.1</a> - <i>2018.1</i><br/>
+<img src="img/ap01.jpg" style="max-width: 640px"><br/>
+<ul>
+<li>First release</li>
+</ul>
+<br/><br/>
+
+<a href="https://twitter.com/luboslenco/status/828612926374293505">v0.0</a> - <i>2017.2</i><br/>
+<img src="img/ap00.jpg" style="max-width: 640px"><br/>
+<ul>
+<li>ArmorPaint revealed</li>
+</ul>
+<br/><br/>
+
       <br/>
       <a href="https://github.com/armory3d/armorpaint/commits/master">View commits</a>
       <br><br>
       </div>
-
-      <script type="text/javascript">
-        $.get("https://luboslenco.gitlab.io/armorpaint/notes.html", function(data) {
-          $("#spannotes").html("" + data + "");
-        });
-      </script>
-
     </div>
   </div>
   <!-- Footer Content -->
