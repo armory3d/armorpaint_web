@@ -177,14 +177,14 @@
   </div>
 
   <script type="text/javascript">
-    $.get("http://159.223.27.215/index.html", function(data) {
-      data = JSON.parse(data).projects[0];
+    $.get("https://luboslenco.gitlab.io/armorpaint/index.html", function(data) {
+      data = JSON.parse(data);
       var s = data.version + '';
       var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
       var year = s[0] + s[1];
       var month = s[2] + s[3];
       var day = s[4] === '0' ? s[5] : s[4] + s[5];
-      $("#spanversion").html("" + data.version_name + "");
+      $("#spanversion").html("" + data.name + "");
       $("#spanupdated").html("" + months[parseInt(month) - 1] + ' ' + day + ', 20' + year + "");
       $("#spansales").html("" + data.sales.toLocaleString('en', { useGrouping: true }) + "");
       $("#spanrating").html("" + data.rating + "");
