@@ -177,8 +177,8 @@
   </div>
 
   <script type="text/javascript">
-    $.get("https://server.armorpaint.org/index.html", function(data) {
-      data = JSON.parse(data).projects[0];
+    $.get("https://server.armorpaint.org/paint.html", function(data) {
+      data = JSON.parse(data);
       var s = data.version + '';
       var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
       var year = s[0] + s[1];
