@@ -19,12 +19,11 @@
             </div>
           </div>
           <div class="uk-card-body" style="padding-top: 15px; padding-bottom: 15px;">
-            <p>Download this tool by purchasing it for <b>$20.00</b> USD.</p>
             <i><div class="tooltip"><span id="spansales">...</span> sales, ★ <span id="spanrating">...</span> / 5<span class="tooltiptext">itch + gumroad</span></div></i>
             <hr style="border-bottom: 1px dashed #dadada;">
           </div>
           <div class="uk-card-body" style="padding-top: 15px; padding-bottom: 15px;">
-            <button class="uk-button uk-button-secondary uk-button-large uk-width-1-1" style="background: #ff2449; color: #fff; text-transform: none;" id="buy_button"><b>Add to Cart</b></button>
+            <button class="uk-button uk-button-secondary uk-button-large uk-width-1-1" style="background: #ff2449; color: #fff; text-transform: none;" id="buy_button"><b>Add to Cart - $<span id="spanprice">...</span></b></button>
           </div>
         </div>
         <script type="text/javascript" src="https://static.itch.io/api.js"></script>
@@ -98,5 +97,11 @@
       $("#spanupdated").html("" + months[parseInt(month) - 1] + ' ' + day + ', 20' + year + "");
       $("#spansales").html("" + data.sales.toLocaleString('en', { useGrouping: true }) + "");
       $("#spanrating").html("" + data.rating + "");
+      $("#spanprice").html("" + data.price / 100 + "");
     });
+    let _onclick = document.getElementById('buy_button').onclick;
+    document.getElementById('buy_button').onclick = function() {
+      _onclick();
+      $.get("https://server.armorpaint.org/cart_paint.html", function(data) {});
+    }
   </script>
