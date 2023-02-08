@@ -2,7 +2,14 @@
   <div class="uk-section uk-section-secondary">
     <div class="uk-child-width-expand@l" uk-grid style="margin: 0">
       <div class="uk-flex-last uk-flex-first@l" style="padding: 0; margin: auto; text-align: center;">
-
+        <ul uk-switcher class="uk-child-width-expand uk-subnav uk-subnav-pill" style="margin-bottom: 0; padding-top: 30px;">
+            <li class="uk-active"><a href="#">itch.io</a></li>
+            <li><a href="#">gumroad</a></li>
+            <li><a href="#">appstore</a></li>
+            <li><a href="#">google play</a></li>
+        </ul>
+        <ul class="uk-switcher">
+        <li>
         <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
         <div class="uk-card uk-card-default" style="text-align: left; font-family: Lato; max-width: 1005px;">
           <div class="uk-card-body" style="padding: 0; text-align: center; background: #f4f4f4;">
@@ -23,7 +30,7 @@
             <hr style="border-bottom: 1px dashed #dadada;">
           </div>
           <div class="uk-card-body" style="padding-top: 15px; padding-bottom: 15px;">
-            <button class="uk-button uk-button-secondary uk-button-large uk-width-1-1" style="background: #ff2449; color: #fff; text-transform: none;" id="buy_button"><b>Add to Cart - $<span id="spanprice">...</span></b></button>
+            <button class="uk-button uk-button-secondary uk-button-large uk-width-1-1" style="background: #000; color: #fff; text-transform: none;" id="buy_button"><b>Add to cart - $<span id="spanprice">...</span></b></button>
           </div>
         </div>
         <script type="text/javascript" src="https://static.itch.io/api.js"></script>
@@ -33,19 +40,25 @@
             game: "armorpaint"
           });
         </script>
-        <p style="color: #606060">Also available on <a style="color: #808080" target="_blank" href="https://armory.gumroad.com/l/armorpaint">Gumroad</a></p>
-
+        </li>
+        <li>
+          <script src="https://gumroad.com/js/gumroad-embed.js"></script>
+          <div class="gumroad-product-embed"><a href="https://armory.gumroad.com/l/armorpaint">Loading...</a></div>
+        </li>
+        <li>
+          <a href='https://apps.apple.com/us/app/armorpaint/id1533967534'><img style="width: 30%; padding-top: 100px; padding-bottom: 300px;" alt='Download on the AppStore' src='img/appstore.svg'/></a>
+        </li>
+        <li>
+          <a href='https://play.google.com/store/apps/details?id=org.armorpaint'><img style="width: 39%;  padding-top: 80px; padding-bottom: 273px;" alt='Get it on Google Play' src='img/gplay.png'/></a>
+        </li>
+        </ul>
       </div>
+
       <div class="uk-flex-first uk-flex-last@l" style="padding: 0;">
         <div class="uk-margin-left uk-margin-top text-container">
           <h2 class="uk-heading-divider ro-text-header">ArmorPaint Preview</h2>
           Before proceeding, please <a href="https://armorpaint.org/manual">read the manual</a> first to know what parts need more work. The preview version has many rough edges and the experience may be frustrating.<br><br>
           All updates are included for free. Source code is available on <a href="https://github.com/armory3d/armorpaint">GitHub</a>. Thank you for enabling further ArmorPaint development!
-
-          <br><br>
-          <a href='https://apps.apple.com/us/app/armorpaint/id1533967534'><img style="width: 30%" alt='Download on the AppStore' src='img/appstore.svg'/></a>
-
-          <a href='https://play.google.com/store/apps/details?id=org.armorpaint'><img style="width: 39%" alt='Get it on Google Play' src='img/gplay.png'/></a>
         </div>
       </div>
     </div>
@@ -59,7 +72,6 @@
           <ul>
             <li>Version: <span id="spanversion">...</span></li>
             <li>Updated: <span id="spanupdated">...</span></li>
-            <li>Follow development on <a href="https://github.com/armory3d/armorpaint">GitHub</a></li>
             <li><a href="notes.html">What's new</a></li>
           </ul>
 
