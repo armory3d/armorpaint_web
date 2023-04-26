@@ -216,7 +216,7 @@
   </div>
 
   <script type="text/javascript">
-    $.get("https://server.armorpaint.org/paint.html", function(data) {
+    $.get("https://server.armorpaint.org/armorpaint.html", function(data) {
       data = JSON.parse(data);
       var s = data.version + '';
       var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -232,7 +232,7 @@
     let _onclick = document.getElementById('buy_button').onclick;
     document.getElementById('buy_button').onclick = function() {
       _onclick();
-      $.get("https://server.armorpaint.org/cart_paint.html", function(data) {});
+      $.get("https://server.armorpaint.org/cart_armorpaint.html", function(data) {});
     }
   </script>
   <!-- Footer Content -->
