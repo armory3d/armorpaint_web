@@ -7,8 +7,18 @@
       <br>
       <h2 class="uk-heading-divider ro-text-header">Release Notes</h2>
 
+<b>v1.0 alpha</b> - <i>TBD</i><br/>
+<ul>
+<li><i>In development</i> - <a href="https://armorpaint.org/news">news</a> - <a href="https://github.com/armory3d/armortools/commits">all commits</a> - <a href="https://github.com/armory3d/armortools/issues">request features</a></li>
+</ul>
+<br/><br/>
 
-<b>v0.9</b> - <i>TBD</i><br/>
+
+
+<a href="https://www.youtube.com/watch?v=OWL69vBLRHc">v0.9</a> - <i>2023.7</i><br/>
+
+
+
 <ul>
 <li>Added smudge tool</li>
 <li>Added uv unwrapping dialog</li>
@@ -17,16 +27,37 @@
 <li>Added new .obj parser (~40% faster, ~20% less memory)</li>
 <li>Added gimp color palette import / export</li>
 <li>Added 'to mask' button for color id tool</li>
-<li>Added new armory bloom (by Moritz Brueckner)</li>
-<li>Added texture previews in browser tab (by MathemanFlo)</li>
-<li>Added context menu for items in browser tab</li>
 <li>Added support for round ui corners</li>
 <li>Added splash screen</li>
 <li>Added option to hide tool properties</li>
+<li>Added color picking in texture and node preview windows</li>
+<li>Added progress bar for raytraced baking</li>
+<li>Added texture previews in browser tab (by MathemanFlo)</li>
+<li>Added context menu for items in browser tab (by MathemanFlo)</li>
+<li>Added layer and material shortcut previews (by MathemanFlo)</li>
+<li>Added viewport mode shortcut (by MathemanFlo)</li>
+<li>Added new armory bloom (by Moritz Brueckner)</li>
+<li>Added option to set default camera controls</li>
+<li>Added compact ui mode for sidebar</li>
+<li>Added 'touch ui' as a preferences option</li>
+<li>Added PBR support for swatches</li>
+<li>Added search icon for node seach</li>
+<li>Added 'touch' keymap</li>
+<li>Added '--export-material' argument</li>
+<li>Added tooltips for camera controls (by MathemanFlo)</li>
+<li>Added tooltip for light angle and env angle (by MathemanFlo)</li>
+<li>Added picked color to swatches (by MathemanFlo)</li>
+<li>Added shortcuts to tooltips (by MathemanFlo)</li>
+<li>Added 'refresh' button to browser (by MathemanFlo)</li>
+<li>Added button for clearing the search in browser (by MathemanFlo)</li>
+<li>Added 'contributors' button to 'about' dialog</li>
 <li>Fixed using blur tool on masks</li>
 <li>Fixed handling of missing uvs for .gltf meshes</li>
 <li>Fixed .blend mesh import</li>
-<li>Exposed smooth normal calculation in meshes tab</li>
+<li>Fixed 'split by material' feature in .obj parser</li>
+<li>Fixed handling of empty udim tiles</li>
+<li>Fixed decal symmetry</li>
+<li>Fixed number of triangles in export mesh dialog (by MathemanFlo)</li>
 <li>Improved color wheel</li>
 <li>Improved color id tool</li>
 <li>Improved touch ui</li>
@@ -34,34 +65,65 @@
 <li>Improved script tab with syntax coloring</li>
 <li>Improved idle sleep</li>
 <li>Improved display of non-lit modes</li>
-<li>Begin particle physics</li>
-<li>PBR swatches</li>
-<li>Show node preview in 2D view</li>
-<li>Show brush icon in browser</li>
+<li>Improved position of context menu show ups</li>
+<li>Improved drawing of menu lists</li>
+<li>Improved text tool</li>
+<li>Exposed smooth normal calculation in meshes tab</li>
+<li>Connect to best matching socket on link drag</li>
+<li>Begin physics support for particle tool</li>
+<li>Use .json extension for config file</li>
+<li>Show node preview in 2d view</li>
+<li>Restore previous tool after color picking</li>
+<li>Show brush icon in browser tab</li>
 <li>Reorganize ui tabs via drag and drop</li>
 <li>Make .obj parser more reliable</li>
-<li>Layer reorder fixes</li>
+<li>Layer reordering fixes</li>
+<li>Begin operator search popup</li>
 <li>Undo / redo fixes</li>
+<li>Tweaked default theme</li>
+<li>Update fill layers on resize</li>
+<li>Clone tool takes hardness into account</li>
 <li>Double click to hide sidebar</li>
 <li>Bake workspace is now bake tool</li>
 <li>Material workspace is now material tool</li>
-<li>Drop material at position in layers tab</li>
-<li>Added color picking in texture and node preview windows</li>
-<li>Added progress bar for raytraced baking</li>
-<li>Added option to set default camera controls</li>
-<li>Added compact UI mode for sidebar</li>
+<li>Mirror layer props when duplicating a layer</li>
+<li>Cleaned up context menu layouts</li>
+<li>Drop material at position in 'layers' tab</li>
+<li>Tool properties bar can now be collapsed and accessed as a tool context menu</li>
+<li>Node view and 2d view is now displayed as a tab</li>
+<li>Remember selected tab and size of footer window</li>
+<li>Initial support for rearranging tabs via drag and drop</li>
+<li>Moved material and layer name to header</li>
+<li>UI with horizontal layout can now be scrolled via mouse wheel</li>
+<li>Ported 2d drawing code to C for improved performance</li>
+<li>Ported .obj loader to C for improved performance</li>
+<li>Begin porting ui code to C for improved performance</li>
+<li>Updated V8 engine with use of fast api calls</li>
+<li>Updated translations (thanks to all contributors)</li>
+<li>Wake up from idle sleep on files drop</li>
+<li>Use mono space font in console</li>
+<li>Drag and drop for swatches (by MathemanFlo)</li>
+<li>Separated camera pan, rotation and zoom speed (by MathemanFlo)</li>
+<li>Use armory server to check for update info</li>
+<li>Use 'delete' key to delete item slot</li>
+<li>[Windows] Prevent white screen flicker on start-up</li>
 <li>[Windows] Added dark mode support</li>
 <li>[Metal] Fixed mask saving</li>
 <li>[Metal] Added path-traced viewport mode</li>
 <li>[Metal] Added ray-traced baking support</li>
+<li>[iOS, Android] Added 'get started' tab</li>
 <li>[iOS, Android] Reject painting with finger when using pen</li>
-<li>[iOS, Android] Show toast messages</li>
+<li>[iOS, Android] Show toast messages to display progress</li>
 <li>[iOS, Android] Improved viewport controls</li>
 <li>[iOS, Android] Exposed mesh .obj export</li>
-<li>[iOS, Android] Smooth pinch to zoom</li>
+<li>[iOS, Android] Smooth pinch to zoom in viewport</li>
+<li>[iOS, Android] Smooth zooming in node view and 2d view</li>
 <li>[iOS, Android] Exported textures are now visible in gallery / photos app</li>
 <li>[iOS, Android] Two-finger tap to undo, three-finger tap to redo</li>
 <li>[iOS, Android] Use rotate camera controls by default</li>
+<li>[iOS, Android] Zoom in to the finger location in node view</li>
+<li>[iOS, Android] Touch and hold to start dragging items</li>
+<li>[iOS, Android] Added 'check for updates' button</li>
 <li>[iOS] Added apple pencil hover support</li>
 <li>[iOS] Fixed touch issues around screen edges</li>
 <li>[iOS] Fixed plugin support</li>
@@ -69,10 +131,17 @@
 <li>[Android] Make import / export work across all os versions</li>
 <li>[Android] Fixed textured decal</li>
 <li>[Android] Fixed curvature baking</li>
-<li>[Android] Expose more disk locations in browser tab</li>
-<li><i>In development</i> - <a href="https://armorpaint.org/news">news</a> - <a href="https://github.com/armory3d/armortools/commits">all commits</a> - <a href="https://github.com/armory3d/armortools/issues">request features</a></li>
+<li>[Android] Fixed file access issues</li>
+<li>[Android] Expose more disk locations in 'browser' tab</li>
+<li>Reorganized code in a <a href="https://github.com/armory3d/armortools">new repository</a> with major code cleanup</li>
+<li><a href="https://github.com/armory3d/armorpaint_unreal">Check out</a> Unreal plugin</li>
+<li><a href="https://github.com/armory3d/armorpaint_unity">Check out</a> Unity plugin</li>
+<li><a href="https://github.com/armory3d/armorpaint_blender">Check out</a> Blender add-on</li>
+<li><a href="https://github.com/armory3d/armorpaint_godot">Check out</a> Godot plugin</li>
+<li><i><a href="https://github.com/armory3d/armortools/commits">All commits</a></i></li>
 </ul>
 <br/><br/>
+
 
 
 <a href="https://www.youtube.com/watch?v=OWL69vBLRHc">v0.8</a> - <i>2021.10</i><br/>
@@ -208,6 +277,7 @@ While many new features are added, the main focus of this release is the stabili
 <li>Fixed importing geometry containing concave polygons</li>
 <li>Fixed distract-free mode UI align</li>
 <li>Fixed color space management for image nodes</li>
+<li>'Paint' tab is now '3D View' tab</li>
 <li>Use drag and drop to reorder layers</li>
 <li>Use vertical tabs in preferences window</li>
 <li>Use vertex colors in materials via attribute material node</li>
@@ -239,6 +309,8 @@ While many new features are added, the main focus of this release is the stabili
 <li><a href="https://github.com/PiloeGAO/Maya-ArmorPaintLiveLink">Check out</a> Maya live-link</li>
 </ul>
 <br/><br/>
+
+
 
 <b>v0.7</b> - <i>2020.1</i><br/>
 <img src="img/ap07.jpg" style="max-width: 640px"><br/>
@@ -327,6 +399,8 @@ While many new features are added, the main focus of this release is the stabili
 <li><a href="https://github.com/armory3d/armorpaint_unity">Download</a> Unity Engine live-link preview</li>
 </ul>
 <br/><br/>
+
+
 
 <a href="https://www.youtube.com/watch?v=qNHeNetQNvE">v0.6</a> - <i>2019.8</i><br/>
 <img src="img/ap06.jpg" style="max-width: 640px"><br/>
@@ -433,6 +507,8 @@ While many new features are added, the main focus of this release is the stabili
 </ul>
 <br/><br/>
 
+
+
 <a href="https://www.youtube.com/watch?v=0LrMx2mmWi0">v0.5</a> - <i>2018.11</i><br/>
 <img src="img/ap05.jpg" style="max-width: 640px"><br/>
 <ul>
@@ -472,6 +548,8 @@ While many new features are added, the main focus of this release is the stabili
 </ul>
 <br/><br/>
 
+
+
 <a href="https://www.youtube.com/watch?v=OzRqXIsvahg">v0.4</a> - <i>2018.7</i><br/>
 <img src="img/ap04.jpg" style="max-width: 640px"><br/>
 <ul>
@@ -485,6 +563,8 @@ While many new features are added, the main focus of this release is the stabili
 <li>Live material preview</li>
 </ul>
 <br/><br/>
+
+
 
 <a href="https://www.youtube.com/watch?v=jnsRWOFUsQs">v0.3</a> - <i>2018.5</i><br/>
 <img src="img/ap03.jpg" style="max-width: 640px"><br/>
@@ -503,6 +583,8 @@ While many new features are added, the main focus of this release is the stabili
 </ul>
 <br/><br/>
 
+
+
 <a href="https://www.youtube.com/watch?v=cEveXIFsVF4">v0.2</a> - <i>2018.2</i><br/>
 <img src="img/ap02.jpg" style="max-width: 640px"><br/>
 <ul>
@@ -518,12 +600,16 @@ While many new features are added, the main focus of this release is the stabili
 </ul>
 <br/><br/>
 
+
+
 <a href="https://www.youtube.com/watch?v=5YIvj3yIP00">v0.1</a> - <i>2018.1</i><br/>
 <img src="img/ap01.jpg" style="max-width: 640px"><br/>
 <ul>
 <li>First release</li>
 </ul>
 <br/><br/>
+
+
 
 <a href="https://twitter.com/luboslenco/status/828612926374293505">v0.0</a> - <i>2017.2</i><br/>
 <img src="img/ap00.jpg" style="max-width: 640px"><br/>
