@@ -1,0 +1,170 @@
+
+      <!------------------------------------->
+
+      <div class="container col-xxl-9 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-lg-6 bg-body-tertiary rounded pt-3">
+            <h1 class="display-5 text-body-emphasis lh-1 mb-3">ArmorPaint Alpha</h1>
+            <p class="lead">Before proceeding, please <a href="https://armorpaint.org/manual">read the manual</a> first to know what parts need more work. The alpha version has many rough edges and the experience may be frustrating.</p>
+            <p class="lead">All updates are included for free. Source code is available on <a href="https://github.com/armory3d/armortools">GitHub</a>. Thank you for enabling further ArmorPaint development!</p>
+          </div>
+          <div class="col-lg-6">
+            <img src="img/f.jpg" class="d-block mx-lg-auto img-fluid rounded" width="700" height="500" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+      <div class="col-md-7 p-lg-5 mx-auto my-5 bg-body-tertiary rounded pt-3">
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="itch-tab" data-bs-toggle="tab" data-bs-target="#tab-itch" type="button" role="tab" aria-selected="true">ITCH.IO</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="gum-tab" data-bs-toggle="tab" data-bs-target="#tab-gum" type="button" role="tab" aria-selected="false">GUMROAD</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="ios-tab" data-bs-toggle="tab" data-bs-target="#tab-ios" type="button" role="tab" aria-selected="false">APPSTORE</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="android-tab" data-bs-toggle="tab" data-bs-target="#tab-android" type="button" role="tab" aria-selected="false">GOOGLE PLAY</button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+
+          <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' />
+          <div class="tab-pane fade show active" id="tab-itch" role="tabpanel" tabindex="0" style="font-family: Lato; color: #666666; ">
+            <img class="img-fluid" src="img/widget.jpg">
+            <div class="card card-body" style="border-radius: 0; padding-top: 15px; padding-bottom: 15px; background: #f4f4f4; border-bottom: 2px solid #dadada;">
+              <div class="row">
+                <div class="col">
+                <p style="font-size: 26px;"><a href="https://armory.itch.io/armorpaint" target="_blank" style="color: #434343; text-decoration: none;"><b>ArmorPaint</b></a></p>
+                </div>
+                <div class="col text-end">
+                <a href="https://armory.itch.io/" target="_blank"><img src="img/ava.png" width="30px"></a> by <a href="https://armory.itch.io/" target="_blank" style="color: #000; text-decoration: none;">armory</a>
+                </div>
+                </div>
+                <p>3D PBR texture painting software for Windows, Linux and macOS.</p>
+                <i>(Includes <a href="https://armorlab.org/" target="_blank" style="color: #000; text-decoration: none;">ArmorLab</a>)</i>
+              </div>
+            <div class="card card-body" style="border-radius: 0; padding-top: 15px; padding-bottom: 15px; background: #ffffff;">
+              <i class="me-auto" style="border-bottom: 1px dotted #666;" data-bs-toggle="tooltip" data-bs-title="itch + gumroad"><span id="spansales">...</span> sales, ★ <span id="spanrating">...</span> / 5</i>
+              <hr style="border-bottom: 1px dashed #dadada;">
+            </div>
+            <div class="card card-body" style="border-radius: 0; padding-top: 0px; padding-bottom: 15px; background: #ffffff;">
+              <button class="btn btn-dark font-weight-normal p-3" style="border-radius: 0; background: #000; color: #fff;" id="buy_button"><b>Add to cart - $<span id="spanprice">...</span></b></button>
+            </div>
+            <script type="text/javascript" src="https://static.itch.io/api.js"></script>
+            <script type="text/javascript">
+              Itch.attachBuyButton(document.getElementById("buy_button"), {
+                user: "armory",
+                game: "armorpaint"
+              });
+            </script>
+            <script src="css/bootstrap.bundle.min.js"></script>
+            <script type="text/javascript">
+              const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+              const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+            </script>
+          </div>
+
+          <div class="tab-pane fade" id="tab-gum" role="tabpanel" tabindex="0">
+            <script src="https://gumroad.com/js/gumroad-embed.js"></script>
+            <div class="gumroad-product-embed"><a href="https://armory.gumroad.com/l/armorpaint">Loading...</a></div>
+          </div>
+
+          <div class="tab-pane fade" id="tab-ios" role="tabpanel" tabindex="0">
+            <img src='img/notes/6.jpg' class="img-fluid rounded" />
+            <h4>ArmorPaint</h4>
+            <p>3D PBR texture painting software for iOS.</p>
+            <i>Early access</i>
+            <hr style="border-bottom: 1px dashed #dadada;">
+            <a href='https://apps.apple.com/us/app/armorpaint/id1533967534'><img style="width: 30%;" alt='Download on the AppStore' src='img/appstore.svg'/></a>
+          </div>
+
+          <div class="tab-pane fade" id="tab-android" role="tabpanel" aria-labelledby="tab-android" tabindex="0">
+            <img src='img/notes/7.jpg' class="img-fluid rounded" />
+            <h4>ArmorPaint</h4>
+            <p>3D PBR texture painting software for Android.</p>
+            <i>Early access</i>
+            <hr style="border-bottom: 1px dashed #dadada;">
+            <a href='https://play.google.com/store/apps/details?id=org.armorpaint'><img style="width: 39%;" alt='Get it on Google Play' src='img/gplay.png'/></a>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+      <div class="container col-xxl-9 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-lg-6">
+            <img src="img/a.jpg" class="d-block mx-lg-auto img-fluid rounded" width="700" height="500" loading="lazy">
+          </div>
+          <div class="col-lg-6 bg-body-tertiary rounded pt-3">
+            <h1 class="display-5 text-body-emphasis lh-1 mb-3">Latest Release</h1>
+            <p class="lead">Version: <span id="spanversion">...</span></p>
+            <p class="lead">Updated: <span id="spanupdated">...</span></p>
+            <p class="lead"><a href="https://armorpaint.org/notes.html">What's New</a></p>
+            <p>🖌🎨</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container col-xxl-9 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+          <div class="col-lg-6">
+            <img class="mx-auto d-block" src="img/ava.png">
+          </div>
+          <div class="col-lg-6">
+            <a href="https://www.unrealengine.com/en-US/megagrants"><img class="mx-auto d-block" src="img/EpicMegaGrants_Badge_Light.png"></a>
+          </div>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+      var req = new XMLHttpRequest();
+      req.onreadystatechange = function() {
+          if (req.readyState == XMLHttpRequest.DONE) {
+             if (req.status == 200) {
+                var data = JSON.parse(req.responseText);
+                var s = data.version + '';
+                var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+                var year = s[0] + s[1];
+                var month = s[2] + s[3];
+                var day = s[4] === '0' ? s[5] : s[4] + s[5];
+                spanversion.innerHTML = "" + data.version_name + "";
+                spanupdated.innerHTML = "" + months[parseInt(month) - 1] + ' ' + day + ', 20' + year + "";
+                spansales.innerHTML = "" + data.sales.toLocaleString('en', { useGrouping: true }) + "";
+                spanrating.innerHTML = "" + data.rating + "";
+                spanprice.innerHTML = "" + data.price / 100 + "";
+             }
+          }
+      };
+      req.open("GET", "https://server.armorpaint.org/armorpaint.html", true);
+      req.send();
+
+      let _onclick = document.getElementById('buy_button').onclick;
+      document.getElementById('buy_button').onclick = function() {
+        _onclick();
+        $.get("https://server.armorpaint.org/cart_armorpaint.html", function(data) {});
+        var req = new XMLHttpRequest();
+        req.onreadystatechange = function() {};
+        req.open("GET", "https://server.armorpaint.org/cart_armorpaint.html", true);
+        req.send();
+
+      }
+      </script>
+
+      <!------------------------------------->

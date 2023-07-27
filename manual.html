@@ -1,89 +1,815 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ArmorPaint | 3D PBR Texture Painting</title>
+    <meta name="description" content="ArmorPaint is a software designed for physically-based texture painting.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://armorpaint.org/">
+    <meta property="og:title" content="ArmorPaint | 3D PBR Texture Painting">
+    <meta property="og:description" content="ArmorPaint is a software designed for physically-based texture painting.">
+    <meta property="og:image" content="https://armorpaint.org/img/x.jpg">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://armorpaint.org/">
+    <meta property="twitter:title" content="ArmorPaint | 3D PBR Texture Painting">
+    <meta property="twitter:description" content="ArmorPaint is a software designed for physically-based texture painting.">
+    <meta property="twitter:image" content="https://armorpaint.org/img/x.jpg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans">
+    <link rel="stylesheet" href="css/uikit.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      [data-bs-theme=dark] {
+        --bs-body-bg: #1e2226;
+        --bs-body-bg-rgb: 30,34,38;
+        --bs-secondary-bg: #272c31;
+        --bs-secondary-bg-rgb: 39,44,49;
+        --bs-tertiary-bg: #272c31;
+        --bs-tertiary-bg-rgb: 39,44,49;
+      }
 
-<head>
-  <title>ArmorPaint | 3D PBR Texture Painting</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="title" content="ArmorPaint | 3D PBR Texture Painting">
-  <meta name="description" content="ArmorPaint is a software designed for physically-based texture painting.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://armorpaint.org/">
-  <meta property="og:title" content="ArmorPaint | 3D PBR Texture Painting">
-  <meta property="og:description" content="ArmorPaint is a software designed for physically-based texture painting.">
-  <meta property="og:image" content="https://armorpaint.org/img/x.jpg">
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://armorpaint.org/">
-  <meta property="twitter:title" content="ArmorPaint | 3D PBR Texture Painting">
-  <meta property="twitter:description" content="ArmorPaint is a software designed for physically-based texture painting.">
-  <meta property="twitter:image" content="https://armorpaint.org/img/x.jpg">
-  <!-- UIkit CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/css/uikit.min.css">
-  <!-- Font Loading -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
+      .bg-dark {
+        background-color: #1e2226 !important;
+/*        background-color: #171b1f !important;*/
+      }
 
-<body class="ro-text-content">
+      .btn-primary {
+        background-color: #cc334d !important;
+        border-color: #cc334d !important;
+      }
 
-  <!-- large screen nav -->
-  <div class="uk-visible@l" uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
-    <div class="uk-background-secondary uk-light">
-      <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+      header {
+        position: relative;
+        background-color: black;
+        overflow: hidden;
+        height: 58vh;
+        display: block;
+      }
 
-        <div class="uk-navbar-left uk-margin-left">
-          <a href="index.html"><img src="img\Logo.png" style="max-height: 50px" ></a>
-          <button class="uk-margin-left uk-button-text" uk-icon="icon: triangle-down">ARMORPAINT</button>
-          <div uk-dropdown="mode: click">
-              <ul class="uk-nav uk-dropdown-nav">
-                  <li><a href="https://armorlab.org/">ARMORLAB</a></li>
-              </ul>
+      header video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+
+        <a href="https://armorpaint.org/"><img src="img/Logo.png" style="width: 50px;" class="rounded" /></a>
+
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fw-semibold" href="#" data-bs-toggle="dropdown" aria-expanded="false">ARMORPAINT</a>
+            <ul class="dropdown-menu rounded-3 shadow">
+              <li><a class="dropdown-item rounded-2" href="https://armorlab.org/"><img src="img/lab.png" style="width: 25px;" class="rounded" />ARMORLAB</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar" aria-expanded="false" aria-label="Toggle">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://armorpaint.org">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://armorpaint.org/news">NEWS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://armorpaint.org/manual">MANUAL</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://armorpaint.org/howto">HOW TO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://armorpaint.org/community">COMMUNITY</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://armorpaint.org/cloud">CLOUD</a>
+            </li>
+            <li>
+              <a href="https://armorpaint.org/download"><button type="button" class="btn btn-primary px-4 me-sm-3">DOWNLOAD</button></a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+
+      <!------------------------------------->
+
+      <style type="text/css">
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+
+        .doc-sidebar { width: 100%; padding-top: 72px; }
+        @media (min-width: 992px) {
+            .doc-sidebar { position: fixed; width: 280px; }
+        }
+
+        h1 { scroll-margin-top: 100px; }
+
+      </style>
+
+      <div class="d-flex flex-column flex-shrink-0 doc-sidebar">
+        <ul class="nav nav-pills flex-column mb-auto" id="docNav">
+          <li><a href="#download" class="nav-link text-white">
+            Download
+          </a></li>
+          <li><a href="#getstarted" class="nav-link text-white">
+            Get Started
+          </a></li>
+          <li><a href="#workflow" class="nav-link text-white">
+            Workflow
+          </a></li>
+          <li><a href="#tools" class="nav-link text-white">
+            Tools
+          </a></li>
+          <li><a href="#materials" class="nav-link text-white">
+            Materials
+          </a></li>
+          <li><a href="#brushes" class="nav-link text-white">
+            Brushes
+          </a></li>
+          <li><a href="#layers" class="nav-link text-white">
+            Layers
+          </a></li>
+          <li><a href="#viewport" class="nav-link text-white">
+            Viewport
+          </a></li>
+          <li><a href="#baking" class="nav-link text-white">
+            Baking
+          </a></li>
+          <li><a href="#preferences" class="nav-link text-white">
+            Preferences
+          </a></li>
+          <li><a href="#plugins" class="nav-link text-white">
+            Plugins
+          </a></li>
+          <li><a href="#faq" class="nav-link text-white">
+            FAQ
+          </a></li>
+        </ul>
+      </div>
+
+      <div class="pt-4"></div>
+
+      <div class="col-md-6 p-lg-5 mx-auto my-5 bg-body-tertiary rounded pt-3">
+        <h1 class="display-3 fw-bold">Manual</h1>
+        <h3 class="fw-normal text-muted mb-3">Text-based guide to ArmorPaint.</h3>
+      </div>
+
+      <div class="col-md-6 p-lg-5 mx-auto my-5 bg-body-tertiary rounded pt-3" data-bs-spy="scroll"; data-bs-target="#docNav";>
+
+      <!------------------------------------->
+<h1 id="welcome">Welcome</h1>
+<p><em>Version <a href="https://github.com/armory3d/armorpaint_web/tree/main/manual.md">0.8</a></em></p>
+<p><img src="img/manual/title.jpg" alt="" /></p>
+<p>ArmorPaint is a stand-alone software designed for physically-based texture painting. Drag &amp; drop your 3D models and start painting. Receive instant visual feedback in the viewport as you paint.</p>
+<blockquote>
+  <p>The preview version has many rough edges and the experience may be frustrating.</p>
+</blockquote>
+<hr />
+<h1 id="download">Download</h1>
+<p><strong>Windows</strong> and <strong>Linux</strong> is recommended. Experimental <strong>macOS</strong>, <strong>iPadOS</strong> and <strong>Android</strong> builds are also provided. On desktop, ArmorPaint is a portable application with no installation - just unpack and run.</p>
+<blockquote>
+  <p><a href="https://armorpaint.org/download.html">Get ArmorPaint</a></p>
+</blockquote>
+<h4 id="requirements">Requirements</h4>
+<p>Painting process in ArmorPaint runs on the GPU and the performance mainly depends on a graphics card. Minimum for 4K painting is an Intel HD4000 graphics card. For 16K painting, GTX 1060/6GB or better is recommended.</p>
+<blockquote>
+  <p>See <a href="https://armorpaint.org/manual/#/?id=preferences">Preferences</a> to tune performance.</p>
+</blockquote>
+<h4 id="updating">Updating</h4>
+<p>Latest builds can be downloaded through your <a href="https://gumroad.com/library">Gumroad Library</a>. Alternatively, use the original email sent by Gumroad to access the download page.</p>
+<blockquote>
+  <p>In ArmorPaint, press <code>Help - Check for Updates...</code> to check if newer build is available.</p>
+</blockquote>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="getstarted">Get Started</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OWL69vBLRHc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h4 id="windows">Windows</h4>
+<p>Unpack downloaded archive and run <code>ArmorPaint.exe</code>. In some cases, Windows may prompt you with the unrecognized app dialog - press <code>More Info - Run Anyway</code>.</p>
+<h4 id="linux">Linux</h4>
+<p>Unpack downloaded archive and run <code>ArmorPaint</code>. In some cases, you may need to open terminal in the extracted folder and run <code>./ArmorPaint</code>.</p>
+<h4 id="macos">macOS</h4>
+<p>Unpack downloaded archive and run <code>ArmorPaint.app</code>.</p>
+<h4 id="ipados">iPadOS</h4>
+<p><em>Experimental:</em> Available on the <a href="https://apps.apple.com/us/app/armorpaint/id1533967534">AppStore</a>.</p>
+<h4 id="android">Android</h4>
+<p><em>Experimental:</em> Available on <a href="https://play.google.com/store/apps/details?id=org.armorpaint">Google Play</a>.</p>
+<h4 id="controls">Controls</h4>
+<ul>
+<li><code>Left mouse button / Pen</code> to paint.</li>
+<li><code>Alt</code> + <code>left mouse button</code> to rotate the camera.</li>
+<li><code>Alt</code> + <code>middle mouse button</code> to pan the camera.</li>
+<li><code>Alt</code> + <code>right mouse button</code> / <code>mouse wheel</code> to zoom in and out.</li>
+<li>Controls can be customized in <code>Menu bar - Edit - Preferences... - Keymap</code>.</li>
+<li>Default or Blender keymap preset can be selected.</li>
+<li>Keymap presets can be imported and exported.</li>
+</ul>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="workflow">Workflow</h1>
+<p><img src="img/manual/d.jpg" alt="" /></p>
+<h4 id="importmeshes">Import Meshes</h4>
+<p>Drag and drop unwrapped <code>.obj</code> file into the viewport. This will replace the currently painted mesh. <code>.fbx</code>, <code>.blend</code>, <code>.stl</code>, <code>.gltf</code> and <code>.glb</code> files are supported, but the importer is not 100% reliable yet.</p>
+<p>In the <code>Import Mesh</code> dialog:</p>
+<ul>
+<li>Set <code>Split By</code> combo to <code>UDIM Tile</code> to parse imported <code>.obj</code> mesh into UDIM tiles.</li>
+<li>Enable <code>Parse Transforms</code> to load per-object transforms from <code>.fbx</code> file.</li>
+<li>Enable <code>Parse Vertex Colors</code> to load vertex color data from <code>.fbx</code> or <code>.blend</code> file.</li>
+</ul>
+<p>Modifying imported mesh data:</p>
+<ul>
+<li>Normals can be re-calculated with <code>Meshes tab - Calculate Normals</code>.</li>
+<li>Up axis can be set with <code>Meshes tab - Rotate X / Rotate Y / Rotate Z</code>.</li>
+<li>Geometry can be re-centered with <code>Meshes tab - Geometry to Origin</code>.</li>
+<li>Height output can be applied to geometry with <code>Meshes tab - Apply Displacement</code>.</li>
+<li>UV map can be auto-generated by enabling the <code>uv_unwrap</code> plugin.</li>
+</ul>
+<blockquote>
+  <p>You can get sample assets for testing in the <a href="https://armorpaint.org/cloud">ArmorPaint cloud</a>.</p>
+  <p>See <code>Menu bar - Preferences... - Plugins</code> to enable support for additional mesh formats.</p>
+</blockquote>
+<h4 id="importmaterials">Import Materials</h4>
+<p>Drag and drop a folder with PBR texture set onto the viewport. ArmorPaint will recognize the file extensions and create a new material from imported textures. Multiple folders can be dropped at once.</p>
+<p>Click on the <code>Materials tab - Import</code> button to import materials from ArmorPaint <code>.arm</code> files or Blender <code>.blend</code> files. <em>wip</em></p>
+<blockquote>
+  <p>You can get starter content in the <a href="https://armorpaint.org/cloud">ArmorPaint Cloud</a>.</p>
+</blockquote>
+<h4 id="importtextures">Import Textures</h4>
+<p>Drag and drop <code>.jpg</code>, <code>.png</code>, <code>.tga</code>, <code>.bmp</code>, <code>.gif</code>, <code>.psd</code>, <code>.hdr</code>, <code>.svg</code> or <code>.tif</code> images into the node editor. This will import the image and place a new <code>Image</code> node onto the canvas.</p>
+<blockquote>
+  <p>See <code>Menu bar - Preferences... - Plugins</code> to enable support for additional image formats.</p>
+</blockquote>
+<h4 id="exporttextures">Export Textures</h4>
+<p>Click on the <code>Menu bar - File - Export Textures...</code> button.</p>
+<ul>
+<li><code>Resolution</code>: Set resolution for exported textures.</li>
+<li><code>Color</code>: Set <code>8bit</code>, <code>16bit</code> or <code>32bit</code> color depth.</li>
+<li><code>Format</code>: <code>.png</code> or <code>.jpg</code> (for <code>8bit</code> color), <code>.exr</code> (for <code>16bit / 32bit</code> color).</li>
+<li><code>Layers</code>: Export all visible layers or selected layers only into textures.</li>
+<li><code>Preset</code>: Select a pre-configured preset or build a custom one.</li>
+<li><code>Generic</code> preset exports individual PBR textures.</li>
+<li><code>Unreal</code> preset exports packed <em>occlusion-roughness-metallic</em> texture.</li>
+<li><code>Unity</code> preset exports packed <em>metallic-occlusion-smoothness</em> texture.</li>
+<li><code>Minecraft</code> preset exports packed <em>metallic-emission-roughness</em> texture.</li>
+<li><code>Destination</code>: Export textures to disk or pack into the project file at <code>Textures tab</code>.</li>
+</ul>
+<p>Configure custom channel swizzling for exported textures in <code>Presets</code> tab:</p>
+<ul>
+<li>Select an existing preset you wish to edit or press <code>New</code>.</li>
+<li>Press <code>Import</code> to import preset from <code>.json</code> file.</li>
+<li>Press <code>Add</code> to create new texture slot.</li>
+<li>Configure <code>RGBA</code> channels for each texture slot.</li>
+<li>Right-click on texture name and press <code>Delete</code> to delete texture slot.</li>
+<li><code>.json</code> file for each preset is located in the <code>ArmorPaint/data/presets</code> folder.</li>
+</ul>
+<p>Create object groups in <code>Atlases</code> tab:</p>
+<ul>
+<li>Assign atlas number to objects</li>
+<li>Multiple objects can share a single material via altas</li>
+<li>One texture set per atlas is written during texture export</li>
+</ul>
+<h4 id="exportmesh">Export Mesh</h4>
+<p>Click on the <code>Menu bar - File - Export Mesh...</code> button to save the currently loaded mesh into <code>.obj</code> file. This is handy if you only have access to the <code>.arm</code> project file or want to export the mesh which has been unwrapped / modified in ArmorPaint.</p>
+<h4 id="saveloadproject">Save / Load Project</h4>
+<p>Click on the <code>Menu bar - File - Save</code> button (<code>Ctrl + S</code>) to save the currently opened project. Mesh, layers, materials and brushes will be saved into <code>.arm</code> project file.</p>
+<p>To open the project file, drag and drop <code>.arm</code> file onto the viewport. <code>.arm</code> files can also be set to open directly with ArmorPaint executable from the OS file explorer.</p>
+<p><code>.obj</code> and other asset types can also be associated if you wish to use ArmorPaint as a model / texture viewer.</p>
+<h4 id="browser">Browser</h4>
+<p>Click on the <code>Status bar - Browser tab</code> to activate the built-in asset browser.</p>
+<ul>
+<li>Click on the <code>Cloud</code> button to access the <a href="https://armorpaint.org/cloud">ArmorPaint cloud</a>.</li>
+<li>Drag assets from browser into the viewport to import.</li>
+<li>For <code>.arm</code> materials, preview icons are displayed.</li>
+<li>Click on the <code>+</code> button to save the current path into bookmarks panel.
+<br/><a href="img/manual/browser.jpg" target="_blank"><img src="img/manual/browser.jpg" width="200px"/></a></li>
+</ul>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="tools">Tools</h1>
+<p><img src="img/manual/a.jpg" alt="" /></p>
+<h4 id="brush">Brush</h4>
+<p><img src="img/manual/tool_brush.png" alt="" /></p>
+<p>Select <code>Brush</code>(<code>B</code>) tool from toolbar. Configure brush parameters in the header. Use <code>left mouse button</code> / <code>pen</code> to paint strokes using the selected material.</p>
+<ul>
+<li><code>Radius</code>: Brush size. (Hold <code>F</code> key and move the cursor)</li>
+<li><code>UV Scale</code>: Scale the coords for currently painted material.</li>
+<li><code>Angle</code>: Rotate the coords for currently painted material.</li>
+<li><code>Opacity</code>: Overall opacity of the brush stroke. (Hold <code>Shift+F</code> key and move the cursor)</li>
+<li><code>Hardness</code>: Fade opacity towards the brush stroke edge.</li>
+<li><code>Blending</code>: Blending mode used for painting.</li>
+<li><code>TexCoord</code>: Coordinates used for texture sampling. Mesh <code>UV Map</code>, <code>Project</code> from view or <code>Triplanar</code> mapping.</li>
+<li><code>X-Ray</code>: Paint through mesh faces.</li>
+<li><code>Symmetry</code>: Mirror brush strokes on the X, Y and/or Z axis.</li>
+</ul>
+<p>Hold brush ruler key (<code>SHIFT</code>) when painting to restrict strokes horizontally or vertically. Hold brush ruler key (<code>SHIFT</code>) and click onto the surface to paint lines.</p>
+<h4 id="eraser">Eraser</h4>
+<p><img src="img/manual/tool_eraser.png" alt="" /></p>
+<p>Select <code>Eraser</code>(<code>E</code>) tool from toolbar. Use <code>left mouse button</code> / <code>pen</code> to erase strokes on the currently selected layer.</p>
+<ul>
+<li><code>Radius</code>: Eraser size.</li>
+<li><code>Opacity</code>: Overall opacity of the eraser stroke.</li>
+<li><code>Hardness</code>: Fade opacity towards the eraser stroke edge.</li>
+<li><code>X-Ray</code>: Erase through mesh faces.</li>
+<li><code>Symmetry</code>: Mirror eraser strokes on the X, Y and/or Z axis.</li>
+</ul>
+<h4 id="fill">Fill</h4>
+<p><img src="img/manual/tool_fill.png" alt="" /></p>
+<p>Select <code>Fill</code>(<code>G</code>) tool from toolbar. Press <code>left mouse button</code> / <code>pen</code> to fill active layer with selected material. Fill tool respects active object mask, material mask and color id mask.</p>
+<ul>
+<li><code>UV Scale</code>: Scale the coords for currently painted material.</li>
+<li><code>Angle</code>: Rotate the coords for currently painted material.</li>
+<li><code>Opacity</code>: Overall opacity of the fill effect.</li>
+<li><code>Blending</code>: Blending mode used for fill effect.</li>
+<li><code>TexCoord</code>: Coordinates used for texture sampling. Mesh <code>UV Map</code>, <code>Project</code> from view or <code>Triplanar</code> mapping.</li>
+<li><code>Fill Mode</code>: Allows to fill individual mesh faces.</li>
+</ul>
+<h4 id="decal">Decal</h4>
+<p><img src="img/manual/tool_decal.png" alt="" /></p>
+<p>Select <code>Decal</code>(<code>D</code>) tool from toolbar. Press <code>left mouse button</code> / <code>pen</code> to apply active material as a decal onto the surface.</p>
+<ul>
+<li><code>Radius</code>: Decal size.</li>
+<li><code>Scale X</code>: Scale decal size horizontally.</li>
+<li><code>UV Scale</code>: Scale the coords for currently painted material.</li>
+<li><code>Angle</code>: Rotate the coords for currently painted material.</li>
+<li><code>Opacity</code>: Overall opacity of the decal.</li>
+<li><code>Blending</code>: Blending mode used for applying decal.</li>
+<li><code>X-Ray</code>: Apply decal through mesh faces.</li>
+<li><code>Symmetry</code>: Mirror decal on the X, Y and/or Z axis.</li>
+</ul>
+<h4 id="text">Text</h4>
+<p><img src="img/manual/tool_text.png" alt="" /></p>
+<p>Select <code>Text</code>(<code>T</code>) tool from toolbar. Press <code>left mouse button</code> / <code>pen</code> to apply active material as a text onto the surface. Drag and drop a <code>.ttf</code> file into the viewport to change the font.</p>
+<ul>
+<li><code>Radius</code>: Text size.</li>
+<li><code>UV Scale</code>: Scale the coords for currently painted material.</li>
+<li><code>Angle</code>: Rotate the coords for currently painted material.</li>
+<li><code>Opacity</code>: Overall opacity of the text.</li>
+<li><code>Blending</code>: Blending mode used for applying text.</li>
+<li><code>Font</code>: Select which font to apply.</li>
+<li><code>Text</code>: Type a text to apply.</li>
+<li><code>X-Ray</code>: Apply text through mesh faces.</li>
+<li><code>Symmetry</code>: Mirror text on the X, Y and/or Z axis.</li>
+</ul>
+<blockquote>
+  <p>See <code>Fonts tab</code> to manage imported fonts. Click <code>2D View</code> to preview the font.</p>
+</blockquote>
+<h4 id="clone">Clone</h4>
+<p><img src="img/manual/tool_clone.png" alt="" /></p>
+<p>Select <code>Clone</code>(<code>L</code>) tool from toolbar. Hold <code>ALT</code> to set clone source location. Use <code>left mouse button</code> / <code>pen</code> to clone the material from source location to active location.</p>
+<ul>
+<li><code>Radius</code>: Brush size.</li>
+<li><code>Opacity</code>: Overall opacity of the brush stroke.</li>
+<li><code>Blending</code>: Blending mode used for painting.</li>
+<li><code>X-Ray</code>: Paint through mesh faces.</li>
+<li><code>Symmetry</code>: Mirror brush strokes on the X, Y and/or Z axis.</li>
+</ul>
+<h4 id="blur">Blur</h4>
+<p><img src="img/manual/tool_blur.png" alt="" /></p>
+<p>Select <code>Blur</code>(<code>U</code>) tool from toolbar. Use <code>left mouse button</code> / <code>pen</code> to smudge the material applied to the surface.</p>
+<ul>
+<li><code>Radius</code>: Brush size.</li>
+<li><code>Opacity</code>: Overall opacity of the brush stroke.</li>
+<li><code>Blending</code>: Blending mode used for painting.</li>
+<li><code>X-Ray</code>: Paint through mesh faces.</li>
+<li><code>Symmetry</code>: Mirror brush strokes on the X, Y and/or Z axis.</li>
+<li><code>Directional</code>: Perform a smear / smudge.</li>
+</ul>
+<h4 id="particlewip">Particle <em>wip</em></h4>
+<p><img src="img/manual/tool_particle.png" alt="" /></p>
+<p>Select <code>Particle</code>(<code>P</code>) tool from toolbar. Use <code>left mouse button</code> / <code>pen</code> to apply particles onto the surface.</p>
+<ul>
+<li><code>Radius</code>: Particle emitter size.</li>
+<li><code>Opacity</code>: Overall opacity of the emitted particle.</li>
+<li><code>Blending</code>: Blending mode used for applying particles.</li>
+<li><code>X-Ray</code>: Apply particles through mesh faces.</li>
+<li><code>Symmetry</code>: Mirror particles on the X, Y and/or Z axis.</li>
+</ul>
+<h4 id="bake">Bake</h4>
+<p><img src="img/manual/tool_bake.png" alt="" /></p>
+<p>Select <code>Bake</code>(<code>K</code>) workspace from the header bar. Pick bake mode, then click the <code>Bake</code> button or press and hold <code>left mouse button</code> / <code>pen</code> in viewport to apply bake into the base color channel of active layer or mask. For ray-traced bake modes, multiple samples (set via the <code>Samples</code> option) will get accumulated until the operation is complete.</p>
+<blockquote>
+  <p>See <a href="https://armorpaint.org/manual/#/?id=baking">Baking</a> to learn about bake modes.</p>
+</blockquote>
+<h4 id="colorid">Color ID</h4>
+<p><img src="img/manual/tool_colorid.png" alt="" /></p>
+<p>Select <code>Color ID</code>(<code>C</code>) tool from toolbar. Drag and drop color-id texture onto the viewport and assign it into the <code>Color ID Map</code> field. Afterwards, click on a model to pick a specific color. All drawing operations will now be restricted to this color. Picked color can be removed with a <code>Clear</code> button.</p>
+<h4 id="picker">Picker</h4>
+<p><img src="img/manual/tool_picker.png" alt="" /></p>
+<p>Select <code>Picker</code>(<code>V</code>) tool from toolbar. Press <code>left mouse button</code> / <code>pen</code> in viewport to read material values from the surface. Base color, normal, occlusion, roughness and metallic values will be displayed in the header.</p>
+<ul>
+<li><code>Select Material</code>: When enabled, the material you pick from the mesh surface will also get auto-selected in the <code>Materials tab</code>.</li>
+<li><code>Mask</code>: When set to <code>Material</code>, all drawing operations will be restricted to the surface where picked material is painted.</li>
+</ul>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="materials">Materials</h1>
+<p><img src="img/manual/b.jpg" alt="" /></p>
+<p>Materials in ArmorPaint are composed with nodes. When painting, brush applies a material onto the surface. To compose a material, open node editor by clicking <code>Materials tab - Nodes</code> (<code>TAB</code>).</p>
+<ul>
+<li>Use toolbar at the top to add new nodes.</li>
+<li>Press <code>space</code> to search for nodes.</li>
+<li>Drag textures from <code>Textures tab</code> or file explorer into the node editor to create <code>Image</code> nodes.</li>
+</ul>
+<p>Material preview is displayed instantly in the <code>Materials tab</code> as the nodes are assembled.</p>
+<p>Right-click onto material preview to expose material operations:</p>
+<ul>
+<li>Set which channels the material should affect.</li>
+<li>Create <code>Fill Layer</code> from selected material.</li>
+<li><code>Duplicate</code> material.</li>
+<li><code>Export</code> material into <code>.arm</code> file.</li>
+<li><code>Bake</code> material into textures.</li>
+<li><code>Delete</code> material.</li>
+</ul>
+<blockquote>
+  <p>Drag and drop material into viewport or Layers tab to create a fill layer.</p>
+  <p>ArmorPaint material nodes mimick the Cycles nodes. See <a href="https://docs.blender.org/manual/en/latest/render/shader_nodes/index.html">Cycles nodes documentation</a>.</p>
+  <p>See <a href="https://armorpaint.org/manual/#/?id=import-materials">Import Materials</a>.</p>
+  <p>See currently implemented <a href="https://github.com/armory3d/armorbase/blob/main/Sources/arm/shader/NodesMaterial.hx">material nodes</a>.</p>
+  <p>Use <code>Swatches tab</code> to save and load color sets.</p>
+</blockquote>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="brushes">Brushes</h1>
+<p><img src="img/manual/k.jpg" alt="" /></p>
+<p>Brushes in ArmorPaint are composed with nodes. When painting, brush nodes are evaluated for each painted stroke. To compose a brush, open node editor by clicking <code>Brushes tab - Nodes (TAB)</code>.</p>
+<ul>
+<li>Use toolbar at the top to add new nodes.</li>
+<li>Press <code>space</code> to search for nodes.</li>
+<li>Drag textures from <code>Textures tab</code> or file explorer into the node editor to create <code>Image</code> nodes.</li>
+</ul>
+<p>Brush preview is displayed instantly in the <code>Brushes tab</code> as the nodes are assembled.</p>
+<p>Right-click onto brush preview to expose brush operations:</p>
+<ul>
+<li>Duplicate brush.</li>
+<li>Export brush into <code>.arm</code> file.</li>
+<li>Delete brush.</li>
+</ul>
+<blockquote>
+  <p>Brushes can be imported from <code>.arm</code> files by clicking <code>Brushes tab - Import</code>.</p>
+  <p>See currently implemented <a href="https://github.com/armory3d/armorpaint/tree/master/Sources/arm/node/brush">brush nodes</a>.</p>
+</blockquote>
+<h4 id="brushmask">Brush Mask</h4>
+<p>To use image as a brush mask:</p>
+<ul>
+<li>Drag and drop brush mask image into the node editor.</li>
+<li>Connect newly placed <code>Image Texture</code> node to the <code>Brush Output - Opacity</code> socket.
+<br/><a href="img/manual/brush_mask.jpg" target="_blank"><img src="img/manual/brush_mask.jpg" width="200px"/></a></li>
+</ul>
+<h4 id="brushjitter">Brush Jitter</h4>
+<ul>
+<li>Connect <code>Random</code> brush node with <code>Brush Output</code> sockets to jitter desired properties.
+<br/><a href="img/manual/brush_jitter.jpg" target="_blank"><img src="img/manual/brush_jitter.jpg" width="200px"/></a></li>
+</ul>
+<h4 id="lazymouse">Lazy Mouse</h4>
+<ul>
+<li>Raise <code>Lazy Radius</code> value of the <code>Input</code> brush node to make the paint cursor follow the mouse in delay. This can be useful to paint smooth strokes.</li>
+<li>Raise <code>Lazy Step</code> value of the <code>Input</code> brush node to paint strokes in steps.
+<br/><a href="img/manual/brush_lazy.jpg" target="_blank"><img src="img/manual/brush_lazy.jpg" width="200px"/></a></li>
+</ul>
+<h4 id="directionalbrush">Directional Brush</h4>
+<ul>
+<li>By enabling the <code>Direction</code> value of the <code>Brush Output</code> node, painted strokes will follow the brush path. Decal and brush mask will be oriented to match the direction of a brush.
+<br/><a href="img/manual/brush_directional.jpg" target="_blank"><img src="img/manual/brush_directional.jpg" width="200px"/></a></li>
+</ul>
+<h4 id="brushstencil">Brush Stencil</h4>
+<p>To use image as a brush stencil:</p>
+<ul>
+<li>Drag and drop stencil image into the node editor.</li>
+<li>Connect newly placed <code>Image Texture</code> node to the <code>Brush Output - Stencil</code> socket.</li>
+<li>Hold <code>ctrl</code> (<code>stencil_transform</code>) key to show transform controls.</li>
+<li>Hold <code>z</code> (<code>stencil_hide</code>) key to make stencil invisible while still taking effect.
+<br/><a href="img/manual/brush_stencil.jpg" target="_blank"><img src="img/manual/brush_stencil.jpg" width="200px"/></a></li>
+</ul>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="layers">Layers</h1>
+<p><img src="img/manual/c.jpg" alt="" /></p>
+<p>To create a new layer, press <code>Layers tab - New</code> and select a layer type:</p>
+<ul>
+<li><code>Paint Layer</code>.</li>
+<li><code>Fill Layer</code> from active material.</li>
+<li><code>Decal Layer</code> from active material.</li>
+<li><code>Black Mask</code> or <code>White Mask</code>.</li>
+<li><code>Fill Mask</code> from active material.</li>
+<li><code>Group</code> containing active layer.</li>
+</ul>
+<p>Brush will paint onto the currently selected layer.</p>
+<ul>
+<li>Layer can be parented to the specific object by setting the <code>Object</code> combo property. This allows to utilize multiple UV maps per project - each object having it's individual UV map.</li>
+<li>Use drag and drop to reorder layers.</li>
+<li>Double-click onto layer, mask or group name to rename it.</li>
+</ul>
+<p>Right-click on the layer to expose layer operations:</p>
+<ul>
+<li>Set <code>Opacity</code>, <code>Resolution</code> and  <code>Color</code> depth.</li>
+<li>For fill layers, set <code>UV Scale</code>, <code>Angle</code> and <code>TexCoord</code> type.</li>
+<li>Convert layer to <code>Fill Layer</code> or <code>Paint Layer</code>.</li>
+<li><code>Export</code> selected layer.</li>
+<li><code>Merge</code> the layer down.</li>
+<li><code>Duplicate</code> the layer.</li>
+<li><code>Clear</code> the layer.</li>
+<li><code>Delete</code> the layer.</li>
+<li>Set which channels the layer should affect.</li>
+</ul>
+<p>Right-click on the mask to expose mask operations:</p>
+<ul>
+<li>Set <code>Opacity</code> and <code>Resolution</code>.</li>
+<li>For fill masks, set <code>UV Scale</code>, <code>Angle</code> and <code>TexCoord</code> type.</li>
+<li>Convert mask to <code>Fill Mask</code> or <code>Paint Mask</code>.</li>
+<li><code>Export</code> mask texture.</li>
+<li><code>Merge</code> the mask down.</li>
+<li><code>Duplicate</code> the mask.</li>
+<li><code>Clear</code> the mask.</li>
+<li><code>Apply</code> mask to parent layer.</li>
+<li><code>Delete</code> the mask.</li>
+<li><code>Invert</code> the mask.</li>
+</ul>
+<blockquote>
+  <p>Drag textures from <code>Textures tab</code> into the viewport or <code>Layers</code> tab to create mask for active layer.</p>
+</blockquote>
+<h4 id="2dview">2D View</h4>
+<p><img src="img/manual/f.jpg" alt="" /></p>
+<p>Click <code>Layers tab - 2D View</code> to show the channels of the selected layer. The 2D View is updated immediately as you paint.</p>
+<ul>
+<li>Paint tools are usable directly inside the 2D view.</li>
+<li>Press <code>Textures tab - 2D View</code> to show selected image inside 2D view.</li>
+</ul>
+<p>In the 2D View top bar:</p>
+<ul>
+<li>Show the selected layer or all visible layers.</li>
+<li>Select which channel to show.</li>
+<li>Display UV map as a wireframe.</li>
+<li>Tile the texture.</li>
+</ul>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="viewport">Viewport</h1>
+<p><img src="img/manual/j.jpg" alt="" /></p>
+<p>Set viewport parameters in <code>Menu bar - Viewport</code>.</p>
+<ul>
+<li>Enable <code>Distract Free</code> (<code>F11</code>) mode.</li>
+<li><code>Toggle Fullscreen</code> (<code>alt+enter</code>) mode.</li>
+<li>Set <code>Environment</code> and <code>Light</code> intensity.</li>
+<li>Set <code>Light Size</code>.</li>
+<li>Enable <code>Split View</code> for side-by-side viewports.</li>
+<li>Enable <code>Cull Backfaces</code> to skip drawing backward facing polygons.</li>
+<li>Enable <code>Filter Textures</code> to apply linear filter when sampling textures references by material.</li>
+<li>Show <code>Wireframe</code> in the viewport.</li>
+<li>Enable <code>Texels</code> to visualize texture pixels in the viewport with a checker pattern.</li>
+<li>Show 3D <code>Compass</code> in the viewport.</li>
+<li>Enable <code>Envmap</code> to draw environment map in the viewport.</li>
+<li>Enable <code>Blur Envmap</code> to use blurred version of the environment map.</li>
+</ul>
+<blockquote>
+  <p>Drag and drop a <code>.hdr</code> file onto the viewport to change the environment map.</p>
+  <p>Hold <code>Shift</code> + <code>middle mouse button</code> to rotate light.</p>
+  <p>Hold <code>Ctrl</code> + <code>middle mouse button</code> to rotate environment map.</p>
+  <p>To simulate pixel-art like painting, disable <code>Filter Textures</code> option and set <code>Super Sample</code> in preferences to <code>0.25x</code>.
+  <br/><a href="img/manual/pixelart.jpg" target="_blank"><img src="img/manual/pixelart.jpg" width="200px"/></a></p>
+</blockquote>
+<h4 id="viewportmode">Viewport Mode</h4>
+<p>Set viewport render mode in <code>Menu bar - Mode</code>.</p>
+<ul>
+<li>Pick <code>Lit</code> to draw viewport with applied lighting using the rasterizer.</li>
+<li>Pick specific channel to visualize it with no applied lighting.</li>
+<li>Pick <code>Path Traced</code> to draw viewport with interactive path-tracer. (<em><a href="https://github.com/armory3d/armorpaint/blob/master/Assets/readme/readme_dxr.txt">ArmorPaintDXR</a> and <a href="https://github.com/armory3d/armorpaint/blob/master/Assets/readme/readme_vkrt.txt">ArmorPaintVKRT</a> builds</em>)</li>
+</ul>
+<h4 id="pathtracedviewportwip">Path Traced Viewport <em>wip</em></h4>
+<ul>
+<li>Available in ArmorPaintDXR and ArmorPaintVKRT builds (see <a href="https://github.com/armory3d/armorpaint/blob/master/Assets/readme/readme_dxr.txt">dxr requirements</a> and <a href="https://github.com/armory3d/armorpaint/blob/master/Assets/readme/readme_vkrt.txt">vkrt requirements</a>).</li>
+<li>The renderer favors performance.</li>
+</ul>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uQb-LOJdYrE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h4 id="camera">Camera</h4>
+<p>Set camera parameters in <code>Menu bar - Camera</code>:</p>
+<ul>
+<li>Set specific camera viewpoint.</li>
+<li><code>Orbit</code>, <code>Zoom In</code> and <code>Zoom Out</code> camera.</li>
+<li><code>Reset</code> camera.</li>
+<li>Set <code>FoV</code> (field of view).</li>
+<li>Set <code>Perspective</code> or <code>Orthographic</code> camera type.</li>
+<li>Set camera mode:</li>
+<li><code>Orbit</code> - Rotate camera around the mesh.</li>
+<li><code>Rotate</code> - Rotate mesh around the origin.</li>
+<li><code>Fly</code> - Hold <code>right mouse button</code> and move camera freely using the <code>WASD</code> and <code>QE</code> keys.</li>
+</ul>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="baking">Baking</h1>
+<p><img src="img/manual/i.jpg" alt="" /></p>
+<p>Select <a href="https://armorpaint.org/manual/#/?id=bake">Bake workspace</a> from the header bar.</p>
+<ul>
+<li><p><code>AO (DXR, VKRT)</code>: Bake ambient occlusion. <code>Strength</code>, <code>Radius</code> and <code>Offset</code> can be configured.
+<br/><a href="img/manual/bake/a.jpg" target="_blank"><img src="img/manual/bake/a.jpg" width="200px"/></a></p></li>
+<li><p><code>Curvature</code>: Bake mesh curvature. <code>Strength</code>, <code>Radius</code> and <code>Offset</code> can be configured.
+<br/><a href="img/manual/bake/b.jpg" target="_blank"><img src="img/manual/bake/b.jpg" width="200px"/></a></p></li>
+<li><p><code>Lightmap (DXR, VKRT)</code>: Bake irradiance from the environment.
+<br/><a href="img/manual/bake/e.jpg" target="_blank"><img src="img/manual/bake/e.jpg" width="200px"/></a></p></li>
+<li><p><code>Bent Normal (DXR, VKRT)</code>: Bake the normals indicating the least occluded direction for a point.
+<br/><a href="img/manual/bake/c.jpg" target="_blank"><img src="img/manual/bake/c.jpg" width="200px"/></a></p></li>
+<li><p><code>Thickness (DXR, VKRT)</code>: Bake mesh thickness. Works similar to AO baker, but uses flipped normals.
+<br/><a href="img/manual/bake/d.jpg" target="_blank"><img src="img/manual/bake/d.jpg" width="200px"/></a></p></li>
+<li><p><code>Normal</code>: Bake normal map from high-poly mesh.</p></li>
+<li><p><code>Object Normal</code>: Bake object-space normals encoded into (0-1) range.</p></li>
+<li><p><code>Height</code>: Bake height map from high-poly mesh.</p></li>
+<li><p><code>Derivative</code>: Bake derivative normals from high-poly mesh. <em>wip</em></p></li>
+<li><p><code>Position</code>: Bake object-space positions encoded into (0-1) range.</p></li>
+<li><p><code>TexCoord</code>: Bake mesh uv map.</p></li>
+<li><p><code>Material ID</code>: Bake colored material IDs.</p></li>
+<li><p><code>Object ID</code>: Bake colored object IDs.</p></li>
+<li><p><code>Vertex Color</code>: Bake vertex color data.</p></li>
+</ul>
+<blockquote>
+  <p><em>DXR</em> - This feature is powered by hardware accelerated ray-tracing using DXR and Direct3D12, available in experimental <a href="https://github.com/armory3d/armorpaint/blob/master/Assets/readme/readme_dxr.txt">ArmorPaintDXR</a> builds.</p>
+  <p><em>VKRT</em> - This feature is powered by hardware accelerated ray-tracing using VKRT and Vulkan, available in experimental <a href="https://github.com/armory3d/armorpaint/blob/master/Assets/readme/readme_vkrt.txt">ArmorPaintVKRT</a> builds.</p>
+  <p>Use <code>AO</code> baker with small <code>Radius</code> to bake <code>Cavity</code>.</p>
+  <p>Use <code>Curvature</code> baker to create dirt masks.
+  <br/><a href="img/manual/curvature.jpg" target="_blank"><img src="img/manual/curvature.jpg" width="200px"/></a></p>
+</blockquote>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="workspaces">Workspaces</h1>
+<p><img src="img/manual/e.jpg" alt="" /></p>
+<p>Select workspace tab from the header bar:</p>
+<ul>
+<li><code>Paint</code>: Texture painting.</li>
+<li><code>Material</code>: Material composition.</li>
+<li><code>Bake</code>: Texture baking.</li>
+</ul>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="preferences">Preferences</h1>
+<p><img src="img/manual/g.jpg" alt="" /></p>
+<p>Click <code>Menu bar - Edit - Preferences...</code> to show the preferences window.</p>
+<h4 id="interface">Interface</h4>
+<ul>
+<li><code>Language</code>: Set localization. See <a href="https://github.com/armory3d/armorpaint/tree/master/Assets/locale">currently available translations</a>.</li>
+<li><code>UI Scale</code>: Scale up the user interface when running on high-resolution display. By default, 2X scale is applied during the first startup for high-resolution displays.</li>
+<li><code>Camera Speed</code>: Intensity of camera movements.</li>
+<li><code>Direction to Zoom</code>: Mouse / pen direction to perform camera zoom.</li>
+<li><code>Wrap Mouse</code>: Wrap mouse around view boundaries during camera control.</li>
+<li><code>Show Node Preview</code>: Draw preview of selected node inside the node editor.</li>
+<li><code>Show Asset Names</code>: Draw labels below each material, brush and texture icon.</li>
+<li>Click <code>Restore - Confirm</code> button to revert back to default settings.</li>
+<li>Click <code>Restore - Import...</code> button to import settings from older ArmorPaint version.</li>
+<li>Click <code>Reset Layout</code> button to revert all layout changes.</li>
+</ul>
+<h4 id="theme">Theme</h4>
+<ul>
+<li>Select <code>default</code> (dark) or <code>light</code> theme.</li>
+<li>Click <code>New</code> button to create custom theme.</li>
+<li>Click <code>Import</code> button to import theme from file.</li>
+<li>Click <code>Export</code> button to export theme into file.</li>
+<li>Set <code>Viewport Color</code> to draw when environment map is hidden.</li>
+<li>Set color and size of individual theme elements.</li>
+<li>Set <code>Straight</code> or <code>Curved</code> link style for node connections.</li>
+</ul>
+<h4 id="usage">Usage</h4>
+<ul>
+<li><code>Undo Steps</code>: Set the number of undo steps to keep. Using less undo steps may improve performance when running on GPU with constrained memory.</li>
+<li><code>Dilate Radius</code>: Stretch brush strokes and bake result on the uv map to prevent seams.</li>
+<li><code>Dilate</code>: instantly or once brush stroke is finished.</li>
+<li><code>Default Workspace</code>: start-up workspace.</li>
+<li><code>Default Layer Resolution</code>: for new layers.</li>
+<li><code>Cloud Server</code>: address of the S3 server used by <code>Browser tab - Cloud</code>.</li>
+<li><code>3D Cursor</code>: Enable topological warp for paint cursor with depth and angle rejection.</li>
+<li><code>Live Material Preview</code>: Update material preview immediately during node editing.</li>
+<li><code>Live Brush Preview</code>: Show brush paint preview in the viewport and 2d view.
+<br/><a href="https://www.youtube.com/watch?v=O5ccQBbKc48" target="_blank"><img src="img/manual/live_brush.jpg" width="200px"/></a></li>
+</ul>
+<h4 id="pen">Pen</h4>
+<ul>
+<li><code>Brush Radius</code>: When painting with a pen, pressure affects the radius of brush.</li>
+<li><code>Brush Hardness</code>: Pressure affects the hardness of brush.</li>
+<li><code>Brush Opacity</code>: Pressure affects the opacity of brush.</li>
+<li><code>Brush Angle</code>: Pressure affects the angle of brush.</li>
+<li><code>Sensitivity</code>: Manual pen pressure sensitivity control.</li>
+</ul>
+<blockquote>
+  <p>ArmorPaint uses <code>Windows Ink</code> API on Windows. <code>Windows Ink</code> is available on Windows 8 or newer.</p>
+  <p>When using a Wacom tablet on Windows, ensure <code>Use Windows Ink</code> option is enabled in <a href="https://armorpaint.org/manual/img/wacom.png">Wacom Tablet Properties</a>.</p>
+  <p>When using a Wacom tablet on Windows, you can rotate the viewport by assigning <code>Alt</code> + <code>Left click</code> modifier onto pen button in <a href="https://armorpaint.org/manual/img/wacom_button.png">Wacom Tablet Properties</a>.</p>
+  <p>Pen pressure is expected to work on Windows, Linux, macOS, Android and iOS.</p>
+</blockquote>
+<h4 id="viewport-1">Viewport</h4>
+<p>On faster GPUs:</p>
+<ul>
+<li>Raise <code>Super Sample</code> to 2X/4X for improved anti-aliasing.</li>
+<li>Enable <code>Voxel AO</code> for cone-traced ambient occlusion and shadows (non DXR / VKRT builds).</li>
+</ul>
+<p>On slower GPUs:</p>
+<ul>
+<li>Disable <code>SSAO (screen-space ambient occlusion)</code> for improved performance.</li>
+</ul>
+<p>Additional options:</p>
+<ul>
+<li>Set <code>Path Tracer</code> mode: <code>Core</code> for performance, <code>Full</code> for features. (DXR / VKRT builds)</li>
+<li>Set clipping values with <code>Clip Start</code> and <code>Clip End</code>.</li>
+<li>Enable <code>SSR</code> for screen-space reflections.</li>
+<li>Enable <code>Bloom</code>.</li>
+<li>Set <code>Vignette</code> intensity.</li>
+<li>Set <code>Displacement Strength</code> applied by height channel in the viewport.</li>
+</ul>
+<h4 id="keymap">Keymap</h4>
+<p>Select an existing preset or define custom keyboard shortcuts.</p>
+<ul>
+<li>Use <code>left</code>, <code>middle</code>, <code>right</code> handles to reference mouse buttons / pen.</li>
+<li>Use <code>+</code> character to reference multiple keys: ie. <code>ctrl+1</code>.</li>
+<li>Click <code>Import</code> button to import keymap from file.</li>
+<li>Click <code>Export</code> button to export keymap into file.</li>
+</ul>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="plugins">Plugins</h1>
+<p><img src="img/manual/h.jpg" alt="" /></p>
+<p>Press <code>Plugins tab - Manager</code> to open the plugin manager.</p>
+<ul>
+<li>Click <code>Import</code> to install a new plugin from <code>.js</code>, <code>.wasm</code> or <code>.zip</code> file.</li>
+<li>Click <code>New</code> to create a new hello-world plugin.</li>
+<li>Enable desired plugins from the list.</li>
+<li>Right-click onto plugin name to expose plugin operations:</li>
+<li><code>Export</code> plugin file for distribution.</li>
+<li><code>Edit</code> plugin in a text editor.</li>
+<li><code>Delete</code> plugin.</li>
+<li>Controls for enabled plugins are displayed in the <code>Plugins tab</code>.</li>
+<li>Some plugins may not expose controls but add new import / export file formats.</li>
+</ul>
+<h4 id="livelink">Live-Link</h4>
+<p>Live-link plugins are currently in development:</p>
+<ul>
+<li><a href="https://github.com/armory3d/armorpaint_unreal">Unreal</a></li>
+<li><a href="https://github.com/armory3d/armorpaint_unity">Unity</a></li>
+<li><a href="https://github.com/armory3d/armorpaint_blender">Blender</a></li>
+</ul>
+<h4 id="plugindevelopment">Plugin Development</h4>
+<p>Plugins are written in <code>JavaScript</code> or <code>WebAssembly</code> (compiled from <code>C</code>, <code>Rust</code>, ..). For a minimal example, see the <a href="https://github.com/armory3d/armorpaint/tree/master/Assets/plugins">bundled</a> <code>hello_world.js</code> file located in the <code>ArmorPaint/data/plugins</code> folder.</p>
+<p>A <a href="https://github.com/armory3d/armorpaint/wiki/Plugins">plugin development guide</a> will be provided soon.</p>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="faq">FAQ</h1>
+<h4 id="facesaremissingontheimportedmesh">Faces are missing on the imported mesh</h4>
+<p>The missing faces are likely caused by inverted normals &amp; backface culling. Reversing normals for the affected faces should resolve the issue.</p>
+<p>There is also a way to disable backface culling in ArmorPaint at <code>Menu bar - Viewport - Cull Backfaces</code>, however it may cause issues with lighting due to normals pointing in the opposite direction.</p>
+<p>If the issue persists, triangulating the mesh before importing it to ArmorPaint might help.</p>
+<h4 id="meshgetspaintedonmultipleplacesatonce">Mesh gets painted on multiple places at once</h4>
+<p>Make sure the UV map has no overlapping faces. It can be resolved by unwrapping the mesh so that each face occupies unique space on the UV map, or using multiple layers to paint objects with <a href="https://www.youtube.com/watch?v=ocIPd6sgQBs&list=PLsoJIZPOq9_r2aciBXDB0VBo3Z0lTI2En&index=22">multiple UV sets</a>.</p>
+<p>Simple meshes can be unwrapped directly in ArmorPaint via the <code>uv_unwrap</code> plugin.</p>
+<h4 id="blackspotsappearontheimportedmesh">Black spots appear on the imported mesh</h4>
+<p>Make sure all mesh faces are present on the UV map.</p>
+<p><br/><br/><br/><br/><br/></p>
+      <!------------------------------------->
+
+      </div>
+
+      <!------------------------------------->
+
+      <footer class="container py-5">
+        <div class="row">
+          <div class="col-12 col-md pb-4">
+            <a href="https://armorpaint.org/"><img class='col-3 col-md-6 img-fluid rounded' src="img/Logo.png"/></a>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Projects</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="link-secondary text-decoration-none" href="https://armorpaint.org/">ArmorPaint</a></li>
+              <li><a class="link-secondary text-decoration-none" href="https://armorlab.org/">ArmorLab</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Social</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="link-secondary text-decoration-none" href="https://twitter.com/armory3d">Twitter</a></li>
+              <li><a class="link-secondary text-decoration-none" href="https://youtube.com/c/armory3d">YouTube</a></li>
+              <li><a class="link-secondary text-decoration-none" href="https://artstation.com/armory">ArtStation</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Links</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="link-secondary text-decoration-none" href="https://github.com/armory3d/armortools">GitHub</a></li>
+              <li><a class="link-secondary text-decoration-none" href="https://github.com/armory3d/armortools/issues">Tracker</a></li>
+              <li><a class="link-secondary text-decoration-none" href="https://armorpaint.org/notes">Release Notes</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="link-secondary text-decoration-none" href="https://armorpaint.org/community">Contact</a></li>
+              <li><a class="link-secondary text-decoration-none" href="https://armorpaint.org/privacy">Privacy</a></li>
+              <li><a class="link-secondary text-decoration-none" href="https://github.com/armory3d/armortools/blob/main/LICENSE.md">License</a></li>
+            </ul>
           </div>
         </div>
-
-        <div class="uk-navbar-right uk-margin-right">
-          <ul class="uk-navbar-nav uk-text-capitalize">
-            <li><a href="index.html">home</a></li>
-            <li><a href="news.html">news</a></li>
-            <li><a href="manual.html">manual</a></li>
-            <li><a href="howto.html">how to</a></li>
-            <li><a href="community.html">community</a></li>
-            <li><a href="cloud.html">cloud</a></li>
-          </ul>
-          <a class="uk-button uk-button-default" href="download.html">download</a>
-        </div>
-      </nav>
-    </div>
-  </div>
-
-  <!-- mobile nav-->
-  <div class="uk-background-secondary uk-light uk-hidden@l uk-position-fixed uk-position-bottom-left uk-width-1-1" style="z-index: 980; border:0;" uk-sticky-fixed>
-    <button class="uk-button uk-button-default uk-width-1-1" style="border:0;" type="button" uk-toggle="target: #offcanvas-slide">
-              <span uk-icon="icon: menu"></span> MENU</button>
-  </div>
-  <div id="offcanvas-slide" uk-offcanvas="bg-close: true">
-    <div class="uk-offcanvas-bar">
-      <button class="uk-offcanvas-close" type="button" uk-close></button>
-      <ul class="uk-nav uk-nav-default uk-text-uppercase">
-        <li><a href="index.html">home</a></li>
-        <li><a href="news.html">news</a></li>
-        <li><a href="manual.html">manual</a></li>
-        <li><a href="howto.html">howto</a></li>
-        <li><a href="community.html">community</a></li>
-        <li><a href="cloud.html">cloud</a></li>
-        <li><a href="download.html">download</a></li>
-        <hr>
-        <li><a href="https://armorlab.org/">armorlab</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <iframe class="manual-container" src="https://armorpaint.org/manual/#/"></iframe>
-
-  <!-- UIkit JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit.min.js" integrity="sha256-2O4R+j0Pq+XLeUlXkPznJ0HrSkHA9keocNhV+csu6Zo=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit-icons.min.js" integrity="sha256-w38UjohynFpNOMjhZJ/oUIo/Md7D4tpQQJri5qDDTlE=" crossorigin="anonymous"></script>
-</body>
+      </footer>
+    </main>
+    <script src="css/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
