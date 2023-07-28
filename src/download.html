@@ -158,7 +158,6 @@
       let _onclick = document.getElementById('buy_button').onclick;
       document.getElementById('buy_button').onclick = function() {
         _onclick();
-        $.get("https://server.armorpaint.org/cart_armorpaint.html", function(data) {});
         var req = new XMLHttpRequest();
         req.onreadystatechange = function() {};
         req.open("GET", "https://server.armorpaint.org/cart_armorpaint.html", true);
