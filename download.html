@@ -267,11 +267,11 @@
       </div>
 
       <script type="text/javascript">
-      var req = new XMLHttpRequest();
-      req.onreadystatechange = function() {
-          if (req.readyState == XMLHttpRequest.DONE) {
-             if (req.status == 200) {
-                var data = JSON.parse(req.responseText);
+      var reqDownload = new XMLHttpRequest();
+      reqDownload.onreadystatechange = function() {
+          if (reqDownload.readyState == XMLHttpRequest.DONE) {
+             if (reqDownload.status == 200) {
+                var data = JSON.parse(reqDownload.responseText);
                 var s = data.version + '';
                 var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
                 var year = s[0] + s[1];
@@ -285,16 +285,16 @@
              }
           }
       };
-      req.open("GET", "https://server.armorpaint.org/armorpaint.html", true);
-      req.send();
+      reqDownload.open("GET", "https://server.armorpaint.org/armorpaint.html", true);
+      reqDownload.send();
 
       let _onclick = document.getElementById('buy_button').onclick;
       document.getElementById('buy_button').onclick = function() {
         _onclick();
-        var req = new XMLHttpRequest();
-        req.onreadystatechange = function() {};
-        req.open("GET", "https://server.armorpaint.org/cart_armorpaint.html", true);
-        req.send();
+        var reqDownload = new XMLHttpRequest();
+        reqDownload.onreadystatechange = function() {};
+        reqDownload.open("GET", "https://server.armorpaint.org/cart_armorpaint.html", true);
+        reqDownload.send();
 
       }
       </script>
