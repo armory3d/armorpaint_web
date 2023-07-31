@@ -36,7 +36,7 @@ Latest builds can be downloaded through your [Gumroad Library](https://gumroad.c
 
 # Get Started
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/OWL69vBLRHc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div style="height:300px"><iframe style="top:0;left:0;width:100%;height:100%;max-width:560px;" src="https://www.youtube.com/embed/OWL69vBLRHc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 #### Windows
 
@@ -512,7 +512,7 @@ Set viewport render mode in `Menu bar - Mode`.
 - Available in ArmorPaintDXR and ArmorPaintVKRT builds (see [dxr requirements](https://github.com/armory3d/armorpaint/blob/master/Assets/readme/readme_dxr.txt) and [vkrt requirements](https://github.com/armory3d/armorpaint/blob/master/Assets/readme/readme_vkrt.txt)).
 - The renderer favors performance.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/uQb-LOJdYrE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div style="height:300px"><iframe style="top:0;left:0;width:100%;height:100%;max-width:560px;" src="https://www.youtube.com/embed/uQb-LOJdYrE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 #### Camera
 
