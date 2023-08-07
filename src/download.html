@@ -67,10 +67,11 @@
                 game: "armorpaint"
               });
             </script>
-            <script src="css/bootstrap.bundle.min.js"></script>
             <script type="text/javascript">
-              const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-              const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+              window.onload = () => {
+                const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+                const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+              };
             </script>
           </div>
 
@@ -116,7 +117,7 @@
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">Latest Release</h1>
             <p class="lead">Version: <span id="spanversion">...</span></p>
             <p class="lead">Updated: <span id="spanupdated">...</span></p>
-            <p class="lead"><a href="https://armorpaint.org/notes.html">What's New</a></p>
+            <p class="lead"><a href="https://armorpaint.org/notes">What's New</a></p>
             <p>🖌🎨</p>
           </div>
         </div>
