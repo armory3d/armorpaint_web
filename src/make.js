@@ -36,7 +36,8 @@ writeManual('manual.html', 'manual_header.html', 'manual_footer.html', '../manua
 	`;
 	let icon_folders = [
 		'../../armorpaint_cloud/public/cloud/materials/procedural',
-		'../../armorpaint_cloud/public/cloud/materials/scanned',
+		'../../armorpaint_cloud/public/cloud/materials/armorlab',
+		'../../armorpaint_cloud/public/cloud/materials/polyhaven',
 		'../../armorpaint_cloud/public/cloud/materials/ambientcg/approximated',
 		'../../armorpaint_cloud/public/cloud/materials/ambientcg/multiangle',
 		'../../armorpaint_cloud/public/cloud/materials/ambientcg/photogrammetry',
@@ -45,7 +46,7 @@ writeManual('manual.html', 'manual_header.html', 'manual_footer.html', '../manua
 		'../../armorpaint_cloud/public/cloud/decals/ambientcg',
 		'../../armorpaint_cloud/public/cloud/brushes',
 		'../../armorpaint_cloud/public/cloud/hdri/ambientcg',
-		'../../armorpaint_cloud/public/cloud/hdri/hdrihaven',
+		'../../armorpaint_cloud/public/cloud/hdri/polyhaven',
 		'../../armorpaint_cloud/public/cloud/meshes'
 	];
 	for (folder of icon_folders) {
