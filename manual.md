@@ -1,18 +1,18 @@
 # Welcome
 
-*Version [0.8](https://github.com/armory3d/armorpaint_web/tree/main/manual.md)*
+*Version [0.9](https://github.com/armory3d/armorpaint_web/tree/main/manual.md)*
 
 ![](img/manual/title.jpg)
 
 ArmorPaint is a stand-alone software designed for physically-based texture painting. Drag & drop your 3D models and start painting. Receive instant visual feedback in the viewport as you paint.
 
-> The preview version has many rough edges and the experience may be frustrating.
+> The alpha version has many rough edges and the experience may be frustrating.
 
 ---
 
 # Download
 
-**Windows** and **Linux** is recommended. Experimental **macOS**, **iPadOS** and **Android** builds are also provided. On desktop, ArmorPaint is a portable application with no installation - just unpack and run.
+**Windows (10 or newer)**, **Linux** or **macOS (apple silicion)** is recommended. Experimental **iOS** and **Android** builds are also provided. On desktop, ArmorPaint is a portable application with no installation - just unpack and run.
 
 > [Get ArmorPaint](https://armorpaint.org/download.html)
 
@@ -24,7 +24,7 @@ Painting process in ArmorPaint runs on the GPU and the performance mainly depend
 
 #### Updating
 
-Latest builds can be downloaded through your [Gumroad Library](https://gumroad.com/library). Alternatively, use the original email sent by Gumroad to access the download page.
+Latest builds can be downloaded through your [Gumroad Library](https://gumroad.com/library) or [Itch Library](https://itch.io/my-purchases). Alternatively, use the original email sent by Gumroad to access the download page.
 
 > In ArmorPaint, press `Help - Check for Updates...` to check if newer build is available.
 
@@ -50,7 +50,7 @@ Unpack downloaded archive and run `ArmorPaint`. In some cases, you may need to o
 
 Unpack downloaded archive and run `ArmorPaint.app`.
 
-#### iPadOS
+#### iOS
 
 *Experimental:* Available on the [AppStore](https://apps.apple.com/us/app/armorpaint/id1533967534).
 
@@ -80,7 +80,7 @@ Unpack downloaded archive and run `ArmorPaint.app`.
 
 #### Import Meshes
 
-Drag and drop unwrapped `.obj` file into the viewport. This will replace the currently painted mesh. `.fbx`, `.blend`, `.stl`, `.gltf` and `.glb` files are supported, but the importer is not 100% reliable yet.
+Drag and drop unwrapped `.obj` file into the viewport. This will replace the currently painted mesh. `.fbx`, `.blend`, `.stl`, `.gltf` and `.glb` files are supported, but the importer is not 100% reliable yet. Up to ~4GB `.obj` files are supported.
 
 In the `Import Mesh` dialog:
 - Set `Split By` combo to `UDIM Tile` to parse imported `.obj` mesh into UDIM tiles.
@@ -263,14 +263,25 @@ Select `Clone`(`L`) tool from toolbar. Hold `ALT` to set clone source location. 
 
 ![](img/manual/tool_blur.png)
 
-Select `Blur`(`U`) tool from toolbar. Use `left mouse button` / `pen` to smudge the material applied to the surface.
+Select `Blur`(`U`) tool from toolbar. Use `left mouse button` / `pen` to blur the material applied to the surface.
 
 - `Radius`: Brush size.
 - `Opacity`: Overall opacity of the brush stroke.
 - `Blending`: Blending mode used for painting.
 - `X-Ray`: Paint through mesh faces.
 - `Symmetry`: Mirror brush strokes on the X, Y and/or Z axis.
-- `Directional`: Perform a smear / smudge.
+
+#### Smudge
+
+![](img/manual/tool_smudge.png)
+
+Select `Smudge`(`M`) tool from toolbar. Use `left mouse button` / `pen` to smudge / smear the material applied to the surface.
+
+- `Radius`: Brush size.
+- `Opacity`: Overall opacity of the brush stroke.
+- `Blending`: Blending mode used for painting.
+- `X-Ray`: Paint through mesh faces.
+- `Symmetry`: Mirror brush strokes on the X, Y and/or Z axis.
 
 #### Particle *wip*
 
@@ -288,7 +299,7 @@ Select `Particle`(`P`) tool from toolbar. Use `left mouse button` / `pen` to app
 
 ![](img/manual/tool_bake.png)
 
-Select `Bake`(`K`) workspace from the header bar. Pick bake mode, then click the `Bake` button or press and hold `left mouse button` / `pen` in viewport to apply bake into the base color channel of active layer or mask. For ray-traced bake modes, multiple samples (set via the `Samples` option) will get accumulated until the operation is complete.
+Select `Bake`(`K`) tool from toolbar. Pick bake mode, then click the `Bake` button or press and hold `left mouse button` / `pen` in viewport to apply bake into the base color channel of active layer or mask. For ray-traced bake modes, multiple samples (set via the `Samples` option) will get accumulated until the operation is complete.
 
 > See [Baking](https://armorpaint.org/manual/#/?id=baking) to learn about bake modes.
 
@@ -306,6 +317,12 @@ Select `Picker`(`V`) tool from toolbar. Press `left mouse button` / `pen` in vie
 
 - `Select Material`: When enabled, the material you pick from the mesh surface will also get auto-selected in the `Materials tab`.
 - `Mask`: When set to `Material`, all drawing operations will be restricted to the surface where picked material is painted.
+
+#### Material
+
+![](img/manual/tool_material.png)
+
+Select `Material` tool from toolbar. A live material preview will be displayed in the viewport, allowing for easier material creation.
 
 <br/><br/><br/><br/><br/>
 
@@ -338,7 +355,7 @@ Right-click onto material preview to expose material operations:
 
 > See [Import Materials](https://armorpaint.org/manual/#/?id=import-materials).
 
-> See currently implemented [material nodes](https://github.com/armory3d/armorbase/blob/main/Sources/arm/shader/NodesMaterial.hx).
+> See currently implemented [material nodes](https://github.com/armory3d/armortools/blob/main/base/Sources/arm/shader/NodesMaterial.hx).
 
 > Use `Swatches tab` to save and load color sets.
 
@@ -366,7 +383,7 @@ Right-click onto brush preview to expose brush operations:
 
 > Brushes can be imported from `.arm` files by clicking `Brushes tab - Import`.
 
-> See currently implemented [brush nodes](https://github.com/armory3d/armorpaint/tree/master/Sources/arm/node/brush).
+> See currently implemented [brush nodes](https://github.com/armory3d/armortools/tree/main/base/Sources/arm/logic).
 
 #### Brush Mask
 
@@ -505,11 +522,13 @@ Set viewport parameters in `Menu bar - Viewport`.
 Set viewport render mode in `Menu bar - Mode`.
 - Pick `Lit` to draw viewport with applied lighting using the rasterizer.
 - Pick specific channel to visualize it with no applied lighting.
-- Pick `Path Traced` to draw viewport with interactive path-tracer. (*[ArmorPaintDXR](https://github.com/armory3d/armorpaint/blob/master/Assets/readme/readme_dxr.txt) and [ArmorPaintVKRT](https://github.com/armory3d/armorpaint/blob/master/Assets/readme/readme_vkrt.txt) builds*)
+- Pick `Path Traced` to draw viewport with interactive path-tracer. (*[ArmorPaintDXR](https://github.com/armory3d/armortools/blob/main/armorpaint/Assets/readme/readme_dxr.txt), [ArmorPaintVKRT](https://github.com/armory3d/armortools/blob/main/armorpaint/Assets/readme/readme_vkrt.txt) and Metal builds*)
 
 #### Path Traced Viewport *wip*
 
-- Available in ArmorPaintDXR and ArmorPaintVKRT builds (see [dxr requirements](https://github.com/armory3d/armorpaint/blob/master/Assets/readme/readme_dxr.txt) and [vkrt requirements](https://github.com/armory3d/armorpaint/blob/master/Assets/readme/readme_vkrt.txt)).
+- Available in ArmorPaintDXR and ArmorPaintVKRT builds (see [dxr requirements](https://github.com/armory3d/armortools/blob/main/armorpaint/Assets/readme/readme_dxr.txt) and [vkrt requirements](https://github.com/armory3d/armortools/blob/main/armorpaint/Assets/readme/readme_vkrt.txt)).
+- Available on macOS with apple silicion.
+- Available on iOS with Apple M1 or newer.
 - The renderer favors performance.
 
 <div style="height:300px"><iframe style="top:0;left:0;width:100%;height:100%;max-width:560px;" src="https://www.youtube.com/embed/uQb-LOJdYrE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
@@ -538,9 +557,9 @@ Set camera parameters in `Menu bar - Camera`:
 
 ![](img/manual/i.jpg)
 
-Select [Bake workspace](https://armorpaint.org/manual/#/?id=bake) from the header bar.
+Select [Bake tool](https://armorpaint.org/manual/#/?id=bake) from the toolbar.
 
-- `AO (DXR, VKRT)`: Bake ambient occlusion. `Strength`, `Radius` and `Offset` can be configured.
+- `AO (DXR, VKRT, Metal)`: Bake ambient occlusion. `Strength`, `Radius` and `Offset` can be configured.
 <br/><a href="img/manual/bake/a.jpg" target="_blank"><img src="img/manual/bake/a.jpg" width="200px"/></a>
 
 
@@ -548,15 +567,15 @@ Select [Bake workspace](https://armorpaint.org/manual/#/?id=bake) from the heade
 <br/><a href="img/manual/bake/b.jpg" target="_blank"><img src="img/manual/bake/b.jpg" width="200px"/></a>
 
 
-- `Lightmap (DXR, VKRT)`: Bake irradiance from the environment.
+- `Lightmap (DXR, VKRT, Metal)`: Bake irradiance from the environment.
 <br/><a href="img/manual/bake/e.jpg" target="_blank"><img src="img/manual/bake/e.jpg" width="200px"/></a>
 
 
-- `Bent Normal (DXR, VKRT)`: Bake the normals indicating the least occluded direction for a point.
+- `Bent Normal (DXR, VKRT, Metal)`: Bake the normals indicating the least occluded direction for a point.
 <br/><a href="img/manual/bake/c.jpg" target="_blank"><img src="img/manual/bake/c.jpg" width="200px"/></a>
 
 
-- `Thickness (DXR, VKRT)`: Bake mesh thickness. Works similar to AO baker, but uses flipped normals.
+- `Thickness (DXR, VKRT, Metal)`: Bake mesh thickness. Works similar to AO baker, but uses flipped normals.
 <br/><a href="img/manual/bake/d.jpg" target="_blank"><img src="img/manual/bake/d.jpg" width="200px"/></a>
 
 
@@ -572,9 +591,11 @@ Select [Bake workspace](https://armorpaint.org/manual/#/?id=bake) from the heade
 
 
 
-> *DXR* - This feature is powered by hardware accelerated ray-tracing using DXR and Direct3D12, available in experimental [ArmorPaintDXR](https://github.com/armory3d/armorpaint/blob/master/Assets/readme/readme_dxr.txt) builds.
+> *DXR* - This feature is powered by hardware accelerated ray-tracing using DXR and Direct3D12, available in experimental [ArmorPaintDXR](https://github.com/armory3d/armortools/blob/main/armorpaint/Assets/readme/readme_dxr.txt) builds.
 
-> *VKRT* - This feature is powered by hardware accelerated ray-tracing using VKRT and Vulkan, available in experimental [ArmorPaintVKRT](https://github.com/armory3d/armorpaint/blob/master/Assets/readme/readme_vkrt.txt) builds.
+> *VKRT* - This feature is powered by hardware accelerated ray-tracing using VKRT and Vulkan, available in experimental [ArmorPaintVKRT](https://github.com/armory3d/armortools/blob/main/armorpaint/Assets/readme/readme_vkrt.txt) builds.
+
+> *Metal* - Ray-traced baking features are available on macOS with apple silicion and iOS with Apple M1 or newer.
 
 > Use `AO` baker with small `Radius` to bake `Cavity`.
 
@@ -583,20 +604,6 @@ Select [Bake workspace](https://armorpaint.org/manual/#/?id=bake) from the heade
 
 <br/><br/><br/><br/><br/>
 
-
-
-
-
-# Workspaces
-
-![](img/manual/e.jpg)
-
-Select workspace tab from the header bar:
-- `Paint`: Texture painting.
-- `Material`: Material composition.
-- `Bake`: Texture baking.
-
-<br/><br/><br/><br/><br/>
 
 
 
@@ -610,7 +617,7 @@ Click `Menu bar - Edit - Preferences...` to show the preferences window.
 
 #### Interface
 
-- `Language`: Set localization. See [currently available translations](https://github.com/armory3d/armorpaint/tree/master/Assets/locale).
+- `Language`: Set localization. See [currently available translations](https://github.com/armory3d/armortools/tree/main/base/Assets/locale).
 - `UI Scale`: Scale up the user interface when running on high-resolution display. By default, 2X scale is applied during the first startup for high-resolution displays.
 - `Camera Speed`: Intensity of camera movements.
 - `Direction to Zoom`: Mouse / pen direction to perform camera zoom.
@@ -716,9 +723,9 @@ Live-link plugins are currently in development:
 
 #### Plugin Development
 
-Plugins are written in `JavaScript` or `WebAssembly` (compiled from `C`, `Rust`, ..). For a minimal example, see the [bundled](https://github.com/armory3d/armorpaint/tree/master/Assets/plugins) `hello_world.js` file located in the `ArmorPaint/data/plugins` folder.
+Plugins are written in `JavaScript` or `WebAssembly` (compiled from `C`, `Rust`, ..). For a minimal example, see the [bundled](https://github.com/armory3d/armortools/tree/main/armorpaint/Assets/plugins) `hello_world.js` file located in the `ArmorPaint/data/plugins` folder.
 
-A [plugin development guide](https://github.com/armory3d/armorpaint/wiki/Plugins) will be provided soon.
+A [plugin development guide](https://github.com/armory3d/armortools/wiki/Plugins) will be provided soon.
 
 <br/><br/><br/><br/><br/>
 
