@@ -735,6 +735,8 @@ A [plugin development guide](https://github.com/armory3d/armortools/wiki/Plugins
 
 # FAQ
 
+![](img/manual/e.jpg)
+
 #### Faces are missing on the imported mesh
 
 The missing faces are likely caused by inverted normals &amp; backface culling. Reversing normals for the affected faces should resolve the issue.
