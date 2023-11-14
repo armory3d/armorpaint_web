@@ -20,7 +20,7 @@ ArmorPaint is a stand-alone software designed for physically-based texture paint
 
 Painting process in ArmorPaint runs on the GPU and the performance mainly depends on a graphics card. Minimum for 4K painting is an Intel HD4000 graphics card. For 16K painting, GTX 1060/6GB or better is recommended.
 
-> See [Preferences](https://armorpaint.org/manual/#/?id=preferences) to tune performance.
+> See [Preferences](https://armorpaint.org/manual#preferences) to tune performance.
 
 #### Updating
 
@@ -301,7 +301,7 @@ Select `Particle`(`P`) tool from toolbar. Use `left mouse button` / `pen` to app
 
 Select `Bake`(`K`) tool from toolbar. Pick bake mode, then click the `Bake` button or press and hold `left mouse button` / `pen` in viewport to apply bake into the base color channel of active layer or mask. For ray-traced bake modes, multiple samples (set via the `Samples` option) will get accumulated until the operation is complete.
 
-> See [Baking](https://armorpaint.org/manual/#/?id=baking) to learn about bake modes.
+> See [Baking](https://armorpaint.org/manual#baking) to learn about bake modes.
 
 #### Color ID
 
@@ -353,7 +353,7 @@ Right-click onto material preview to expose material operations:
 
 > ArmorPaint material nodes mimick the Cycles nodes. See [Cycles nodes documentation](https://docs.blender.org/manual/en/latest/render/shader_nodes/index.html).
 
-> See [Import Materials](https://armorpaint.org/manual/#/?id=import-materials).
+> See [Import Materials](https://armorpaint.org/manual#importmaterials).
 
 > See currently implemented [material nodes](https://github.com/armory3d/armortools/blob/main/base/Sources/arm/shader/NodesMaterial.hx).
 
@@ -557,7 +557,7 @@ Set camera parameters in `Menu bar - Camera`:
 
 ![](img/manual/i.jpg)
 
-Select [Bake tool](https://armorpaint.org/manual/#/?id=bake) from the toolbar.
+Select [Bake tool](https://armorpaint.org/manual#bake) from the toolbar.
 
 - `AO (DXR, VKRT, Metal)`: Bake ambient occlusion. `Strength`, `Radius` and `Offset` can be configured.
 <br/><a href="img/manual/bake/a.jpg" target="_blank"><img src="img/manual/bake/a.jpg" width="200px"/></a>
