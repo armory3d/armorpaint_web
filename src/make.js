@@ -31,7 +31,7 @@ writeManual('manual.html', 'manual_header.html', 'manual_footer.html', '../manua
 {
 	fs.rmSync('../img/cloud', { recursive: true });
 	fs.mkdirSync('../img/cloud');
-	cloud_grid = `
+	let cloud_grid = `
 		<div style="justify-content: center; display: grid; grid-template-columns: repeat(auto-fill, 170px); max-width: 900px; margin: auto;">
 	`;
 	let icon_folders = [
@@ -49,7 +49,7 @@ writeManual('manual.html', 'manual_header.html', 'manual_footer.html', '../manua
 		'../../armorpaint_cloud/public/cloud/hdri/polyhaven',
 		'../../armorpaint_cloud/public/cloud/meshes'
 	];
-	for (folder of icon_folders) {
+	for (let folder of icon_folders) {
 		fs.readdirSync(folder).forEach(file => {
 			let isMaterial = folder.indexOf('/materials') > 0;
 			if (file.endsWith(isMaterial ? '.png' : '.jpg')) {
@@ -66,4 +66,43 @@ writeManual('manual.html', 'manual_header.html', 'manual_footer.html', '../manua
 	}
 	cloud_grid += '</div>';
 	writeHtml('cloud.html', cloud_grid);
+}
+
+// rss.xml
+{
+	let rss = `
+	<?xml version="1.0" encoding="UTF-8" ?>
+	<rss version="2.0">
+	<channel>
+		<title>ArmorPaint</title>
+		<link>https://armorpaint.org/news</link>
+		<description>3D Painting Software</description>
+	`;
+
+	let news = fs.readFileSync("news.html", "utf8");
+	let h3s = news.split(`<h3 class="fw-normal text-muted mb-3">`);
+	let items = [];
+	h3s.shift();
+	h3s.shift();
+	for (let h3 of h3s) {
+		items.push(h3.split("</h3>")[0]);
+	}
+
+	for (let item of items) {
+		rss += `
+			<item>
+	    		<title>ArmorPaint News</title>
+	    		<link>https://armorpaint.org/news</link>
+	    		<description>${item}</description>
+			</item>
+
+		`;
+	}
+
+	rss += `
+	</channel>
+	</rss>
+	`;
+
+	fs.writeFileSync('../rss.xml', rss);
 }
