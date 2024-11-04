@@ -70,8 +70,7 @@ writeManual('manual.html', 'manual_header.html', 'manual_footer.html', '../manua
 
 // rss.xml
 {
-	let rss = `
-	<?xml version="1.0" encoding="UTF-8" ?>
+	let rss = `<?xml version="1.0" encoding="UTF-8" ?>
 	<rss version="2.0">
 	<channel>
 		<title>ArmorPaint</title>
