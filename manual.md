@@ -135,6 +135,8 @@ Configure custom channel swizzling for exported textures in `Presets` tab:
 - Right-click on texture name and press `Delete` to delete texture slot.
 - `.json` file for each preset is located in the `ArmorPaint/data/presets` folder.
 
+<br/><a href="img/manual/export_preset.png" target="_blank"><img src="img/manual/export_preset.png" width="200px"/></a>
+
 Create object groups in `Atlases` tab:
 - Assign atlas number to objects
 - Multiple objects can share a single material via altas
