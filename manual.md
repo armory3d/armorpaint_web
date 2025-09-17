@@ -646,13 +646,14 @@ Click `Menu bar - Edit - Preferences...` to show the preferences window.
 
 - `Undo Steps`: Set the number of undo steps to keep. Using less undo steps may improve performance when running on GPU with constrained memory.
 - `Dilate Radius`: Stretch brush strokes and bake result on the uv map to prevent seams.
-- `Dilate`: instantly or once brush stroke is finished.
-- `Default Workspace`: start-up workspace.
-- `Default Layer Resolution`: for new layers.
-- `Cloud Server`: address of the S3 server used by `Browser tab - Cloud`.
-- `3D Cursor`: Enable topological warp for paint cursor with depth and angle rejection.
+- `Default Camera Controls`: Orbit, rotate or fly.
+- `Default Layer Resolution`: Resolution of new layers.
+- `Scene Atlas Resolution`: Used in path-traced mode when rendering objects with separate uv maps.
+- `Cloud Server`: Address of the S3 server used by `Browser tab - Cloud`.
 - `Live Material Preview`: Update material preview immediately during node editing.
 - `Live Brush Preview`: Show brush paint preview in the viewport and 2d view.
+- `Depth Reject / Angle Reject`: Depth and angle rejection for 3D cursor.
+- `GPU Inference`: Use GPU to accelerate neural node processing.
 <br/><a href="https://www.youtube.com/watch?v=O5ccQBbKc48" target="_blank"><img src="img/manual/live_brush.jpg" width="200px"/></a>
 
 #### Pen
