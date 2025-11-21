@@ -376,6 +376,83 @@ Right-click onto material preview to expose material operations:
 
 
 
+
+
+
+
+
+
+# Neural Nodes
+
+Double click on node header or click the eye icon to preview the node output. Press Run to process the selected node.
+
+#### Edit Image Node
+
+#### Image to Depth Node
+
+#### Image to Normal Map Node
+
+#### Image to PBR Node
+
+![](img/manual/node_photo_to_pbr.png)
+
+Extract base color, occlusion, roughness, normal map and height from color input. A photo image is expected as a color input.
+
+#### Inpaint Image Node
+
+![](img/manual/node_inpaint.png)
+
+Allows to paint a mask in the viewport. Outputs a texture where mask area is filled with new content.
+
+#### Text to Image Node
+
+![](img/manual/node_text_to_photo.png)
+
+Generate a photo described via text prompt.
+
+#### Tile Image Node
+
+![](img/manual/node_tiling.png)
+
+Outputs a tileable texture with removed seams from color input.
+
+#### Upscale Image Node
+
+![](img/manual/node_upscale.png)
+
+Upscales color input to the current project resolution selected in the node editor header.
+
+#### Vary Image Node
+
+![](img/manual/node_variance.png)
+
+Generates a new image variant guided with text prompt.
+
+> Check out the [gallery](https://armory3d.org/lab/gallery.html) to see nodes in action.
+
+<br/><br/><br/><br/><br/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Brushes
 
 ![](img/manual/k.jpg)
