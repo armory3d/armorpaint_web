@@ -384,51 +384,80 @@ Right-click onto material preview to expose material operations:
 
 # Neural Nodes
 
-Double click on node header or click the eye icon to preview the node output. Press Run to process the selected node.
+All neural node processing in ArmorPaint is done locally on user device. Once AI models are downloaded, internet connection is not required. A minimum of 4GB of video memory is recommended. ArmorPaint uses models published under open source licenses.
+
+Neural nodes are available on **Windows** (Vulkan, CUDA), **Linux** (Vulkan) and **macOS** (Vulkan via MoltenVK).
+
+Currently supported models:
+
+- **Stable Diffusion** *(4gb gpu memory)* - `Inpaint Image`, `Outpaint Image`, `Text to Image`, `Tile Image`, `Vary Image`
+- **Marigold** *(6gb gpu memory)* - `Image to Depth`, `Image to Normal Map`, `Image to PBR`
+- **Real-ESRGAN** *(1gb gpu memory)* - `Upscale Image`
+- **Qwen Image** *(13gb gpu memory)* - `Text to Image`
+- **Qwen Image Edit** *(13gb gpu memory)* - `Edit Image`, `Inpaint Image`, `Outpaint Image`, `Tile Image`, `Vary Image`
+- **Wan** *(10gb gpu memory)* - `Text to Image`
+
+#### Setup
+
+![](img/manual/neural/setup.png)
+
+Navigate to the `Menu bar - Edit - Preferences... - Neural` tab. Pick desired model and click the `Download` button. Once the download is completed, neural node in the material editor is ready to be used.
+
+Press `Run` on the neural node to process it. Once finished, double click on node header or click the eye icon to preview the node output.
 
 #### Edit Image Node
 
+![](img/manual/neural/neural_edit_image.png)
+
 #### Image to Depth Node
+
+![](img/manual/neural/neural_image_to_depth.png)
 
 #### Image to Normal Map Node
 
+![](img/manual/neural/neural_image_to_normal_map.png)
+
 #### Image to PBR Node
 
-![](img/manual/node_photo_to_pbr.png)
+![](img/manual/neural/neural_image_to_pbr.png)
 
 Extract base color, occlusion, roughness, normal map and height from color input. A photo image is expected as a color input.
 
 #### Inpaint Image Node
 
-![](img/manual/node_inpaint.png)
+![](img/manual/neural/neural_inpaint_image.png)
 
 Allows to paint a mask in the viewport. Outputs a texture where mask area is filled with new content.
 
+#### Outpaint Image Node
+
+![](img/manual/neural/neural_outpaint_image.png)
+
 #### Text to Image Node
 
-![](img/manual/node_text_to_photo.png)
+![](img/manual/neural/neural_text_to_image.png)
 
 Generate a photo described via text prompt.
 
 #### Tile Image Node
 
-![](img/manual/node_tiling.png)
+![](img/manual/neural/neural_tile_image.png)
 
 Outputs a tileable texture with removed seams from color input.
 
 #### Upscale Image Node
 
-![](img/manual/node_upscale.png)
+![](img/manual/neural/neural_upscale_image.png)
 
 Upscales color input to the current project resolution selected in the node editor header.
 
 #### Vary Image Node
 
-![](img/manual/node_variance.png)
+![](img/manual/neural/neural_vary_image.png)
 
 Generates a new image variant guided with text prompt.
 
-> Check out the [gallery](https://armory3d.org/lab/gallery.html) to see nodes in action.
+> Check out the [gallery](https://armorpaint.org/gallery.html) to see nodes in action.
 
 <br/><br/><br/><br/><br/>
 
