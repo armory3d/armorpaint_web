@@ -496,33 +496,38 @@
 <li><strong>Qwen Image Edit</strong> <em>(13gb gpu memory)</em> - <code>Edit Image</code>, <code>Inpaint Image</code>, <code>Outpaint Image</code>, <code>Tile Image</code>, <code>Vary Image</code></li>
 <li><strong>Wan</strong> <em>(10gb gpu memory)</em> - <code>Text to Image</code></li>
 </ul>
+<p>Neural node processing is powered by the open-source <a href="https://github.com/leejet/stable-diffusion.cpp">stable-diffusion.cpp</a> library.</p>
 <h4 id="setup">Setup</h4>
 <p><img src="img/manual/neural/setup.png" alt="" /></p>
 <p>Navigate to the <code>Menu bar - Edit - Preferences... - Neural</code> tab. Pick desired model and click the <code>Download</code> button. Once the download is completed, neural node in the material editor is ready to be used.</p>
 <p>Press <code>Run</code> on the neural node to process it. Once finished, double click on node header or click the eye icon to preview the node output.</p>
 <h4 id="editimagenode">Edit Image Node</h4>
 <p><img src="img/manual/neural/neural_edit_image.png" alt="" /></p>
+<p>Edit image connected to the color input by describing the changes via text prompt.</p>
 <h4 id="imagetodepthnode">Image to Depth Node</h4>
 <p><img src="img/manual/neural/neural_image_to_depth.png" alt="" /></p>
+<p>Extract depth map from a photo image.</p>
 <h4 id="imagetonormalmapnode">Image to Normal Map Node</h4>
 <p><img src="img/manual/neural/neural_image_to_normal_map.png" alt="" /></p>
+<p>Extract normal map from a photo image.</p>
 <h4 id="imagetopbrnode">Image to PBR Node</h4>
 <p><img src="img/manual/neural/neural_image_to_pbr.png" alt="" /></p>
 <p>Extract base color, occlusion, roughness, normal map and height from color input. A photo image is expected as a color input.</p>
 <h4 id="inpaintimagenode">Inpaint Image Node</h4>
 <p><img src="img/manual/neural/neural_inpaint_image.png" alt="" /></p>
-<p>Allows to paint a mask in the viewport. Outputs a texture where mask area is filled with new content.</p>
+<p>Paint a mask in the viewport and connect it to the mask input. Outputs a texture where mask area is filled with new content.</p>
 <h4 id="outpaintimagenode">Outpaint Image Node</h4>
 <p><img src="img/manual/neural/neural_outpaint_image.png" alt="" /></p>
+<p>Outputs a zoomed out image.</p>
 <h4 id="texttoimagenode">Text to Image Node</h4>
 <p><img src="img/manual/neural/neural_text_to_image.png" alt="" /></p>
-<p>Generate a photo described via text prompt.</p>
+<p>Generate an image described via text prompt.</p>
 <h4 id="tileimagenode">Tile Image Node</h4>
 <p><img src="img/manual/neural/neural_tile_image.png" alt="" /></p>
 <p>Outputs a tileable texture with removed seams from color input.</p>
 <h4 id="upscaleimagenode">Upscale Image Node</h4>
 <p><img src="img/manual/neural/neural_upscale_image.png" alt="" /></p>
-<p>Upscales color input to the current project resolution selected in the node editor header.</p>
+<p>Upscales color input by a factor of 4.</p>
 <h4 id="varyimagenode">Vary Image Node</h4>
 <p><img src="img/manual/neural/neural_vary_image.png" alt="" /></p>
 <p>Generates a new image variant guided with text prompt.</p>

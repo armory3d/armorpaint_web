@@ -397,6 +397,8 @@ Currently supported models:
 - **Qwen Image Edit** *(13gb gpu memory)* - `Edit Image`, `Inpaint Image`, `Outpaint Image`, `Tile Image`, `Vary Image`
 - **Wan** *(10gb gpu memory)* - `Text to Image`
 
+Neural node processing is powered by the open-source [stable-diffusion.cpp](https://github.com/leejet/stable-diffusion.cpp) library.
+
 #### Setup
 
 ![](img/manual/neural/setup.png)
@@ -409,13 +411,19 @@ Press `Run` on the neural node to process it. Once finished, double click on nod
 
 ![](img/manual/neural/neural_edit_image.png)
 
+Edit image connected to the color input by describing the changes via text prompt.
+
 #### Image to Depth Node
 
 ![](img/manual/neural/neural_image_to_depth.png)
 
+Extract depth map from a photo image.
+
 #### Image to Normal Map Node
 
 ![](img/manual/neural/neural_image_to_normal_map.png)
+
+Extract normal map from a photo image.
 
 #### Image to PBR Node
 
@@ -427,17 +435,19 @@ Extract base color, occlusion, roughness, normal map and height from color input
 
 ![](img/manual/neural/neural_inpaint_image.png)
 
-Allows to paint a mask in the viewport. Outputs a texture where mask area is filled with new content.
+Paint a mask in the viewport and connect it to the mask input. Outputs a texture where mask area is filled with new content.
 
 #### Outpaint Image Node
 
 ![](img/manual/neural/neural_outpaint_image.png)
 
+Outputs a zoomed out image.
+
 #### Text to Image Node
 
 ![](img/manual/neural/neural_text_to_image.png)
 
-Generate a photo described via text prompt.
+Generate an image described via text prompt.
 
 #### Tile Image Node
 
@@ -449,7 +459,7 @@ Outputs a tileable texture with removed seams from color input.
 
 ![](img/manual/neural/neural_upscale_image.png)
 
-Upscales color input to the current project resolution selected in the node editor header.
+Upscales color input by a factor of 4.
 
 #### Vary Image Node
 
