@@ -873,4 +873,8 @@ Simple meshes can be unwrapped directly in ArmorPaint via `Meshes tab - Edit - U
 
 Make sure all mesh faces are present on the UV map.
 
+#### Download of neural model does not start
+
+Check that the ArmorPaint connection is not blocked by a firewall or a sotfware like vmware fusion.
+
 <br/><br/><br/><br/><br/>
