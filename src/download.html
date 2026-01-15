@@ -154,8 +154,8 @@
           </div>
           <div class="col-lg-6 bg-body-tertiary rounded pt-3">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">Latest Release</h1>
-            <p class="lead">Version: <span id="spanversion">...</span></p>
-            <p class="lead">Updated: <span id="spanupdated">...</span></p>
+            <p class="lead">Version: 1.0 alpha</p>
+            <p class="lead">Updated: January 13, 2026</p>
             <p class="lead"><a href="https://armorpaint.org/notes">What's New</a></p>
             <p>🖌🎨</p>
           </div>
@@ -179,13 +179,6 @@
           if (reqDownload.readyState == XMLHttpRequest.DONE) {
              if (reqDownload.status == 200) {
                 var data = JSON.parse(reqDownload.responseText);
-                var s = data.version + '';
-                var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-                var year = s[0] + s[1];
-                var month = s[2] + s[3];
-                var day = s[4] === '0' ? s[5] : s[4] + s[5];
-                spanversion.innerHTML = "" + data.version_name + "";
-                spanupdated.innerHTML = "" + months[parseInt(month) - 1] + ' ' + day + ', 20' + year + "";
                 spansales.innerHTML = "" + data.sales.toLocaleString('en', { useGrouping: true }) + "";
              }
           }

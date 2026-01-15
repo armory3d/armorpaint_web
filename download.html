@@ -122,23 +122,10 @@
         <div class="position-relative p-5 mx-auto mx-md-5 my-5">
           <div class="p-5 mx-auto mx-md-5 my-5 bg-body-secondary rounded-3" style="--bs-bg-opacity: 0.6; width: 440px;">
             <h1 class="display-5 pb-3">Texture Your<br>3D Models<br>in <span class="text-body-emphasis">ArmorPaint</span>.</h1>
-            <a href="https://armorpaint.org/download"><button type="button" class="btn btn-primary px-4 me-sm-3">v<span id="spanversionhead">...</span></button></a>
+            <a href="https://armorpaint.org/download"><button type="button" class="btn btn-primary px-4 me-sm-3">v1.0 alpha</button></a>
           </div>
         </div>
       </header>
-      <script type="text/javascript">
-        var req = new XMLHttpRequest();
-        req.onreadystatechange = function() {
-            if (req.readyState == XMLHttpRequest.DONE) {
-               if (req.status == 200) {
-                  var data = JSON.parse(req.responseText);
-                  spanversionhead.innerHTML = "" + data.version_name + "";
-               }
-            }
-        };
-        req.open("GET", "https://server.armorpaint.org/armorpaint.html", true);
-        req.send();
-      </script>
 
       <!------------------------------------->
 
@@ -295,8 +282,8 @@
           </div>
           <div class="col-lg-6 bg-body-tertiary rounded pt-3">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">Latest Release</h1>
-            <p class="lead">Version: <span id="spanversion">...</span></p>
-            <p class="lead">Updated: <span id="spanupdated">...</span></p>
+            <p class="lead">Version: 1.0 alpha</p>
+            <p class="lead">Updated: January 13, 2026</p>
             <p class="lead"><a href="https://armorpaint.org/notes">What's New</a></p>
             <p>🖌🎨</p>
           </div>
@@ -320,13 +307,6 @@
           if (reqDownload.readyState == XMLHttpRequest.DONE) {
              if (reqDownload.status == 200) {
                 var data = JSON.parse(reqDownload.responseText);
-                var s = data.version + '';
-                var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-                var year = s[0] + s[1];
-                var month = s[2] + s[3];
-                var day = s[4] === '0' ? s[5] : s[4] + s[5];
-                spanversion.innerHTML = "" + data.version_name + "";
-                spanupdated.innerHTML = "" + months[parseInt(month) - 1] + ' ' + day + ', 20' + year + "";
                 spansales.innerHTML = "" + data.sales.toLocaleString('en', { useGrouping: true }) + "";
              }
           }
