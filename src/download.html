@@ -179,6 +179,18 @@
           if (reqDownload.readyState == XMLHttpRequest.DONE) {
              if (reqDownload.status == 200) {
                 var data = JSON.parse(reqDownload.responseText);
+                spansales.innerHTML = "" + data.sales.toLocaleString('en', { useGrouping: true }) + "";
+             }
+          }
+      };
+      reqDownload.open("GET", "https://download-page.armory3d.workers.dev/", true);
+      reqDownload.send();
+
+      var reqDownload2 = new XMLHttpRequest();
+      reqDownload2.onreadystatechange = function() {
+          if (reqDownload2.readyState == XMLHttpRequest.DONE) {
+             if (reqDownload2.status == 200) {
+                var data = JSON.parse(reqDownload2.responseText);
                 var s = data.version + '';
                 var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
                 var year = s[0] + s[1];
@@ -186,19 +198,18 @@
                 var day = s[4] === '0' ? s[5] : s[4] + s[5];
                 spanversion.innerHTML = "" + data.version_name + "";
                 spanupdated.innerHTML = "" + months[parseInt(month) - 1] + ' ' + day + ', 20' + year + "";
-                spansales.innerHTML = "" + data.sales.toLocaleString('en', { useGrouping: true }) + "";
              }
           }
       };
-      reqDownload.open("GET", "https://server.armorpaint.org/armorpaint.html", true);
-      reqDownload.send();
+      reqDownload2.open("GET", "https://header-page.armory3d.workers.dev/", true);
+      reqDownload2.send();
 
       let _onclick = document.getElementById('buy_button').onclick;
       document.getElementById('buy_button').onclick = function() {
         _onclick();
         var reqDownload = new XMLHttpRequest();
         reqDownload.onreadystatechange = function() {};
-        reqDownload.open("GET", "https://server.armorpaint.org/cart_armorpaint.html", true);
+        reqDownload.open("GET", "https://cart.armory3d.workers.dev/", true);
         reqDownload.send();
 
       }
