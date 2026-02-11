@@ -1,26 +1,21 @@
 
-      <div class="col-md-7 pt-lg-4 mx-auto" >
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <div class="col-md-7 pt-lg-4 mx-auto mt-5">
+        <ul class="nav nav-pills justify-content-center" id="myTab" role="tablist" style="position: relative; z-index: 10;">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="3d-painting-tab" data-bs-toggle="tab" data-bs-target="#tab-3d-painting" type="button" role="tab" aria-selected="true">3D PAINTING</button>
           </li>
-
           <!-- <li class="nav-item" role="presentation">
             <button class="nav-link" id="2d-painting-tab" data-bs-toggle="tab" data-bs-target="#tab-2d-painting" type="button" role="tab" aria-selected="false">2D PAINTING</button>
           </li> -->
-
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="texture-creation-tab" data-bs-toggle="tab" data-bs-target="#tab-texture-creation" type="button" role="tab" aria-selected="false">TEXTURE CREATION</button>
           </li>
-
           <!-- <li class="nav-item" role="presentation">
             <button class="nav-link" id="model-creation-tab" data-bs-toggle="tab" data-bs-target="#tab-model-creation" type="button" role="tab" aria-selected="false">MODEL CREATION</button>
           </li>
-
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="rendering-and-video-tab" data-bs-toggle="tab" data-bs-target="#tab-rendering-and-video" type="button" role="tab" aria-selected="false">RENDERING &amp; VIDEO</button>
           </li> -->
-
         </ul>
       </div>
 
@@ -33,26 +28,26 @@
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-1">
+      <div class="container col-xxl-9 py-1 fade-in">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
-          <div class="col-lg-6 bg-body-tertiary rounded pt-3">
+          <div class="col-lg-6 rounded pt-3">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">3D Painting Software</h1>
             <p class="lead">ArmorPaint is a stand-alone software designed for physically-based texture painting. Drag &amp; drop your 3D models and start painting. Receive instant visual feedback in the viewport as you paint.</p>
           </div>
           <div class="col-lg-6">
-            <img src="img/x.jpg" class="d-block mx-lg-auto img-fluid rounded" width="700" height="500" loading="lazy">
+            <img src="img/x.jpg" class="d-block mx-lg-auto img-fluid rounded shadow-lg" width="700" height="500" loading="lazy">
           </div>
         </div>
       </div>
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-5">
+      <div class="container p-5 fade-in bg-body-tertiary rounded">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
           <div class="col-lg-6">
-            <img src="img/2.jpg" class="d-block mx-lg-auto img-fluid rounded" width="700" height="500" loading="lazy">
+            <img src="img/2.jpg" class="d-block mx-lg-auto img-fluid rounded shadow-lg" width="700" height="500" loading="lazy">
           </div>
-          <div class="col-lg-6 bg-body-tertiary rounded pt-3">
+          <div class="col-lg-6 rounded">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">Node Based</h1>
             <p class="lead">Work fast with the convenience of nodes. Paint with fully procedural materials. Build fill layers with material nodes. Use brush nodes to create patterns and procedural brushes.</p>
           </div>
@@ -61,14 +56,29 @@
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-5">
+      <div class="container-fluid px-0 my-5 position-relative fade-in">
+        <img src="img/gallery/_/c.jpg"
+            class="w-100"
+            alt="Edge Wear"
+            style="height: 520px; object-fit: cover;">
+        <div class="position-absolute top-50 start-50 translate-middle text-center w-100">
+          <h2 class="display-4 fw-bold text-white mb-0"
+              style="text-shadow: 0 4px 20px rgba(0,0,0,0.7);">
+            Edge Wear
+          </h2>
+        </div>
+      </div>
+
+      <!------------------------------------->
+
+      <div class="container col-xxl-9 py-5 fade-in">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
-          <div class="col-lg-6 bg-body-tertiary rounded pt-3">
+          <div class="col-lg-6 rounded pt-3">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">GPU Accelerated</h1>
             <p class="lead">ArmorPaint is designed from scratch to run completely on the GPU. This results in a smooth 4K painting experience on a medium-power integrated hardware. Up to 16K texture painting is seamless using a high-end graphics card.</p>
           </div>
           <div class="col-lg-6">
-             <div class="d-block mx-lg-auto img-fluid rounded"  loading="lazy">
+             <div class="d-block mx-lg-auto img-fluid rounded shadow-lg"  loading="lazy">
               <iframe class="rounded" width="700" height="300" style="width: 100%; padding: 0" src="https://youtube.com/embed/y2slMWkVkOE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           </div>
@@ -77,56 +87,84 @@
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-5">
+      <div class="container p-5 fade-in bg-body-tertiary rounded">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
           <div class="col-lg-6">
-            <img src="img/rtbot.jpg" class="d-block mx-lg-auto img-fluid rounded" width="700" height="500" loading="lazy">
+            <img src="img/rtbot.jpg" class="d-block mx-lg-auto img-fluid rounded shadow-lg" width="700" height="500" loading="lazy">
           </div>
-          <div class="col-lg-6 bg-body-tertiary rounded pt-3">
+          <div class="col-lg-6 rounded">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">Ray Tracing</h1>
-            <p class="lead">Ray-traced baking, painting effects and viewport rendering features running on Direct3D12, Vulkan and Metal are ready for testing. ArmorPaint is powered by an in-house 3D rendering engine to achieve the best painting experience.</p>
+            <p class="lead">Ray-traced baking, painting effects and viewport rendering running on Direct3D12, Vulkan and Metal is ready. ArmorPaint is powered by an in-house 3D rendering engine to achieve the best painting experience.</p>
           </div>
         </div>
       </div>
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-5">
+      <div class="container-fluid px-0 my-5 position-relative fade-in">
+        <img src="img/gallery/u.jpg"
+            class="w-100"
+            style="height: 520px; object-fit: cover;">
+        <div class="position-absolute top-50 start-50 translate-middle text-center w-100">
+          <h2 class="display-4 fw-bold text-white mb-0"
+              style="text-shadow: 0 4px 20px rgba(0,0,0,0.7);">
+            Subsurface Scattering
+          </h2>
+        </div>
+      </div>
+
+      <!------------------------------------->
+
+      <div class="container col-xxl-9 py-5 fade-in">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
-          <div class="col-lg-6 bg-body-tertiary rounded pt-3">
+          <div class="col-lg-6 rounded pt-3">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">Live Link</h1>
-            <p class="lead">Integrate ArmorPaint into existing 3D software using the live-link plugins. Blender, Unreal Engine and Unity plugin previews are available for download.</p>
+            <p class="lead">Integrate ArmorPaint into existing 3D software using the live-link plugins. Blender, Unreal Engine and Unity plugins are available for download.</p>
           </div>
           <div class="col-lg-6">
-            <img src="img/ue4.jpg" class="d-block mx-lg-auto img-fluid rounded" width="700" height="500" loading="lazy">
+            <img src="img/ue4.jpg" class="d-block mx-lg-auto img-fluid rounded shadow-lg" width="700" height="500" loading="lazy">
           </div>
         </div>
       </div>
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-5">
+      <div class="container p-5 fade-in bg-body-tertiary rounded">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
           <div class="col-lg-6">
-            <img src="img/bake.jpg" class="d-block mx-lg-auto img-fluid rounded" width="700" height="500" loading="lazy">
+            <img src="img/bake.jpg" class="d-block mx-lg-auto img-fluid rounded shadow-lg" width="700" height="500" loading="lazy">
           </div>
-          <div class="col-lg-6 bg-body-tertiary rounded pt-3">
+          <div class="col-lg-6 rounded">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">Baking</h1>
-            <p class="lead">Bake texture maps for high-poly models instantly on your GPU. Experimental ray-tracing builds featuring hardware accelerated ray-traced baking with Direct3D12, Vulkan and Metal are available for download.</p>
+            <p class="lead">Bake texture maps for high-poly models instantly on your GPU. Hardware accelerated ray-traced baking with Direct3D12, Vulkan and Metal support is available.</p>
           </div>
         </div>
       </div>
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-5">
+      <div class="container-fluid px-0 my-5 position-relative fade-in">
+        <img src="img/gallery/b.jpg"
+            class="w-100"
+            style="height: 520px; object-fit: cover;">
+        <div class="position-absolute top-50 start-50 translate-middle text-center w-100">
+          <h2 class="display-4 fw-bold text-white mb-0"
+              style="text-shadow: 0 4px 20px rgba(0,0,0,0.7);">
+            Decal Layers
+          </h2>
+        </div>
+      </div>
+
+      <!------------------------------------->
+
+      <div class="container col-xxl-9 py-5 fade-in">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
-          <div class="col-lg-6 bg-body-tertiary rounded pt-3">
+          <div class="col-lg-6 rounded pt-3">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">Path Traced Viewport</h1>
-            <p class="lead">Paint models in a viewport with true light simulation. Experimental ray-tracing builds featuring path-traced viewport rendering with Direct3D12, Vulkan and Metal are available for download.</p>
+            <p class="lead">Paint models in a viewport with true light simulation. Path-traced viewport rendering with Direct3D12, Vulkan and Metal is available.</p>
           </div>
           <div class="col-lg-6">
-            <div class="d-block mx-lg-auto img-fluid rounded"  loading="lazy">
+            <div class="d-block mx-lg-auto img-fluid rounded shadow-lg"  loading="lazy">
               <iframe class="rounded" width="700" height="300" style="width: 100%; padding: 0" src="https://youtube.com/embed/uQb-LOJdYrE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
           </div>
@@ -135,12 +173,12 @@
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-5">
+      <div class="container p-5 fade-in bg-body-tertiary rounded">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
           <div class="col-lg-6">
-            <img src="img/plugin.jpg" class="d-block mx-lg-auto img-fluid rounded" width="700" height="500" loading="lazy">
+            <img src="img/plugin.jpg" class="d-block mx-lg-auto img-fluid rounded shadow-lg" width="700" height="500" loading="lazy">
           </div>
-          <div class="col-lg-6 bg-body-tertiary rounded pt-3">
+          <div class="col-lg-6 rounded">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">Plugins</h1>
             <p class="lead">Enhance any part of the software through plugins with super powers. Integrate new node systems or build custom material nodes.</p>
           </div>
@@ -153,25 +191,21 @@
 
 
 
-
-
-
-
       </div>
 
       <div class="tab-pane fade" id="tab-texture-creation" role="tabpanel" tabindex="0">
 
 
-      <!-- <img src="img/plugin2.jpg" class="d-block mx-lg-auto img-fluid rounded" width="700" height="500" loading="lazy"> -->
+      <!-- <img src="img/plugin2.jpg" class="d-block mx-lg-auto img-fluid rounded shadow-lg" width="700" height="500" loading="lazy"> -->
       <!-- <iframe class="rounded" width="700" height="300" style="width: 100%; padding: 0" src="https://youtube.com/embed/-PYPuZQsujs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-5">
+      <div class="container col-xxl-9 py-5 fade-in">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
           <div class="col-lg-6">
 
-            <div id="carouselExampleIndicators0" class="carousel slide carousel-fade">
+            <div id="carouselExampleIndicators0" class="carousel slide carousel-fade shadow-lg">
               <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators0" data-bs-slide-to="0" class="active" aria-current="true"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators0" data-bs-slide-to="1"></button>
@@ -220,7 +254,7 @@
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-5">
+      <div class="container col-xxl-9 py-5 fade-in">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
           <div class="col-lg-6 bg-body-tertiary rounded pt-3">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">Text to Material</h1>
@@ -228,7 +262,7 @@
           </div>
           <div class="col-lg-6">
 
-            <div id="carouselExampleIndicators1" class="carousel slide carousel-fade">
+            <div id="carouselExampleIndicators1" class="carousel slide carousel-fade shadow-lg">
               <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active" aria-current="true"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="1"></button>
@@ -269,11 +303,11 @@
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-5">
+      <div class="container col-xxl-9 py-5 fade-in">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
           <div class="col-lg-6">
 
-            <div id="carouselExampleIndicators2" class="carousel slide carousel-fade">
+            <div id="carouselExampleIndicators2" class="carousel slide carousel-fade shadow-lg">
               <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1"></button>
@@ -314,7 +348,7 @@
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-5">
+      <div class="container col-xxl-9 py-5 fade-in">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
           <div class="col-lg-6 bg-body-tertiary rounded pt-3">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">Upscale and Variance</h1>
@@ -322,7 +356,7 @@
           </div>
           <div class="col-lg-6">
 
-            <div id="carouselExampleIndicator3" class="carousel slide carousel-fade">
+            <div id="carouselExampleIndicator3" class="carousel slide carousel-fade shadow-lg">
               <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicator3" data-bs-slide-to="0" class="active" aria-current="true"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicator3" data-bs-slide-to="1"></button>
@@ -359,11 +393,11 @@
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-5">
+      <div class="container col-xxl-9 py-5 fade-in">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
           <div class="col-lg-6">
 
-            <div id="carouselExampleIndicators4" class="carousel slide carousel-fade">
+            <div id="carouselExampleIndicators4" class="carousel slide carousel-fade shadow-lg">
               <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="0" class="active" aria-current="true"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="1"></button>
@@ -406,7 +440,7 @@
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-5">
+      <div class="container col-xxl-9 py-5 fade-in">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
           <div class="col-lg-6 bg-body-tertiary rounded pt-3">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">Edit Image</h1>
@@ -414,7 +448,7 @@
           </div>
           <div class="col-lg-6">
 
-            <div id="carouselExampleIndicator5" class="carousel slide carousel-fade">
+            <div id="carouselExampleIndicator5" class="carousel slide carousel-fade shadow-lg">
               <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicator5" data-bs-slide-to="0" class="active" aria-current="true"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicator5" data-bs-slide-to="1"></button>
@@ -461,7 +495,7 @@
 
       <!------------------------------------->
 
-      <div class="col-md-6 p-lg-5 mx-auto my-5 bg-body-tertiary rounded pt-3">
+      <div class="col-md-6 p-lg-5 mx-auto my-5 bg-body-tertiary rounded pt-3 fade-in">
         <h5 class="fw-normal text-muted mb-3">All neural node processing in ArmorPaint is done locally on user device. Once AI models are downloaded, internet connection is not required. A minimum of 4GB of video memory is recommended. ArmorPaint uses models published under open source licenses. <br><a href="https://armorpaint.org/manual#neuralnodes">Check out the manual</a>.</h5>
       </div>
 
@@ -470,37 +504,11 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
       </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <div class="px-4 pt-5 my-5 text-center bg-body-tertiary">
+      <div class="px-4 pt-5 my-5 text-center bg-body-tertiary fade-in">
         <h1 class="display-4 fw-bold text-body-emphasis">Runs Everywhere</h1>
         <div class="col-lg-6 mx-auto">
           <p class="lead mb-4">ArmorPaint runs on <b>Windows</b>, <b>Linux</b>, <b>macOS</b>, <b>iOS</b> and <b>Android</b>. On desktop, ArmorPaint is a portable application with no installation, near-instant start up and download size of less than 10MB.</p>

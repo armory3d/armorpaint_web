@@ -10,41 +10,35 @@
     <meta property="og:title" content="ArmorPaint | 3D PBR Texture Painting">
     <meta property="og:description" content="ArmorPaint is a software designed for physically-based texture painting.">
     <meta property="og:image" content="https://armorpaint.org/img/x.jpg">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://armorpaint.org/">
-    <meta property="twitter:title" content="ArmorPaint | 3D PBR Texture Painting">
-    <meta property="twitter:description" content="ArmorPaint is a software designed for physically-based texture painting.">
-    <meta property="twitter:image" content="https://armorpaint.org/img/x.jpg">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
       [data-bs-theme=dark] {
-        --bs-body-bg: #1e2226;
-        --bs-body-bg-rgb: 30,34,38;
-        --bs-secondary-bg: #272c31;
-        --bs-secondary-bg-rgb: 39,44,49;
-        --bs-tertiary-bg: #272c31;
-        --bs-tertiary-bg-rgb: 39,44,49;
+        --bs-body-bg: #000;
+        --bs-body-bg-rgb: 25, 28, 32;
+        --bs-secondary-bg: #111111;
+        --bs-secondary-bg-rgb: 17, 17, 17;
+        --bs-tertiary-bg: #111111;
+        --bs-tertiary-bg-rgb: 17, 17, 17;
       }
 
       .bg-dark {
-        background-color: #1e2226 !important;
-/*        background-color: #171b1f !important;*/
+        background-color: #000 !important;
       }
 
       .btn-primary {
-        background-color: #cc334d !important;
-        border-color: #cc334d !important;
+        background-color: #cf2b43 !important;
+        border-color: #cf2b43 !important;
       }
 
       header {
         position: relative;
         background-color: black;
         overflow: hidden;
-        height: 58vh;
+        height: 60vh;
         display: block;
       }
 
-      /* header video { */
       header img {
         position: absolute;
         top: 7%;
@@ -55,76 +49,150 @@
         height: auto;
         transform: translateX(-40%) translateY(0%);
         object-fit: cover;
+        z-index: 0;
       }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .nav-pills .nav-link.active {
+        background-color: #cc334d !important;
+        color: white !important;
+      }
+
+      .glass-navbar {
+          background-color: rgba(0, 0, 0, 0.78) !important;
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          transition: background-color 0.3s ease;
+      }
+
+      .glass-hero {
+          background-color: rgba(17, 17, 17, 0.45) !important;
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      @font-face {
+        font-family: 'Satoshi';
+        src: url('css/Satoshi-Variable.woff2') format('woff2');
+        font-weight: 300 900;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --font-sans: 'Satoshi', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+
+      body, p, .lead {
+        font-weight: 400;
+      }
+
+      h1, .display-5, .display-4 {
+        font-weight: 500;
+      }
+
+      .navbar-nav .nav-link {
+        font-weight: 500;
+      }
+
+      body, h1, .display-5, .display-4, .lead, p, .nav-link, .dropdown-item, .btn, h5 {
+        font-family: var(--font-sans);
+      }
+
+      :root {
+        font-feature-settings: "ss01", "tnum";
+      }
+
+      .gallery {
+          column-count: 1;
+          column-gap: 1rem;
+          margin: 0 auto;
+          max-width: 1200px;
+      }
+      .gallery-item {
+          break-inside: avoid;
+          margin-bottom: 1rem;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .gallery-item:hover {
+          transform: scale(1.03);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      @media (min-width: 576px) {
+          .gallery { column-count: 2; }
+      }
+
     </style>
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-navbar">
       <div class="container-fluid">
-
-        <a href="https://armorpaint.org/"><img src="img/Logo.png" style="width: 50px;" class="rounded" /></a>
-
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle fw-semibold" href="#" data-bs-toggle="dropdown" aria-expanded="false">ARMORPAINT</a>
-            <ul class="dropdown-menu rounded-3 shadow">
-              <li><a class="dropdown-item rounded-2" href="https://armory3d.org/"><img src="img/armory.png" style="width: 25px;" class="rounded" /> ARMORY</a></li>
-            </ul>
-          </li>
-        </ul>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar" aria-expanded="false" aria-label="Toggle">
+        <a href="https://armorpaint.org/" class="navbar-brand me-4">
+          <img src="img/Logo.png" style="width: 50px;" class="rounded" alt="ArmorPaint">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="https://armorpaint.org">HOME</a>
+        <div class="collapse navbar-collapse justify-content-center" id="mynavbar">
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item dropdown me-4">
+              <a class="nav-link dropdown-toggle fw-semibold" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                ARMORPAINT
+              </a>
+              <ul class="dropdown-menu rounded-3 shadow">
+                <li>
+                  <a class="dropdown-item rounded-2" href="https://armory3d.org/">
+                    <img src="img/armory.png" style="width: 25px;" class="rounded" /> ARMORY
+                  </a>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://armorpaint.org/news">NEWS</a>
-            </li>
-            <!-- <li class="nav-item"> -->
-              <!-- <a class="nav-link" href="https://armorpaint.org/blog">BLOG</a> -->
-            <!-- </li> -->
-            <li class="nav-item">
-              <a class="nav-link" href="https://armorpaint.org/manual">MANUAL</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://armorpaint.org/howto">HOW TO</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://armorpaint.org/community">COMMUNITY</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://armorpaint.org/gallery">GALLERY</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://armorpaint.org/cloud">CLOUD</a>
-            </li>
-            <li>
-              <a href="https://armorpaint.org/download"><button type="button" class="btn btn-primary px-4 me-sm-3">DOWNLOAD</button></a>
+            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/news">NEWS</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/manual">MANUAL</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/howto">HOW TO</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/community">COMMUNITY</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/gallery">GALLERY</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/cloud">CLOUD</a></li>
+            <li class="nav-item ms-4">
+              <a href="https://armorpaint.org/download">
+                <button type="button" class="btn btn-primary px-4">DOWNLOAD</button>
+              </a>
             </li>
           </ul>
         </div>
-
+        <!-- Balancing dummy -->
+        <a class="navbar-brand ms-4 d-none d-lg-inline-block" style="visibility: hidden;" aria-hidden="true">
+          <img src="img/Logo.png" style="width: 50px;" class="rounded" alt="">
+        </a>
       </div>
     </nav>
-
     <main>
       <header>
         <!-- <video playsinline='' autoplay='' muted='' loop=''> -->
           <!-- <source src="img/cover.mp4" type="video/mp4" /> -->
         <!-- </video> -->
         <img src="img/cover.jpg" />
-        <div class="position-relative p-5 mx-auto mx-md-5 my-5">
-          <div class="p-5 mx-auto mx-md-5 my-5 bg-body-secondary rounded-3" style="--bs-bg-opacity: 0.6; width: 440px;">
+
+        <div class="position-relative p-5 mx-auto mx-md-5 my-5" style="z-index: 1;">
+          <div class="p-5 mx-auto mx-md-5 my-5 glass-hero rounded-3" style="width: 440px;">
             <h1 class="display-5 pb-3">Texture Your<br>3D Models<br>in <span class="text-body-emphasis">ArmorPaint</span>.</h1>
             <a href="https://armorpaint.org/download"><button type="button" class="btn btn-primary px-4 me-sm-3">v<span id="spanversionhead">...</span></button></a>
           </div>
         </div>
+
       </header>
       <script type="text/javascript">
         var req = new XMLHttpRequest();
@@ -142,9 +210,9 @@
 
       <!------------------------------------->
 
-      <div class="container col-xxl-9 py-5">
+      <div class="container col-xxl-9 py-5 fade-in">
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
-          <div class="col-lg-6 bg-body-tertiary rounded pt-3">
+          <div class="col-lg-6 rounded pt-3">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">ArmorPaint Alpha</h1>
             <p class="lead">Before proceeding, please <a href="https://armorpaint.org/manual">read the manual</a> first to know what parts need more work. The alpha version has many rough edges and the experience may be frustrating.</p>
             <p class="lead">All updates are included for free. Source code is available on <a href="https://github.com/armory3d/armortools">GitHub</a>. Thank you for enabling further ArmorPaint development!</p>
@@ -156,9 +224,9 @@
       </div>
 
 
-      <div class="col-md-7 p-lg-5 mx-auto my-5 bg-body-tertiary rounded pt-3" style="max-width: 900px;">
+      <div class="col-md-7 p-lg-5 mx-auto my-5 rounded pt-3 fade-in" style="max-width: 900px;">
 
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <ul class="nav nav-pills justify-content-center" id="myTab" role="tablist" style="position: relative; z-index: 10;">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="desktop-tab" data-bs-toggle="tab" data-bs-target="#tab-desktop" type="button" role="tab" aria-selected="true">DESKTOP</button>
           </li>
@@ -173,12 +241,22 @@
           </li>
         </ul>
 
+
+
+
+
+
+
+
+
+
+
         <div class="tab-content" id="myTabContent">
 
           <div class="tab-pane fade show active" id="tab-desktop" role="tabpanel" tabindex="0">
             <div class="bg-dark-subtle rounded p-4 m-4 mx-auto">
 
-              <img class="img-fluid rounded mb-3" src="img/widget.jpg"/>
+              <img class="img-fluid rounded mb-3 shadow-lg" src="img/widget.jpg"/>
 
               <div class="col">
               <h2 class="text-body-emphasis">ArmorPaint</h2>
@@ -208,7 +286,7 @@
               </div>
 
               <!-- <a href="https://buy.polar.sh/polar_cl_n84ljZgduv9Qr0F2X0st3iuGpQTI1Uf3RaJxX2ZuI95" data-polar-checkout data-polar-checkout-theme="dark" class="btn rounded" style="width: 100%; background: #0062ff; color: #fff"> -->
-              <a id="buy_button" class="btn rounded" style="width: 100%; background: #0062ff; color: #fff">
+              <a id="buy_button" class="btn rounded shadow-lg" style="width: 100%; background: #0062ff; color: #fff">
                 Buy - $19
                 <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
                   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
@@ -219,38 +297,40 @@
 
             </div>
 
-            <a href="https://armorpaint.org/login"><button class="btn btn-dark font-weight-normal p-3 text-muted">Already purchased</button></a>
+            <div class="text-center">
+              <a href="https://armorpaint.org/login"><button class="btn btn-dark font-weight-normal p-3 text-muted">Already purchased</button></a>
 
-            <!-- <button class="btn btn-dark font-weight-normal p-3 text-muted" id="buy_button">
-              Buy on itch.io
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-paypal" viewBox="0 0 16 16">
-                <path d="M14.06 3.713c.12-1.071-.093-1.832-.702-2.526C12.628.356 11.312 0 9.626 0H4.734a.7.7 0 0 0-.691.59L2.005 13.509a.42.42 0 0 0 .415.486h2.756l-.202 1.28a.628.628 0 0 0 .62.726H8.14c.429 0 .793-.31.862-.731l.025-.13.48-3.043.03-.164.001-.007a.35.35 0 0 1 .348-.297h.38c1.266 0 2.425-.256 3.345-.91q.57-.403.993-1.005a4.94 4.94 0 0 0 .88-2.195c.242-1.246.13-2.356-.57-3.154a2.7 2.7 0 0 0-.76-.59l-.094-.061ZM6.543 8.82a.7.7 0 0 1 .321-.079H8.3c2.82 0 5.027-1.144 5.672-4.456l.003-.016q.326.186.548.438c.546.623.679 1.535.45 2.71-.272 1.397-.866 2.307-1.663 2.874-.802.57-1.842.815-3.043.815h-.38a.87.87 0 0 0-.863.734l-.03.164-.48 3.043-.024.13-.001.004a.35.35 0 0 1-.348.296H5.595a.106.106 0 0 1-.105-.123l.208-1.32z"/>
-              </svg>
-            </button> -->
+              <!-- <button class="btn btn-dark font-weight-normal p-3 text-muted" id="buy_button">
+                Buy on itch.io
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-paypal" viewBox="0 0 16 16">
+                  <path d="M14.06 3.713c.12-1.071-.093-1.832-.702-2.526C12.628.356 11.312 0 9.626 0H4.734a.7.7 0 0 0-.691.59L2.005 13.509a.42.42 0 0 0 .415.486h2.756l-.202 1.28a.628.628 0 0 0 .62.726H8.14c.429 0 .793-.31.862-.731l.025-.13.48-3.043.03-.164.001-.007a.35.35 0 0 1 .348-.297h.38c1.266 0 2.425-.256 3.345-.91q.57-.403.993-1.005a4.94 4.94 0 0 0 .88-2.195c.242-1.246.13-2.356-.57-3.154a2.7 2.7 0 0 0-.76-.59l-.094-.061ZM6.543 8.82a.7.7 0 0 1 .321-.079H8.3c2.82 0 5.027-1.144 5.672-4.456l.003-.016q.326.186.548.438c.546.623.679 1.535.45 2.71-.272 1.397-.866 2.307-1.663 2.874-.802.57-1.842.815-3.043.815h-.38a.87.87 0 0 0-.863.734l-.03.164-.48 3.043-.024.13-.001.004a.35.35 0 0 1-.348.296H5.595a.106.106 0 0 1-.105-.123l.208-1.32z"/>
+                </svg>
+              </button> -->
 
-            <a target="_blank" href="https://armory.gumroad.com/l/armorpaint?referrer=https%3A%2F%2Farmorpaint.org%2Fdownload&wanted=true">
-            <button class="btn btn-dark font-weight-normal p-3 text-muted">Buy on Gumroad</button></a>
+              <a target="_blank" href="https://armory.gumroad.com/l/armorpaint?referrer=https%3A%2F%2Farmorpaint.org%2Fdownload&wanted=true">
+              <button class="btn btn-dark font-weight-normal p-3 text-muted">Buy on Gumroad</button></a>
 
-            <script type="text/javascript" src="https://static.itch.io/api.js"></script>
-            <script type="text/javascript">
-              Itch.attachBuyButton(document.getElementById("buy_button"), {
-                user: "armory",
-                game: "armorpaint"
-              });
-            </script>
+              <script type="text/javascript" src="https://static.itch.io/api.js"></script>
+              <script type="text/javascript">
+                Itch.attachBuyButton(document.getElementById("buy_button"), {
+                  user: "armory",
+                  game: "armorpaint"
+                });
+              </script>
 
-            <i class="me-auto text-muted" style="border-bottom: 1px dotted #666;" data-bs-toggle="tooltip" data-bs-title="desktop sales">
-              <span id="spansales">...</span> sales
-            </i>
+              <i class="me-auto text-muted" style="border-bottom: 1px dotted #666;" data-bs-toggle="tooltip" data-bs-title="desktop sales">
+                <span id="spansales">...</span> sales
+              </i>
 
-            <script type="text/javascript">
-              window.onload = () => {
-                const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-                const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
-              };
-            </script>
+              <script type="text/javascript">
+                window.onload = () => {
+                  const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+                  const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
+                };
+              </script>
 
-            <i class="text-muted"> | no questions asked refund policy</i>
+              <i class="text-muted"> | no questions asked refund policy</i>
+            </div>
 
           </div>
 
@@ -288,20 +368,11 @@
         </div>
       </div>
 
-      <div class="container col-xxl-9 py-5">
-        <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
-          <div class="col-lg-6">
-            <img src="img/a.jpg" class="d-block mx-lg-auto img-fluid rounded" width="700" height="500" loading="lazy">
-          </div>
-          <div class="col-lg-6 bg-body-tertiary rounded pt-3">
-            <h1 class="display-5 text-body-emphasis lh-1 mb-3">Latest Release</h1>
-            <p class="lead">Version: <span id="spanversion">...</span></p>
-            <p class="lead">Updated: <span id="spanupdated">...</span></p>
-            <p class="lead"><a href="https://armorpaint.org/notes">What's New</a></p>
-            <p>🖌🎨</p>
-          </div>
-        </div>
-      </div>
+      <p class="fw-normal text-muted text-center mb-5 opacity-50">
+        Latest Update: <span id="spanupdated">...</span> |
+        <a href="https://armorpaint.org/notes">What's New</a>
+        <br><br>🖌🎨
+      </p>
 
       <script type="text/javascript">
       var reqDownload = new XMLHttpRequest();
@@ -326,7 +397,6 @@
                 var year = s[0] + s[1];
                 var month = s[2] + s[3];
                 var day = s[4] === '0' ? s[5] : s[4] + s[5];
-                spanversion.innerHTML = "" + data.version_name + "";
                 spanupdated.innerHTML = "" + months[parseInt(month) - 1] + ' ' + day + ', 20' + year + "";
              }
           }
@@ -346,7 +416,6 @@
       </script>
 
       <!------------------------------------->
-
       <footer class="container py-5">
         <div class="row">
           <div class="col-12 col-md pb-4">
@@ -402,5 +471,27 @@
       </footer>
     </main>
     <script src="css/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const fadeIns = document.querySelectorAll('.fade-in');
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        fadeIns.forEach((fadeIn) => {
+          observer.observe(fadeIn);
+        });
+      });
+    </script>
   </body>
 </html>

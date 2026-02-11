@@ -10,41 +10,35 @@
     <meta property="og:title" content="ArmorPaint | 3D PBR Texture Painting">
     <meta property="og:description" content="ArmorPaint is a software designed for physically-based texture painting.">
     <meta property="og:image" content="https://armorpaint.org/img/x.jpg">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://armorpaint.org/">
-    <meta property="twitter:title" content="ArmorPaint | 3D PBR Texture Painting">
-    <meta property="twitter:description" content="ArmorPaint is a software designed for physically-based texture painting.">
-    <meta property="twitter:image" content="https://armorpaint.org/img/x.jpg">
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
       [data-bs-theme=dark] {
-        --bs-body-bg: #1e2226;
-        --bs-body-bg-rgb: 30,34,38;
-        --bs-secondary-bg: #272c31;
-        --bs-secondary-bg-rgb: 39,44,49;
-        --bs-tertiary-bg: #272c31;
-        --bs-tertiary-bg-rgb: 39,44,49;
+        --bs-body-bg: #000;
+        --bs-body-bg-rgb: 25, 28, 32;
+        --bs-secondary-bg: #111111;
+        --bs-secondary-bg-rgb: 17, 17, 17;
+        --bs-tertiary-bg: #111111;
+        --bs-tertiary-bg-rgb: 17, 17, 17;
       }
 
       .bg-dark {
-        background-color: #1e2226 !important;
-/*        background-color: #171b1f !important;*/
+        background-color: #000 !important;
       }
 
       .btn-primary {
-        background-color: #cc334d !important;
-        border-color: #cc334d !important;
+        background-color: #cf2b43 !important;
+        border-color: #cf2b43 !important;
       }
 
       header {
         position: relative;
         background-color: black;
         overflow: hidden;
-        height: 58vh;
+        height: 60vh;
         display: block;
       }
 
-      /* header video { */
       header img {
         position: absolute;
         top: 7%;
@@ -55,76 +49,150 @@
         height: auto;
         transform: translateX(-40%) translateY(0%);
         object-fit: cover;
+        z-index: 0;
       }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .nav-pills .nav-link.active {
+        background-color: #cc334d !important;
+        color: white !important;
+      }
+
+      .glass-navbar {
+          background-color: rgba(0, 0, 0, 0.78) !important;
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          transition: background-color 0.3s ease;
+      }
+
+      .glass-hero {
+          background-color: rgba(17, 17, 17, 0.45) !important;
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      @font-face {
+        font-family: 'Satoshi';
+        src: url('css/Satoshi-Variable.woff2') format('woff2');
+        font-weight: 300 900;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --font-sans: 'Satoshi', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
+
+      body, p, .lead {
+        font-weight: 400;
+      }
+
+      h1, .display-5, .display-4 {
+        font-weight: 500;
+      }
+
+      .navbar-nav .nav-link {
+        font-weight: 500;
+      }
+
+      body, h1, .display-5, .display-4, .lead, p, .nav-link, .dropdown-item, .btn, h5 {
+        font-family: var(--font-sans);
+      }
+
+      :root {
+        font-feature-settings: "ss01", "tnum";
+      }
+
+      .gallery {
+          column-count: 1;
+          column-gap: 1rem;
+          margin: 0 auto;
+          max-width: 1200px;
+      }
+      .gallery-item {
+          break-inside: avoid;
+          margin-bottom: 1rem;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .gallery-item:hover {
+          transform: scale(1.03);
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+      @media (min-width: 576px) {
+          .gallery { column-count: 2; }
+      }
+
     </style>
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-navbar">
       <div class="container-fluid">
-
-        <a href="https://armorpaint.org/"><img src="img/Logo.png" style="width: 50px;" class="rounded" /></a>
-
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle fw-semibold" href="#" data-bs-toggle="dropdown" aria-expanded="false">ARMORPAINT</a>
-            <ul class="dropdown-menu rounded-3 shadow">
-              <li><a class="dropdown-item rounded-2" href="https://armory3d.org/"><img src="img/armory.png" style="width: 25px;" class="rounded" /> ARMORY</a></li>
-            </ul>
-          </li>
-        </ul>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar" aria-expanded="false" aria-label="Toggle">
+        <a href="https://armorpaint.org/" class="navbar-brand me-4">
+          <img src="img/Logo.png" style="width: 50px;" class="rounded" alt="ArmorPaint">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="https://armorpaint.org">HOME</a>
+        <div class="collapse navbar-collapse justify-content-center" id="mynavbar">
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item dropdown me-4">
+              <a class="nav-link dropdown-toggle fw-semibold" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                ARMORPAINT
+              </a>
+              <ul class="dropdown-menu rounded-3 shadow">
+                <li>
+                  <a class="dropdown-item rounded-2" href="https://armory3d.org/">
+                    <img src="img/armory.png" style="width: 25px;" class="rounded" /> ARMORY
+                  </a>
+                </li>
+              </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://armorpaint.org/news">NEWS</a>
-            </li>
-            <!-- <li class="nav-item"> -->
-              <!-- <a class="nav-link" href="https://armorpaint.org/blog">BLOG</a> -->
-            <!-- </li> -->
-            <li class="nav-item">
-              <a class="nav-link" href="https://armorpaint.org/manual">MANUAL</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://armorpaint.org/howto">HOW TO</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://armorpaint.org/community">COMMUNITY</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://armorpaint.org/gallery">GALLERY</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://armorpaint.org/cloud">CLOUD</a>
-            </li>
-            <li>
-              <a href="https://armorpaint.org/download"><button type="button" class="btn btn-primary px-4 me-sm-3">DOWNLOAD</button></a>
+            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org">HOME</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/news">NEWS</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/manual">MANUAL</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/howto">HOW TO</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/community">COMMUNITY</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/gallery">GALLERY</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/cloud">CLOUD</a></li>
+            <li class="nav-item ms-4">
+              <a href="https://armorpaint.org/download">
+                <button type="button" class="btn btn-primary px-4">DOWNLOAD</button>
+              </a>
             </li>
           </ul>
         </div>
-
+        <!-- Balancing dummy -->
+        <a class="navbar-brand ms-4 d-none d-lg-inline-block" style="visibility: hidden;" aria-hidden="true">
+          <img src="img/Logo.png" style="width: 50px;" class="rounded" alt="">
+        </a>
       </div>
     </nav>
-
     <main>
       <header>
         <!-- <video playsinline='' autoplay='' muted='' loop=''> -->
           <!-- <source src="img/cover.mp4" type="video/mp4" /> -->
         <!-- </video> -->
         <img src="img/cover.jpg" />
-        <div class="position-relative p-5 mx-auto mx-md-5 my-5">
-          <div class="p-5 mx-auto mx-md-5 my-5 bg-body-secondary rounded-3" style="--bs-bg-opacity: 0.6; width: 440px;">
+
+        <div class="position-relative p-5 mx-auto mx-md-5 my-5" style="z-index: 1;">
+          <div class="p-5 mx-auto mx-md-5 my-5 glass-hero rounded-3" style="width: 440px;">
             <h1 class="display-5 pb-3">Texture Your<br>3D Models<br>in <span class="text-body-emphasis">ArmorPaint</span>.</h1>
             <a href="https://armorpaint.org/download"><button type="button" class="btn btn-primary px-4 me-sm-3">v<span id="spanversionhead">...</span></button></a>
           </div>
         </div>
+
       </header>
       <script type="text/javascript">
         var req = new XMLHttpRequest();
@@ -142,16 +210,8 @@
 
       <!------------------------------------->
 
-      <div class="col-md-6 p-lg-5 mx-auto my-5 bg-body-tertiary rounded pt-3">
-        <h1 class="display-3 fw-bold">Gallery</h1>
-        <h3 class="fw-normal text-muted mb-3">Content created in ArmorPaint.</h3>
-      </div>
-
-
-
-
-      <div class="col-md-7 pt-lg-4 mx-auto" >
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <div class="col-md-7 pt-lg-4 mx-auto mt-5" >
+        <ul class="nav nav-pills justify-content-center" id="myTab" role="tablist" style="position: relative; z-index: 10;">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="3d-painting-tab" data-bs-toggle="tab" data-bs-target="#tab-3d-painting" type="button" role="tab" aria-selected="true">3D PAINTING</button>
           </li>
@@ -163,170 +223,111 @@
 
 
 
+      <div class="col-md-6 p-lg-5 mx-auto my-5 rounded pt-3 fade-in">
+        <h1 class="display-3 fw-bold">Gallery</h1>
+        <h3 class="fw-normal text-muted mb-3">Content created in ArmorPaint.</h3>
+      </div>
+
+
+
+
+
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="tab-3d-painting" role="tabpanel" tabindex="0">
 
 
 
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/e.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+          <div class="container my-5">
+        <div class="gallery">
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/e.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
             </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/f.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/f.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
             </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/g.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/g.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
             </div>
-          </div>
-          <!-- <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/d.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/a.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
             </div>
-          </div> -->
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/b.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/h.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/0.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/i.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/j.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/o.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/_/a.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/_/b.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/_/c.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/_/d.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/_/e.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/_/f.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/p.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/q.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/r.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/s.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/t.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/u.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+            <div class="gallery-item overflow-hidden">
+                <img src="img/gallery/v.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
+            </div>
+        </div>
+    </div>
 
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/a.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/b.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <!-- <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/c.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div> -->
 
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/h.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/0.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/i.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/j.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <!-- <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/k.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div> -->
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/o.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
 
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/_/a.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/_/b.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/_/c.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/_/d.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/_/e.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/_/f.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/p.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/q.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/r.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/s.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/t.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/u.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
-          <br>
-          <div class="overflow-hidden">
-            <div class="container">
-              <img src="img/gallery/v.jpg" class="img-fluid d-block rounded-3 mx-auto" loading="lazy">
-            </div>
-          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         </div>
 
@@ -338,8 +339,8 @@
         <div class="container col-xxl-9 py-2">
           <div class="row align-items-center g-5 py-2">
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Photo to Material</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
+
               <div id="carouselExampleIndicators18" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators18" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -362,10 +363,11 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Photo to Material</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Photo to Material</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
+
               <div id="carouselExampleIndicators19" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators19" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -388,10 +390,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Photo to Material</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Photo to Material</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators20" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators20" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -414,6 +416,7 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Photo to Material</p>
             </div>
 
           </div>
@@ -422,8 +425,7 @@
         <div class="container col-xxl-9 py-2">
           <div class="row align-items-center g-5 py-2">
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Photo to Material</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators21" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators21" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -446,10 +448,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Photo to Material</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Photo to Material</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators22" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators22" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -472,10 +474,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Photo to Material</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Photo to Material</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators23" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators23" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -498,6 +500,7 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Photo to Material</p>
             </div>
 
           </div>
@@ -506,8 +509,7 @@
         <div class="container col-xxl-9 py-2">
           <div class="row align-items-center g-5 py-2">
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Photo to Material</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators24" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators24" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -530,10 +532,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Photo to Material</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Photo to Material</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators25" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators25" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -556,10 +558,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Photo to Material</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Photo to Material</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators26" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators26" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -582,6 +584,7 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Photo to Material</p>
             </div>
 
           </div>
@@ -589,8 +592,7 @@
 
         <div class="container col-xxl-9 py-2">
           <div class="row align-items-center g-5 py-2">
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Inpaint</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators0" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators0" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -621,10 +623,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Inpaint</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Text to Photo - Pebbles</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators1" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators1" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -671,10 +673,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Text to Photo - Pebbles</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Tiling</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators2" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -701,6 +703,7 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Tiling</p>
             </div>
 
           </div>
@@ -709,8 +712,7 @@
         <div class="container col-xxl-9 py-2">
           <div class="row align-items-center g-5 py-2">
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Tiling</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators3" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators3" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -737,10 +739,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Tiling</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Upscale</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators4" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators4" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -763,10 +765,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Upscale</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Variance</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators5" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators5" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -793,6 +795,7 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Variance</p>
             </div>
 
           </div>
@@ -801,8 +804,7 @@
         <div class="container col-xxl-9 py-2">
           <div class="row align-items-center g-5 py-2">
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>PBR Textures</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators6" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators6" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -841,10 +843,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">PBR Textures</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>PBR Textures</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators7" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators7" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -883,10 +885,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">PBR Textures</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>PBR Textures</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators8" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators8" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -925,6 +927,7 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">PBR Textures</p>
             </div>
 
           </div>
@@ -933,8 +936,7 @@
         <div class="container col-xxl-9 py-2">
           <div class="row align-items-center g-5 py-2">
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Tiling</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators9" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators9" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -961,10 +963,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Tiling</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Tiling</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators10" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators10" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -991,10 +993,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Tiling</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Tiling</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators11" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators11" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -1021,6 +1023,7 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Tiling</p>
             </div>
 
           </div>
@@ -1029,8 +1032,7 @@
         <div class="container col-xxl-9 py-2">
           <div class="row align-items-center g-5 py-2">
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Text to Photo - Chain Mail</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators12" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators12" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -1057,10 +1059,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Text to Photo - Chain Mail</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Text to Photo - Fabric</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators13" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators13" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -1099,10 +1101,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Text to Photo - Fabric</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Text to Photo - Floor</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators14" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators14" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -1137,6 +1139,7 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Text to Photo - Floor</p>
             </div>
 
           </div>
@@ -1145,8 +1148,7 @@
         <div class="container col-xxl-9 py-2">
           <div class="row align-items-center g-5 py-2">
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Text to Photo - Leather</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators15" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators15" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -1177,10 +1179,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Text to Photo - Leather</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Text to Photo - Plaster</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators16" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators16" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -1211,10 +1213,10 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Text to Photo - Plaster</p>
             </div>
 
-            <div class="col-lg-3 bg-body-tertiary rounded p-2 mx-lg-5">
-              <p>Text to Photo - Wood</p>
+            <div class="col-lg-3 rounded p-2 mx-lg-5">
               <div id="carouselExampleIndicators17" class="carousel slide carousel-fade">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators17" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -1241,6 +1243,7 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <br><p style="text-align: center;">Text to Photo - Wood</p>
             </div>
 
           </div>
@@ -1250,7 +1253,6 @@
       </div>
 
       <!------------------------------------->
-
       <footer class="container py-5">
         <div class="row">
           <div class="col-12 col-md pb-4">
@@ -1306,5 +1308,27 @@
       </footer>
     </main>
     <script src="css/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const fadeIns = document.querySelectorAll('.fade-in');
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        fadeIns.forEach((fadeIn) => {
+          observer.observe(fadeIn);
+        });
+      });
+    </script>
   </body>
 </html>
