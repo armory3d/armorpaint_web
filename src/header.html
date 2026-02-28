@@ -11,7 +11,6 @@
     <meta property="og:description" content="ArmorPaint is a software designed for physically-based texture painting.">
     <meta property="og:image" content="https://armorpaint.org/img/x.jpg">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
       [data-bs-theme=dark] {
         --bs-body-bg: #000;
@@ -133,25 +132,57 @@
           .gallery { column-count: 2; }
       }
 
+      .footer-center ul {
+        padding-left: 0;
+      }
+
+      .footer-center {
+        margin-bottom: 1.5rem;
+      }
+
+      @media (min-width: 768px) {
+        .footer-center {
+          text-align: center;
+          margin-bottom: 0;
+        }
+
+        .footer-center > div {
+          display: inline-block;
+          text-align: left;
+        }
+      }
+
     </style>
   </head>
   <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top glass-navbar">
       <div class="container-fluid">
-        <a href="https://armorpaint.org/" class="navbar-brand me-4">
-          <img src="img/Logo.png" style="width: 50px;" class="rounded" alt="ArmorPaint">
-        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="mynavbar">
           <ul class="navbar-nav align-items-center">
+
+            <li> <a href="https://armorpaint.org/" class="navbar-brand me-4">
+            <img src="https://armorpaint.org/img/Logo.png" style="width: 50px;" class="rounded" alt="ArmorPaint">
+          </a></li>
+
             <li class="nav-item dropdown me-4">
               <a class="nav-link dropdown-toggle fw-semibold" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 ARMORPAINT
               </a>
               <ul class="dropdown-menu rounded-3 shadow">
+                <!-- <li>
+                  <a class="dropdown-item rounded-2" href="https://armorpaint.app/">
+                    <img src="img/Logo.png" style="width: 25px;" class="rounded" /> WEBAPP
+                  </a>
+                </li> -->
+                <li>
+                  <a class="dropdown-item rounded-2" href="https://armorpaint.org/cloud">
+                    <img src="img/Logo.png" style="width: 25px;" class="rounded" /> CLOUD
+                  </a>
+                </li>
                 <li>
                   <a class="dropdown-item rounded-2" href="https://armory3d.org/">
                     <img src="img/armory.png" style="width: 25px;" class="rounded" /> ARMORY
@@ -160,12 +191,11 @@
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="https://armorpaint.org">HOME</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/news">NEWS</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://forums.armorpaint.org/c/news">NEWS</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://forums.armorpaint.org/">FORUMS</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://forums.armorpaint.org/c/how-to">HOW TO</a></li>
             <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/manual">MANUAL</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/howto">HOW TO</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/community">COMMUNITY</a></li>
             <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/gallery">GALLERY</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://armorpaint.org/cloud">CLOUD</a></li>
             <li class="nav-item ms-4">
               <a href="https://armorpaint.org/download">
                 <button type="button" class="btn btn-primary px-4">DOWNLOAD</button>
@@ -173,9 +203,5 @@
             </li>
           </ul>
         </div>
-        <!-- Balancing dummy -->
-        <a class="navbar-brand ms-4 d-none d-lg-inline-block" style="visibility: hidden;" aria-hidden="true">
-          <img src="img/Logo.png" style="width: 50px;" class="rounded" alt="">
-        </a>
       </div>
     </nav>

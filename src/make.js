@@ -20,7 +20,6 @@ let writeManual = function(fileNameOut, fileNameHeader, fileNameFooter, fileName
 }
 
 writeHtml('index.html');
-writeHtml('community.html');
 writeHtml('download.html');
 writeHtml('login.html');
 writeHtml('notes.html');
