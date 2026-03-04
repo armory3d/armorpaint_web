@@ -780,11 +780,13 @@ Click `Menu bar - Edit - Preferences...` to show the preferences window.
 - `Brush Angle`: Pressure affects the angle of brush.
 - `Sensitivity`: Manual pen pressure sensitivity control.
 
+> Pen pressure is expected to work on Windows, Linux, macOS, Android and iOS.
+
 > ArmorPaint uses `Windows Ink` API on Windows. When using a Wacom tablet, ensure `Use Windows Ink` option is enabled in [Wacom Tablet Properties](https://armorpaint.org/img/manual/wacom.png).
 
 > When using a Wacom tablet on Windows, you can rotate the viewport by assigning `Alt` + `Left click` modifier onto pen button in [Wacom Tablet Properties](https://armorpaint.org/img/manual/wacom_button.png).
 
-> Pen pressure is expected to work on Windows, Linux, macOS, Android and iOS.
+> If you are having issues with pressure detection on Linux, try installing `opentabletdriver`.
 
 #### Viewport
 
