@@ -366,7 +366,7 @@ Right-click onto material preview to expose material operations:
 
 > See [Import Materials](https://armorpaint.org/manual#importmaterials).
 
-> See currently implemented [material nodes](https://github.com/armory3d/armortools/blob/main/base/Sources/arm/shader/NodesMaterial.hx).
+> See currently implemented [material nodes](https://github.com/armory3d/armorpaint/blob/main/base/Sources/arm/shader/NodesMaterial.hx).
 
 > Use `Swatches tab` to save and load color sets.
 
@@ -510,7 +510,7 @@ Right-click onto brush preview to expose brush operations:
 
 > Brushes can be imported from `.arm` files by clicking `Brushes tab - Import`.
 
-> See currently implemented [brush nodes](https://github.com/armory3d/armortools/tree/main/base/Sources/arm/logic).
+> See currently implemented [brush nodes](https://github.com/armory3d/armorpaint/tree/main/base/Sources/arm/logic).
 
 #### Brush Mask
 
@@ -734,7 +734,7 @@ Click `Menu bar - Edit - Preferences...` to show the preferences window.
 
 #### Interface
 
-- `Language`: Set localization. See [currently available translations](https://github.com/armory3d/armortools/tree/main/base/Assets/locale).
+- `Language`: Set localization. See [currently available translations](https://github.com/armory3d/armorpaint/tree/main/base/Assets/locale).
 - `UI Scale`: Scale up the user interface when running on high-resolution display. By default, 2X scale is applied during the first startup for high-resolution displays.
 - `Camera Zoom / Rotation / Pan Speed`: Intensity of camera movements.
 - `Direction to Zoom`: Mouse / pen direction to perform camera zoom.
@@ -843,9 +843,9 @@ Live-link plugins are currently in development:
 
 #### Plugin Development
 
-Plugins are written in `JavaScript`. For a minimal example, see the [bundled](https://github.com/armory3d/armortools/tree/main/paint/assets/plugins) `hello_world.js` file located in the `ArmorPaint/data/plugins` folder.
+Plugins are written in `JavaScript`. For a minimal example, see the [bundled](https://github.com/armory3d/armorpaint/tree/main/paint/assets/plugins) `hello_world.js` file located in the `ArmorPaint/data/plugins` folder.
 
-A [plugin development guide](https://github.com/armory3d/armortools/wiki/Plugins) will be provided soon.
+A [plugin development guide](https://github.com/armory3d/armorpaint/wiki/Plugins) will be provided soon.
 
 <br/><br/><br/><br/><br/>
 
