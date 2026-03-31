@@ -76,8 +76,25 @@ writeManual('manual.html', 'manual_header.html', 'manual_footer.html', '../manua
 		// 	await download(url, '../img/cloud/' + file);
 		// }
 
+
+		let count = 0;
+		fs.readdirSync('../img/cloud').sort().forEach(file => {
+			const isIconJpg = file.endsWith('_icon.jpg');
+			const isIconPng = file.endsWith('_icon.png');
+			const isMaterial = pathToMaterialMap.get(file);
+			if ((isMaterial && isIconPng) || (!isMaterial && isIconJpg)) {
+				count++;
+			}
+		});
+
 		let cloud_grid = `
-		<div style="justify-content: center; display: grid; grid-template-columns: repeat(auto-fill, 170px); max-width: 900px; margin: auto;">
+		<div class="col-md-6 p-lg-5 mx-auto my-5 fade-in">
+        	<input type="text" id="asset-search" class="form-control form-control-lg mx-auto" style="max-width: 500px;" placeholder="Search ` + count + ` assets...">
+      	</div>
+		`;
+
+		cloud_grid += `
+		<div id="asset-grid" style="justify-content: center; display: grid; grid-template-columns: repeat(auto-fill, 170px); max-width: 900px; margin: auto;">
 		`;
 
 		fs.readdirSync('../img/cloud').sort().forEach(file => {
@@ -85,14 +102,16 @@ writeManual('manual.html', 'manual_header.html', 'manual_footer.html', '../manua
 			const isIconPng = file.endsWith('_icon.png');
 			const isMaterial = pathToMaterialMap.get(file);
 			if ((isMaterial && isIconPng) || (!isMaterial && isIconJpg)) {
+				count++;
 				let label = file.slice(0, -9);
 				if (label.length > 13) label = label.substring(0, 11) + '...';
 				let filePath = 'img/cloud/' + file;
-				cloud_grid += '<div style="width: 70%; text-align: center; margin: auto;"><img style="width: 128px;" src="' + filePath + '"/><br>' + label + '<br><br></div>';
+				cloud_grid += '<div class="gallery-item" style="width: 70%; text-align: center; margin: auto;"><img style="width: 128px;" src="' + filePath + '"/><br>' + label + '<br><br></div>';
 			}
 		});
 
 		cloud_grid += '</div>';
+
 		writeHtml('cloud.html', cloud_grid);
 
 		fs.unlinkSync('index.txt');

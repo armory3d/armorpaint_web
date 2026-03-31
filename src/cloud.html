@@ -13,4 +13,27 @@
 
       <h5 class="fw-normal text-muted text-center mb-5">Contains assets from <a href="https://armorpaint.org/">ArmorPaint</a>, <a href="https://ambientcg.com/">AmbientCG</a> and <a href="https://polyhaven.com/">PolyHaven</a>. ❤️ Licensed under CC0.</h5>
 
+      <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('asset-search');
+        const assetGrid = document.getElementById('asset-grid');
+        const galleryItems = assetGrid.querySelectorAll('div');
+
+        searchInput.addEventListener('input', (e) => {
+          const searchTerm = e.target.value.toLowerCase();
+
+          galleryItems.forEach(item => {
+            const textContent = item.textContent.toLowerCase();
+            const imageAlt = item.querySelector('img')?.alt?.toLowerCase() || '';
+
+            if (textContent.includes(searchTerm) || imageAlt.includes(searchTerm)) {
+              item.style.display = '';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+      </script>
+
       <!------------------------------------->
