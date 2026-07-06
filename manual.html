@@ -342,21 +342,22 @@
 <h1 id="workflow">Workflow</h1>
 <p><img src="img/manual/d.jpg" alt="" /></p>
 <h4 id="importmeshes">Import Meshes</h4>
-<p>Drag and drop unwrapped <code>.obj</code> file into the viewport. This will replace the currently painted mesh. <code>.fbx</code>, <code>.blend</code>, <code>.stl</code>, <code>.gltf</code> and <code>.glb</code> files are supported, but the importer is not 100% reliable yet. Up to ~4GB <code>.obj</code> files are supported.</p>
+<p>Drag and drop unwrapped <code>.obj</code> file into the viewport. This will replace the currently painted mesh. Up to ~4GB <code>.obj</code> files are supported. <code>.fbx</code>, <code>.blend</code>, <code>.stl</code>, <code>.gltf</code> and <code>.glb</code> files are also supported.</p>
 <p>In the <code>Import Mesh</code> dialog:</p>
 <ul>
 <li>Set <code>Split By</code> combo to <code>UDIM Tile</code> to parse imported <code>.obj</code> mesh into UDIM tiles.</li>
-<li>Enable <code>Parse Transforms</code> to load per-object transforms from <code>.fbx</code> file.</li>
-<li>Enable <code>Parse Vertex Colors</code> to load vertex color data from <code>.fbx</code> or <code>.blend</code> file.</li>
+<li>Enable <code>Apply Skinning</code> to load and apply animation frame from <code>.fbx</code> or <code>.glb</code> file.</li>
 </ul>
 <p>Modifying imported mesh data:</p>
 <ul>
 <li>Normals can be re-calculated with <code>Meshes tab - Edit - Calculate Normals</code>.</li>
-<li>Up axis can be set with <code>Meshes tab - Edit - Rotate X / Rotate Y / Rotate Z</code>.</li>
+<li>Up axis can be set with <code>Meshes tab - Edit - Rotate</code>.</li>
 <li>Geometry can be re-centered with <code>Meshes tab - Edit - Geometry to Origin</code>.</li>
 <li>Height output can be applied to geometry with <code>Meshes tab - Edit - Apply Displacement</code>.</li>
 <li>UV map can be auto-generated with <code>Meshes tab - Edit - UV Unwrap</code>.</li>
 <li>Keep in mind that if you modify UV map of the imported mesh, you will have to also <a href="https://armorpaint.org/manual#export-mesh">export the modified mesh</a> back out of ArmorPaint alongside the painted textures so they can be UV mapped properly.</li>
+<li>Press <code>Meshes tab - Edit - Edit UV Map</code> to open a basic built-in UV map editor.</li>
+<li>Press <code>Meshes tab - Edit - Modifiers</code> to apply <code>Decimate</code>, <code>Smooth</code>, <code>Subdivide</code> or <code>Bevel</code>.</li>
 </ul>
 <blockquote>
   <p>You can get sample assets for testing in the <a href="https://armorpaint.org/cloud">ArmorPaint cloud</a>.</p>
@@ -364,7 +365,7 @@
 </blockquote>
 <h4 id="importmaterials">Import Materials</h4>
 <p>Drag and drop a folder with PBR texture set onto the viewport. ArmorPaint will recognize the file extensions and create a new material from imported textures. Multiple folders can be dropped at once.</p>
-<p>Click on the <code>Materials tab - Import</code> button to import materials from ArmorPaint <code>.arm</code> files or Blender <code>.blend</code> files. <em>wip</em></p>
+<p>Click on the <code>Materials tab - Import</code> button to import materials from ArmorPaint <code>.arm</code> files.</p>
 <blockquote>
   <p>You can get starter content in the <a href="https://armorpaint.org/cloud">ArmorPaint Cloud</a>.</p>
 </blockquote>
@@ -374,7 +375,7 @@
   <p>See <code>Menu bar - Preferences... - Plugins</code> to enable support for additional image formats.</p>
 </blockquote>
 <h4 id="exporttextures">Export Textures</h4>
-<p>Click on the <code>Menu bar - File - Export Textures...</code> button.</p>
+<p>Click on the <code>Menu bar - File - Export - Textures...</code> button.</p>
 <ul>
 <li><code>Resolution</code>: Set resolution for exported textures.</li>
 <li><code>Color</code>: Set <code>8bit</code>, <code>16bit</code> or <code>32bit</code> color depth.</li>
@@ -386,7 +387,9 @@
 <li><code>Unity</code> preset exports packed <em>metallic-occlusion-smoothness</em> texture.</li>
 <li><code>Minecraft</code> preset exports packed <em>metallic-emission-roughness</em> texture.</li>
 <li><code>base_color</code> preset exports only the base color texture.</li>
+<li><code>specular</code> preset exports diffuse and specular textures.</li>
 <li><code>Destination</code>: Export textures to disk or pack into the project file at <code>Textures tab</code>.</li>
+<li><code>Padding</code>: Apply additional padding to UV map borders to prevent seams.</li>
 </ul>
 <p>Configure custom channel swizzling for exported textures in <code>Presets</code> tab:</p>
 <ul>
@@ -405,11 +408,13 @@
 <li>One texture set per atlas is written during texture export</li>
 </ul>
 <h4 id="exportmesh">Export Mesh</h4>
-<p>Click on the <code>Menu bar - File - Export Mesh...</code> button to save the currently loaded mesh into <code>.obj</code> file. This is handy if you only have access to the <code>.arm</code> project file or want to export the mesh which has been unwrapped / modified in ArmorPaint.</p>
+<p>Click on the <code>Menu bar - File - Export - Mesh...</code> button to save the currently loaded mesh into <code>.obj</code> or <code>.glb</code> file. This is handy when you want to export the sculpted mesh or the mesh has been unwrapped / modified in ArmorPaint.</p>
 <h4 id="saveloadproject">Save / Load Project</h4>
 <p>Click on the <code>Menu bar - File - Save</code> button (<code>Ctrl + S</code>) to save the currently opened project. Mesh, layers, materials and brushes will be saved into <code>.arm</code> project file.</p>
+<p>Enable <code>Menu bar - File - Pack Assets</code> option to pack all external assets like textures into the <code>.arm</code> file during project save.</p>
 <p>To open the project file, drag and drop <code>.arm</code> file onto the viewport. <code>.arm</code> files can also be set to open directly with ArmorPaint executable from the OS file explorer.</p>
 <p><code>.obj</code> and other asset types can also be associated if you wish to use ArmorPaint as a model / texture viewer.</p>
+<p>If the mesh file was modified after it was already imported in ArmorPaint, you can use <code>Menu bar - File - Reimport Mesh / Reimport Textures</code> buttons to reload assets.</p>
 <h4 id="browser">Browser</h4>
 <p>Click on the <code>Status bar - Browser tab</code> to activate the built-in asset browser.</p>
 <ul>
@@ -417,7 +422,8 @@
 <li>Drag assets from browser into the viewport to import.</li>
 <li>For <code>.arm</code> materials, preview icons are displayed.</li>
 <li>Click on the <code>+</code> button to save the current path into bookmarks panel.</li>
-<li>Press <code>ctrl+f</code> keys to activate search in the current folder.
+<li>Press <code>ctrl+f</code> keys to activate search in the current folder.</li>
+<li>Use arrow keys, enter / backspace to navigate.
 <br/><a href="img/manual/browser.jpg" target="_blank"><img src="img/manual/browser.jpg" width="200px"/></a></li>
 </ul>
 <p><br/><br/><br/><br/><br/></p>
@@ -437,7 +443,7 @@
 <li><code>X-Ray</code>: Paint through mesh faces.</li>
 <li><code>Symmetry</code>: Mirror brush strokes on the X, Y and/or Z axis.</li>
 </ul>
-<p>Hold brush ruler key (<code>SHIFT</code>) when painting to restrict strokes horizontally or vertically. Hold brush ruler key (<code>SHIFT</code>) and click onto the surface to paint lines.</p>
+<p>Hold brush ruler key (<code>SHIFT</code>) when painting to restrict strokes horizontally or vertically. Hold brush ruler key (<code>SHIFT</code>) and click onto the surface to paint lines. Hold <code>x</code> key to snap brush strokes to a grid.</p>
 <h4 id="eraser">Eraser</h4>
 <p><img src="img/manual/tool_eraser.png" alt="" /></p>
 <p>Select <code>Eraser</code>(<code>E</code>) tool from toolbar. Use <code>left mouse button</code> / <code>pen</code> to erase strokes on the currently selected layer.</p>
@@ -457,7 +463,7 @@
 <li><code>Opacity</code>: Overall opacity of the fill effect.</li>
 <li><code>Blending</code>: Blending mode used for fill effect.</li>
 <li><code>TexCoord</code>: Coordinates used for texture sampling. Mesh <code>UV Map</code>, <code>Project</code> from view or <code>Triplanar</code> mapping.</li>
-<li><code>Fill Mode</code>: Allows to fill individual mesh faces.</li>
+<li><code>Fill Mode</code>: Allows to fill individual mesh faces (<code>Face</code> mode), fill all faces based on <code>Angle</code> or fill the current <code>UV Island</code>.</li>
 </ul>
 <h4 id="decal">Decal</h4>
 <p><img src="img/manual/tool_decal.png" alt="" /></p>
@@ -472,6 +478,7 @@
 <li><code>X-Ray</code>: Apply decal through mesh faces.</li>
 <li><code>Symmetry</code>: Mirror decal on the X, Y and/or Z axis.</li>
 </ul>
+<p>Hold <code>z</code> key to align decal to the camera view, instead of snapping it alongside the mesh normal. Hold <code>ctrl</code> key to use decal as a stencil mask.</p>
 <h4 id="text">Text</h4>
 <p><img src="img/manual/tool_text.png" alt="" /></p>
 <p>Select <code>Text</code>(<code>T</code>) tool from toolbar. Press <code>left mouse button</code> / <code>pen</code> to apply active material as a text onto the surface. Drag and drop a <code>.ttf</code> file into the viewport to change the font.</p>
@@ -506,51 +513,46 @@
 <li><code>Radius</code>: Brush size.</li>
 <li><code>Opacity</code>: Overall opacity of the brush stroke.</li>
 <li><code>Blending</code>: Blending mode used for painting.</li>
+<li><code>Blur type</code>: <code>Blur</code> or <code>Smudge</code> to smear.</li>
 <li><code>X-Ray</code>: Paint through mesh faces.</li>
 <li><code>Symmetry</code>: Mirror brush strokes on the X, Y and/or Z axis.</li>
 </ul>
-<h4 id="smudge">Smudge</h4>
-<p><img src="img/manual/tool_smudge.png" alt="" /></p>
-<p>Select <code>Smudge</code>(<code>M</code>) tool from toolbar. Use <code>left mouse button</code> / <code>pen</code> to smudge / smear the material applied to the surface.</p>
-<ul>
-<li><code>Radius</code>: Brush size.</li>
-<li><code>Opacity</code>: Overall opacity of the brush stroke.</li>
-<li><code>Blending</code>: Blending mode used for painting.</li>
-<li><code>X-Ray</code>: Paint through mesh faces.</li>
-<li><code>Symmetry</code>: Mirror brush strokes on the X, Y and/or Z axis.</li>
-</ul>
-<h4 id="particlewip">Particle <em>wip</em></h4>
+<h4 id="particle">Particle</h4>
 <p><img src="img/manual/tool_particle.png" alt="" /></p>
 <p>Select <code>Particle</code>(<code>P</code>) tool from toolbar. Use <code>left mouse button</code> / <code>pen</code> to apply particles onto the surface.</p>
 <ul>
 <li><code>Radius</code>: Particle emitter size.</li>
 <li><code>Opacity</code>: Overall opacity of the emitted particle.</li>
+<li><code>Hardness</code>: Fade opacity towards the particle edge.</li>
 <li><code>Blending</code>: Blending mode used for applying particles.</li>
+<li><code>Particle</code>: Tweak individual particle properties like <code>Lifetime</code>, <code>Distance</code>, <code>Mass</code>, <code>Random</code>, <code>Friction</code>, <code>Bounce</code> and <code>Gravity</code>.</li>
 <li><code>X-Ray</code>: Apply particles through mesh faces.</li>
 <li><code>Symmetry</code>: Mirror particles on the X, Y and/or Z axis.</li>
 </ul>
-<h4 id="bake">Bake</h4>
-<p><img src="img/manual/tool_bake.png" alt="" /></p>
-<p>Select <code>Bake</code>(<code>K</code>) tool from toolbar. Pick bake mode, then click the <code>Bake</code> button or press and hold <code>left mouse button</code> / <code>pen</code> in viewport to apply bake into the base color channel of active layer or mask. For ray-traced bake modes, multiple samples (set via the <code>Samples</code> option) will get accumulated until the operation is complete.</p>
-<blockquote>
-  <p>See <a href="https://armorpaint.org/manual#baking">Baking</a> to learn about bake modes.</p>
-</blockquote>
 <h4 id="colorid">Color ID</h4>
 <p><img src="img/manual/tool_colorid.png" alt="" /></p>
 <p>Select <code>Color ID</code>(<code>C</code>) tool from toolbar. Drag and drop color-id texture onto the viewport and assign it into the <code>Color ID Map</code> field. Afterwards, click on a model to pick a specific color. All drawing operations will now be restricted to this color. Picked color can be removed with a <code>Clear</code> button.</p>
+<ul>
+<li><code>To Mask</code>: selected color id will be added as a mask of the active layer.</li>
+<li><code>Viewport Mask</code>: only mesh faces belonging to the selected color id will be visible.</li>
+</ul>
 <h4 id="picker">Picker</h4>
 <p><img src="img/manual/tool_picker.png" alt="" /></p>
 <p>Select <code>Picker</code>(<code>V</code>) tool from toolbar. Press <code>left mouse button</code> / <code>pen</code> in viewport to read material values from the surface. Base color, normal, occlusion, roughness and metallic values will be displayed in the header.</p>
 <ul>
+<li><code>Add Swatch</code>: Adds picked values to the <code>Swatches tab</code>.</li>
 <li><code>Select Material</code>: When enabled, the material you pick from the mesh surface will also get auto-selected in the <code>Materials tab</code>.</li>
 <li><code>Mask</code>: When set to <code>Material</code>, all drawing operations will be restricted to the surface where picked material is painted.</li>
 </ul>
 <h4 id="material">Material</h4>
 <p><img src="img/manual/tool_material.png" alt="" /></p>
 <p>Select <code>Material</code> tool from toolbar. A live material preview will be displayed in the viewport, allowing for easier material creation.</p>
-<h4 id="gizmowip">Gizmo <em>wip</em></h4>
+<h4 id="cursor">Cursor</h4>
 <p><img src="img/manual/tool_gizmo.png" alt="" /></p>
-<p>Select <code>Gizmo</code> tool from toolbar. A gizmo will appear in the viewport allowing you to adjust the transform of objects in the scene.</p>
+<p>Select <code>Cursor</code>(<code>r</code>) tool from toolbar. A gizmo will appear in the viewport allowing you to adjust the transform of objects in the scene. Location, rotation and scale will be displayed in the header.</p>
+<h4 id="select">Select</h4>
+<p><img src="img/manual/tool_select.png" alt="" /></p>
+<p>Select <code>Select</code>(<code>m</code>) tool from toolbar. Press <code>left mouse button</code> / <code>pen</code> to draw a rectangular mask in the viewport. The painting operations will now be restricted to this area. Press <code>Clear</code> button to discard the mask.</p>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="materials">Materials</h1>
 <p><img src="img/manual/b.jpg" alt="" /></p>
@@ -569,65 +571,45 @@
 <li><code>Export</code> material into <code>.arm</code> file.</li>
 <li><code>Bake</code> material into textures.</li>
 <li><code>Delete</code> material.</li>
+<li>Select <code>Opacity mode</code>: <code>Alpha</code> - opacity socket of the <code>Material Output</code> node will affect the opacity of brush stroke, <code>Translucency</code> - opacity of the mesh itself will be affected, use this setting to paint translucent surfaces.</li>
 </ul>
 <blockquote>
   <p>Drag and drop material into viewport or Layers tab to create a fill layer.</p>
   <p>ArmorPaint material nodes mimick the Cycles nodes. See <a href="https://docs.blender.org/manual/en/latest/render/shader_nodes/index.html">Cycles nodes documentation</a>.</p>
   <p>See <a href="https://armorpaint.org/manual#importmaterials">Import Materials</a>.</p>
-  <p>See currently implemented <a href="https://github.com/armory3d/armorpaint/blob/main/base/Sources/arm/shader/NodesMaterial.hx">material nodes</a>.</p>
   <p>Use <code>Swatches tab</code> to save and load color sets.</p>
 </blockquote>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="neuralnodes">Neural Nodes</h1>
-<p>All neural node processing in ArmorPaint is done locally on user device. Once AI models are downloaded, internet connection is not required. A minimum of 4GB of video memory is recommended. ArmorPaint uses models published under open source licenses.</p>
-<p>Neural nodes are available on <strong>Windows</strong> (Vulkan, CUDA), <strong>Linux</strong> (Vulkan) and <strong>macOS</strong> (Vulkan via MoltenVK).</p>
+<p>All neural node processing in ArmorPaint is done locally on user device. Once AI models are downloaded, internet connection is not required. A minimum of 6GB of video memory is recommended. ArmorPaint uses models published under open source licenses.</p>
+<p>Neural nodes are available on <strong>Windows</strong> (Vulkan), <strong>Linux</strong> (Vulkan) and <strong>macOS</strong> (Metal).</p>
 <p>Currently supported models:</p>
 <ul>
-<li><strong>Stable Diffusion</strong> <em>(4gb gpu memory)</em> - <code>Inpaint Image</code>, <code>Outpaint Image</code>, <code>Text to Image</code>, <code>Tile Image</code>, <code>Vary Image</code></li>
-<li><strong>Marigold</strong> <em>(6gb gpu memory)</em> - <code>Image to Depth</code>, <code>Image to Normal Map</code>, <code>Image to PBR</code></li>
+<li><strong>FLUX 2 klein</strong> <em>(4gb gpu memory)</em> - <code>Text to Image</code>, <code>Edit Image</code></li>
+<li><strong>DA3MONO</strong> <em>(6gb gpu memory)</em> - <code>Image to PBR</code></li>
 <li><strong>Real-ESRGAN</strong> <em>(1gb gpu memory)</em> - <code>Upscale Image</code></li>
-<li><strong>Qwen Image</strong> <em>(13gb gpu memory)</em> - <code>Text to Image</code></li>
-<li><strong>Qwen Image Edit</strong> <em>(13gb gpu memory)</em> - <code>Edit Image</code>, <code>Inpaint Image</code>, <code>Outpaint Image</code>, <code>Tile Image</code>, <code>Vary Image</code></li>
-<li><strong>Wan</strong> <em>(10gb gpu memory)</em> - <code>Text to Image</code></li>
+<li><strong>Hunyuan3D</strong> <em>(12gb gpu memory, Windows-only)</em> - <code>Image to 3D Mesh</code></li>
+<li><strong>Qwen</strong> <em>(16gb gpu memory)</em> - <code>Console</code></li>
 </ul>
-<p>Neural node processing is powered by the open-source <a href="https://github.com/leejet/stable-diffusion.cpp">stable-diffusion.cpp</a> library.</p>
+<p>Neural node processing is based on the open-source <a href="https://github.com/armory3d/armorpaint/tree/main/base/tools/iris">iris.c</a> library.</p>
 <h4 id="setup">Setup</h4>
 <p><img src="img/manual/neural/setup.png" alt="" /></p>
 <p>Navigate to the <code>Menu bar - Edit - Preferences... - Neural</code> tab. Pick desired model and click the <code>Download</code> button. Once the download is completed, neural node in the material editor is ready to be used.</p>
 <p>Press <code>Run</code> on the neural node to process it. Once finished, double click on node header or click the eye icon to preview the node output.</p>
+<p>Right-click onto the node and press <code>Capture Output</code> to save the node output into the <code>Textures tab</code>.</p>
 <h4 id="editimagenode">Edit Image Node</h4>
 <p><img src="img/manual/neural/neural_edit_image.png" alt="" /></p>
-<p>Edit image connected to the color input by describing the changes via text prompt.</p>
-<h4 id="imagetodepthnode">Image to Depth Node</h4>
-<p><img src="img/manual/neural/neural_image_to_depth.png" alt="" /></p>
-<p>Extract depth map from a photo image.</p>
-<h4 id="imagetonormalmapnode">Image to Normal Map Node</h4>
-<p><img src="img/manual/neural/neural_image_to_normal_map.png" alt="" /></p>
-<p>Extract normal map from a photo image.</p>
+<p>Edit image connected to the color input by describing the changes via text <code>prompt</code> or raising the <code>Variance</code> slider. Make the image seamless by enabling the <code>Tile</code> option.</p>
+<p>Paint a mask in the viewport and connect it to the <code>mask</code> input. If mask is connected the node outputs a texture where mask area is filled with new content.</p>
 <h4 id="imagetopbrnode">Image to PBR Node</h4>
 <p><img src="img/manual/neural/neural_image_to_pbr.png" alt="" /></p>
 <p>Extract base color, occlusion, roughness, normal map and height from color input. A photo image is expected as a color input.</p>
-<h4 id="inpaintimagenode">Inpaint Image Node</h4>
-<p><img src="img/manual/neural/neural_inpaint_image.png" alt="" /></p>
-<p>Paint a mask in the viewport and connect it to the mask input. Outputs a texture where mask area is filled with new content.</p>
-<h4 id="outpaintimagenode">Outpaint Image Node</h4>
-<p><img src="img/manual/neural/neural_outpaint_image.png" alt="" /></p>
-<p>Outputs a zoomed out image.</p>
 <h4 id="texttoimagenode">Text to Image Node</h4>
 <p><img src="img/manual/neural/neural_text_to_image.png" alt="" /></p>
-<p>Generate an image described via text prompt.</p>
-<h4 id="tileimagenode">Tile Image Node</h4>
-<p><img src="img/manual/neural/neural_tile_image.png" alt="" /></p>
-<p>Outputs a tileable texture with removed seams from color input.</p>
+<p>Generate an image described via text prompt. Make the image seamless by enabling the <code>Tile</code> option.</p>
 <h4 id="upscaleimagenode">Upscale Image Node</h4>
 <p><img src="img/manual/neural/neural_upscale_image.png" alt="" /></p>
 <p>Upscales color input by a factor of 4.</p>
-<h4 id="varyimagenode">Vary Image Node</h4>
-<p><img src="img/manual/neural/neural_vary_image.png" alt="" /></p>
-<p>Generates a new image variant guided with text prompt.</p>
-<blockquote>
-  <p>Check out the <a href="https://armorpaint.org/gallery.html">gallery</a> to see nodes in action.</p>
-</blockquote>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="brushes">Brushes</h1>
 <p><img src="img/manual/k.jpg" alt="" /></p>
@@ -646,7 +628,6 @@
 </ul>
 <blockquote>
   <p>Brushes can be imported from <code>.arm</code> files by clicking <code>Brushes tab - Import</code>.</p>
-  <p>See currently implemented <a href="https://github.com/armory3d/armorpaint/tree/main/base/Sources/arm/logic">brush nodes</a>.</p>
 </blockquote>
 <h4 id="brushmask">Brush Mask</h4>
 <p>To use image as a brush mask:</p>
@@ -687,9 +668,11 @@
 <ul>
 <li><code>Paint Layer</code>.</li>
 <li><code>Fill Layer</code> from active material.</li>
-<li><code>Decal Layer</code> from active material.</li>
+<li><code>Decal</code> from active material.</li>
+<li><code>Path</code> or <code>Curve</code>.</li>
 <li><code>Black Mask</code> or <code>White Mask</code>.</li>
 <li><code>Fill Mask</code> from active material.</li>
+<li><code>Filter</code> to adjust the active layer with nodes.</li>
 <li><code>Group</code> containing active layer.</li>
 </ul>
 <p>Brush will paint onto the currently selected layer.</p>
@@ -709,6 +692,7 @@
 <li><code>Clear</code> the layer.</li>
 <li><code>Delete</code> the layer.</li>
 <li>Set which channels the layer should affect.</li>
+<li>Set which UV Map to use if mesh with multiple UV maps is imported.</li>
 </ul>
 <p>Right-click on the mask to expose mask operations:</p>
 <ul>
@@ -737,8 +721,12 @@
 <ul>
 <li>Show the selected layer or all visible layers.</li>
 <li>Select which channel to show.</li>
+<li>Set the zoom level.</li>
 <li>Display UV map as a wireframe.</li>
 <li>Tile the texture.</li>
+<li>Enable <code>grid snap</code> during painting.</li>
+<li>Show grid.</li>
+<li>Capture 2D view output into the <code>Textures tab</code>.</li>
 </ul>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="viewport">Viewport</h1>
@@ -747,16 +735,17 @@
 <ul>
 <li>Enable <code>Distract Free</code> (<code>F11</code>) mode.</li>
 <li><code>Toggle Fullscreen</code> (<code>alt+enter</code>) mode.</li>
-<li>Set <code>Environment</code> intensity.</li>
+<li>Set <code>Environment</code> intensity and angle.</li>
 <li>Enable <code>Split View</code> for side-by-side viewports.</li>
 <li>Enable <code>Cull Backfaces</code> to skip drawing backward facing polygons.</li>
-<li>Enable <code>Filter Textures</code> to apply linear filter when sampling textures references by material.</li>
 <li>Show <code>Wireframe</code> in the viewport.</li>
 <li>Enable <code>Texels</code> to visualize texture pixels in the viewport with a checker pattern.</li>
 <li>Show 3D <code>Compass</code> in the viewport.</li>
 <li>Enable <code>Envmap</code> to draw environment map in the viewport.</li>
 <li>Enable <code>Blur Envmap</code> to use blurred version of the environment map.</li>
+<li>Enable <code>Envmap Spheres</code> to draw reflection balls in the viewport.</li>
 <li>Press <code>Reset Envmap</code> to replace currently imported environment map with the default one.</li>
+<li>Press <code>Capture Screenshot</code> to capture viewport output into the <code>Textures tab</code>.</li>
 </ul>
 <blockquote>
   <p>Drag and drop a <code>.hdr</code> file onto the viewport to change the environment map.</p>
@@ -771,12 +760,12 @@
 <li>Pick specific channel to visualize it with no applied lighting.</li>
 <li>Pick <code>Path Traced</code> to draw viewport with interactive path-tracer. (on DirectX / Vulkan raytracing GPUs and Metal devices*)</li>
 </ul>
-<h4 id="pathtracedviewportwip">Path Traced Viewport <em>wip</em></h4>
+<h4 id="pathtracedviewport">Path Traced Viewport</h4>
 <ul>
-<li>Available on GPUs with DirectX (Windows) / Vulkan (Linux) raytracing support.</li>
+<li>Available on GPUs with DirectX (Windows) / Vulkan (Linux, Android) raytracing support.</li>
 <li>Available on macOS with Apple silicion.</li>
 <li>Available on iOS with Apple M1 or newer.</li>
-<li>The renderer favors performance.</li>
+<li>The renderer favors performance instead of correctness.</li>
 </ul>
 <div style="height:300px"><iframe style="top:0;left:0;width:100%;height:100%;max-width:560px;" src="https://www.youtube.com/embed/uQb-LOJdYrE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <h4 id="camera">Camera</h4>
@@ -791,11 +780,12 @@
 <li><code>Orbit</code> - Rotate camera around the mesh.</li>
 <li><code>Rotate</code> - Rotate mesh around the origin.</li>
 <li><code>Fly</code> - Hold <code>right mouse button</code> and move camera freely using the <code>WASD</code> and <code>QE</code> keys.</li>
+<li>Set camera rotation <code>Pivot</code> point to screen <code>Center</code> or paint <code>Cursor</code>:</li>
 </ul>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="baking">Baking</h1>
 <p><img src="img/manual/i.jpg" alt="" /></p>
-<p>Select <a href="https://armorpaint.org/manual#bake">Bake tool</a> from the toolbar.</p>
+<p>Open material node editor (<code>TAB</code>) and add a <code>Bake Texture</code> node. Pick a bake mode, then click the <code>Bake</code> button. For ray-traced bake modes, multiple samples (set via the <code>Samples</code> option) will get accumulated until the operation is complete.</p>
 <ul>
 <li><p><code>AO (raytracing GPUs)</code>: Bake ambient occlusion. <code>Strength</code>, <code>Radius</code> and <code>Offset</code> can be configured.
 <br/><a href="img/manual/bake/a.jpg" target="_blank"><img src="img/manual/bake/a.jpg" width="200px"/></a></p></li>
@@ -818,8 +808,8 @@
 <li><p><code>Vertex Color</code>: Bake vertex color data.</p></li>
 </ul>
 <blockquote>
-  <p>Use <code>AO</code> baker with small <code>Radius</code> to bake <code>Cavity</code>.</p>
-  <p>Use <code>Curvature</code> baker to create dirt masks.
+  <p>Use <code>AO</code> bake with small <code>Radius</code> to bake <code>Cavity</code>.</p>
+  <p>Use <code>Curvature</code> bake to create dirt masks.
   <br/><a href="img/manual/curvature.jpg" target="_blank"><img src="img/manual/curvature.jpg" width="200px"/></a></p>
 </blockquote>
 <p><br/><br/><br/><br/><br/></p>
@@ -828,23 +818,22 @@
 <p>Click <code>Menu bar - Edit - Preferences...</code> to show the preferences window.</p>
 <h4 id="interface">Interface</h4>
 <ul>
-<li><code>Language</code>: Set localization. See <a href="https://github.com/armory3d/armorpaint/tree/main/base/Assets/locale">currently available translations</a>.</li>
+<li><code>Language</code>: Set localization. See <a href="https://github.com/armory3d/armorpaint/tree/main/paint/assets/locale">currently available translations</a>.</li>
 <li><code>UI Scale</code>: Scale up the user interface when running on high-resolution display. By default, 2X scale is applied during the first startup for high-resolution displays.</li>
-<li><code>Camera Zoom / Rotation / Pan Speed</code>: Intensity of camera movements.</li>
-<li><code>Direction to Zoom</code>: Mouse / pen direction to perform camera zoom.</li>
 <li><code>Node Preview</code>: Draw previews of material nodes inside the node editor.</li>
 <li><code>Wrap Mouse</code>: Wrap mouse around view boundaries during camera control.</li>
 <li><code>Show Asset Names</code>: Draw labels below each material, brush and texture icon.</li>
 <li><code>Touch UI</code>: Enabled by default on iOS and Android.</li>
 <li><code>Splash Screen</code>: Show recent projects list upon ArmorPaint startup.</li>
 <li><code>Grid Snap</code>: Align material nodes in node editor to a grid.</li>
+<li><code>Experimental Features</code>: Work-in-progress features will be exposed in the interface.</li>
 <li>Click <code>Restore - Confirm</code> button to revert back to default settings.</li>
 <li>Click <code>Restore - Import...</code> button to import settings from older ArmorPaint version.</li>
 <li>Click <code>Reset Layout</code> button to revert all layout changes.</li>
 </ul>
 <h4 id="theme">Theme</h4>
 <ul>
-<li>Select <code>default</code> (dark), <code>black</code> or <code>light</code> theme.</li>
+<li>Select <code>default</code> (dark), <code>darker</code>, <code>black</code> or <code>light</code> theme.</li>
 <li>Click <code>New</code> button to create custom theme.</li>
 <li>Click <code>Import</code> button to import theme from file.</li>
 <li>Click <code>Export</code> button to export theme into file.</li>
@@ -856,15 +845,23 @@
 <ul>
 <li><code>Undo Steps</code>: Set the number of undo steps to keep. Using less undo steps may improve performance when running on GPU with constrained memory.</li>
 <li><code>Dilate Radius</code>: Stretch brush strokes and bake result on the uv map to prevent seams.</li>
-<li><code>Default Camera Controls</code>: Orbit, rotate or fly.</li>
 <li><code>Default Layer Resolution</code>: Resolution of new layers.</li>
 <li><code>Scene Atlas Resolution</code>: Used in path-traced mode when rendering objects with separate uv maps.</li>
 <li><code>Cloud Server</code>: Address of the S3 server used by <code>Browser tab - Cloud</code>.</li>
 <li><code>Live Material Preview</code>: Update material preview immediately during node editing.</li>
 <li><code>Live Brush Preview</code>: Show brush paint preview in the viewport and 2d view.</li>
 <li><code>Depth Reject / Angle Reject</code>: Depth and angle rejection for 3D cursor.</li>
-<li><code>GPU Inference</code>: Use GPU to accelerate neural node processing.
+<li><code>Alpha Discard</code>: When painting, texture pixels below this opacity will get discarded.
 <br/><a href="https://www.youtube.com/watch?v=O5ccQBbKc48" target="_blank"><img src="img/manual/live_brush.jpg" width="200px"/></a></li>
+</ul>
+<h4 id="camera-1">Camera</h4>
+<ul>
+<li><code>Default Camera Pivot</code>: Cursor or center.</li>
+<li><code>Default Camera Controls</code>: Orbit, rotate or fly.</li>
+<li><code>Default Camera FoV</code>.</li>
+<li><code>Camera Zoom / Rotation / Pan Speed</code>: Intensity of camera movements.</li>
+<li><code>Direction to Zoom</code>: Mouse / pen direction to perform camera zoom.</li>
+<li><code>Allow Upside Down Camera</code>.</li>
 </ul>
 <h4 id="pen">Pen</h4>
 <ul>
@@ -891,12 +888,14 @@
 </ul>
 <p>Additional options:</p>
 <ul>
-<li>Set <code>Path Tracer</code> mode: <code>Core</code> for performance, <code>Full</code> for features. (raytracing GPUs)</li>
+<li>Set <code>Path Tracer</code> mode: <code>Fast</code> for performance, <code>Full</code> for features. (raytracing GPUs)</li>
 <li>Set clipping values with <code>Clip Start</code> and <code>Clip End</code>.</li>
 <li>Enable <code>Bloom</code>.</li>
 <li>Set <code>Vignette</code> intensity.</li>
 <li>Set <code>Noise Grain</code> intensity.</li>
 <li>Set <code>Displacement Strength</code> applied by height channel in the viewport.</li>
+<li><code>.cube LUT</code>: import <code>.cube</code> files for color grading.</li>
+<li>Enable <code>Filter Textures</code> to apply linear filter when sampling textures referenced by material.</li>
 </ul>
 <h4 id="keymap">Keymap</h4>
 <p>Select an existing preset or define custom keyboard shortcuts.</p>
@@ -906,17 +905,22 @@
 <li>Click <code>Import</code> button to import keymap from file.</li>
 <li>Click <code>Export</code> button to export keymap into file.</li>
 </ul>
+<h4 id="neural">Neural</h4>
+<ul>
+<li>Set neural node output <code>Resolution</code>. Higher resolutions will consume more video memory.</li>
+<li><code>Download</code> or <code>Delete</code> already downloaded models.</li>
+</ul>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="plugins">Plugins</h1>
 <p><img src="img/manual/h.jpg" alt="" /></p>
 <p>Press <code>Plugins tab - Manager</code> to open the plugin manager.</p>
 <ul>
-<li>Click <code>Import</code> to install a new plugin from <code>.js</code> or <code>.zip</code> file.</li>
+<li>Click <code>Import</code> to install a new plugin from <code>.c</code> or <code>.zip</code> file.</li>
 <li>Click <code>New</code> to create a new hello-world plugin.</li>
 <li>Enable desired plugins from the list.</li>
 <li>Right-click onto plugin name to expose plugin operations:</li>
 <li><code>Export</code> plugin file for distribution.</li>
-<li><code>Edit</code> plugin in a text editor.</li>
+<li><code>Edit</code> plugin in a text editor or scripts tab.</li>
 <li><code>Delete</code> plugin.</li>
 <li>Controls for enabled plugins are displayed in the <code>Plugins tab</code>.</li>
 <li>Some plugins may not expose controls but add new import / export file formats.</li>
@@ -929,8 +933,7 @@
 <li><a href="https://github.com/armory3d/armorpaint_blender">Blender</a></li>
 </ul>
 <h4 id="plugindevelopment">Plugin Development</h4>
-<p>Plugins are written in <code>JavaScript</code>. For a minimal example, see the <a href="https://github.com/armory3d/armorpaint/tree/main/paint/assets/plugins">bundled</a> <code>hello_world.js</code> file located in the <code>ArmorPaint/data/plugins</code> folder.</p>
-<p>A <a href="https://github.com/armory3d/armorpaint/wiki/Plugins">plugin development guide</a> will be provided soon.</p>
+<p>Plugins are written in a minimal interpreted <code>C</code> variant. For a basic example, see the <a href="https://github.com/armory3d/armorpaint/tree/main/paint/assets/plugins">bundled</a> <code>hello_world.c</code> file located in the <code>ArmorPaint/data/plugins</code> folder.</p>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="faq">FAQ</h1>
 <p><img src="img/manual/e.jpg" alt="" /></p>
@@ -944,7 +947,7 @@
 <h4 id="blackspotsappearontheimportedmesh">Black spots appear on the imported mesh</h4>
 <p>Make sure all mesh faces are present on the UV map.</p>
 <h4 id="downloadofneuralmodeldoesnotstart">Download of neural model does not start</h4>
-<p>Check that the ArmorPaint connection is not blocked by a firewall or a sotfware like vmware fusion.</p>
+<p>Check that the ArmorPaint connection is not blocked by a firewall or a software like vmware fusion.</p>
 <p><br/><br/><br/><br/><br/></p>
       <!------------------------------------->
 
