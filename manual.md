@@ -328,7 +328,7 @@ Select `Material` tool from toolbar. A live material preview will be displayed i
 
 #### Cursor
 
-![](img/manual/tool_gizmo.png)
+![](img/manual/tool_cursor.png)
 
 Select `Cursor`(`r`) tool from toolbar. A gizmo will appear in the viewport allowing you to adjust the transform of objects in the scene. Location, rotation and scale will be displayed in the header.
 
