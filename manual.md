@@ -74,7 +74,7 @@ Unpack downloaded archive and run `ArmorPaint.app`.
 
 
 
-# Workflow
+# Basics
 
 ![](img/manual/d.jpg)
 
@@ -364,6 +364,9 @@ Right-click onto material preview to expose material operations:
 - `Delete` material.
 - Select `Opacity mode`: `Alpha` - opacity socket of the `Material Output` node will affect the opacity of brush stroke, `Translucency` - opacity of the mesh itself will be affected, use this setting to paint translucent surfaces.
 
+<br/><a href="img/manual/transluc.png" target="_blank"><img src="img/manual/transluc.png" width="200px"/></a>
+<br/><i>translucent opacity mode</i>
+
 > Drag and drop material into viewport or Layers tab to create a fill layer.
 
 > ArmorPaint material nodes mimick the Cycles nodes. See [Cycles nodes documentation](https://docs.blender.org/manual/en/latest/render/shader_nodes/index.html).
@@ -436,23 +439,17 @@ Generate an image described via text prompt. Make the image seamless by enabling
 
 Upscales color input by a factor of 4.
 
+#### Photo to Material
+
+Utilize a combination of neural nodes to create a new 4K PBR material.
+
+![](img/manual/neural/001.png)
+
+To preview the material, create a new project and select the highly tessellated `plane_2048` or `sphere_2048` template. Fill the material onto the layer and press `Meshes tab - Edit - Apply Displacement` to apply height channel onto the mesh.
+
+![](img/manual/neural/002.jpg)
+
 <br/><br/><br/><br/><br/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -515,6 +512,7 @@ To use image as a brush stencil:
 
 
 
+
 # Layers
 
 ![](img/manual/c.jpg)
@@ -563,7 +561,17 @@ Right-click on the mask to expose mask operations:
 
 > Drag textures from `Textures tab` into the viewport or `Layers` tab to create mask for active layer.
 
-#### 2D View
+<br/><a href="img/manual/filter.png" target="_blank"><img src="img/manual/filter.png" width="200px"/></a>
+<br/><i>using a filter</i>
+
+<br/><br/><br/><br/><br/>
+
+
+
+
+
+
+# 2D View
 
 ![](img/manual/f.jpg)
 
@@ -583,6 +591,7 @@ In the 2D View top bar:
 - Capture 2D view output into the `Textures tab`.
 
 <br/><br/><br/><br/><br/>
+
 
 
 
@@ -646,6 +655,35 @@ Set camera parameters in `Menu bar - Camera`:
   - `Fly` - Hold `right mouse button` and move camera freely using the `WASD` and `QE` keys.
 - Set camera rotation `Pivot` point to screen `Center` or paint `Cursor`:
 
+#### Workspace
+
+Set workspace layout in `Menu bar - Workspace`.
+
+<br/><a href="img/manual/workspace/0.png" target="_blank"><img src="img/manual/workspace/0.png" width="200px"/></a>
+<br/><i>paint 3d</i>
+
+<br/><a href="img/manual/workspace/1.png" target="_blank"><img src="img/manual/workspace/1.png" width="200px"/></a>
+<br/><i>paint 2d</i>
+
+<br/><a href="img/manual/workspace/2.png" target="_blank"><img src="img/manual/workspace/2.png" width="200px"/></a>
+<br/><i>nodes</i>
+
+<br/><a href="img/manual/workspace/3.png" target="_blank"><img src="img/manual/workspace/3.png" width="200px"/></a>
+<br/><i>script</i>
+
+##### Workflow
+
+Set workflow to configure available `Material Output` node sockets.
+
+<br/><a href="img/manual/workspace/a.png" target="_blank"><img src="img/manual/workspace/a.png" width="200px"/></a>
+<br/><i>pbr - all channels are available</i>
+
+<br/><a href="img/manual/workspace/b.png" target="_blank"><img src="img/manual/workspace/b.png" width="200px"/></a>
+<br/><i>base - restricts painting to base color and opacity</i>
+
+<br/><a href="img/manual/workspace/c.png" target="_blank"><img src="img/manual/workspace/c.png" width="200px"/></a>
+<br/><i>sculpt - enables displacement socket</i>
+
 <br/><br/><br/><br/><br/>
 
 
@@ -700,6 +738,55 @@ Open material node editor (`TAB`) and add a `Bake Texture` node. Pick a bake mod
 
 
 
+# Sculpting
+
+![](img/manual/sculpt.jpg)
+
+Press `Menu bar - Workspace - Workflow - Sculpt` to enter sculpt mode.
+
+*work-in-progress*
+
+<br/><br/><br/><br/><br/>
+
+
+
+
+
+
+# Scripting
+
+![](img/manual/h.jpg)
+
+Press `Plugins tab - Manager` to open the plugin manager.
+
+- Click `Import` to install a new plugin from `.c` or `.zip` file.
+- Click `New` to create a new hello-world plugin.
+- Enable desired plugins from the list.
+- Right-click onto plugin name to expose plugin operations:
+  - `Export` plugin file for distribution.
+  - `Edit` plugin in a text editor or scripts tab.
+  - `Delete` plugin.
+- Controls for enabled plugins are displayed in the `Plugins tab`.
+- Some plugins may not expose controls but add new import / export file formats.
+
+#### Live-Link
+
+Live-link plugins are currently in development:
+- [Unreal](https://github.com/armory3d/armorpaint_unreal)
+- [Unity](https://github.com/armory3d/armorpaint_unity)
+- [Blender](https://github.com/armory3d/armorpaint_blender)
+
+#### Plugin Development
+
+Plugins are written in a minimal interpreted `C` variant. For a basic example, see the [bundled](https://github.com/armory3d/armorpaint/tree/main/paint/assets/plugins) `hello_world.c` file located in the `ArmorPaint/data/plugins` folder.
+
+<br/><br/><br/><br/><br/>
+
+
+
+
+
+
 # Preferences
 
 ![](img/manual/g.jpg)
@@ -720,6 +807,9 @@ Click `Menu bar - Edit - Preferences...` to show the preferences window.
 - Click `Restore - Confirm` button to revert back to default settings.
 - Click `Restore - Import...` button to import settings from older ArmorPaint version.
 - Click `Reset Layout` button to revert all layout changes.
+
+<br/><a href="img/manual/nodeprev.png" target="_blank"><img src="img/manual/nodeprev.png" width="200px"/></a>
+<br/><i>node previews</i>
 
 #### Theme
 
@@ -802,38 +892,6 @@ Select an existing preset or define custom keyboard shortcuts.
 
 <br/><br/><br/><br/><br/>
 
-
-
-
-
-# Plugins
-
-![](img/manual/h.jpg)
-
-Press `Plugins tab - Manager` to open the plugin manager.
-
-- Click `Import` to install a new plugin from `.c` or `.zip` file.
-- Click `New` to create a new hello-world plugin.
-- Enable desired plugins from the list.
-- Right-click onto plugin name to expose plugin operations:
-  - `Export` plugin file for distribution.
-  - `Edit` plugin in a text editor or scripts tab.
-  - `Delete` plugin.
-- Controls for enabled plugins are displayed in the `Plugins tab`.
-- Some plugins may not expose controls but add new import / export file formats.
-
-#### Live-Link
-
-Live-link plugins are currently in development:
-- [Unreal](https://github.com/armory3d/armorpaint_unreal)
-- [Unity](https://github.com/armory3d/armorpaint_unity)
-- [Blender](https://github.com/armory3d/armorpaint_blender)
-
-#### Plugin Development
-
-Plugins are written in a minimal interpreted `C` variant. For a basic example, see the [bundled](https://github.com/armory3d/armorpaint/tree/main/paint/assets/plugins) `hello_world.c` file located in the `ArmorPaint/data/plugins` folder.
-
-<br/><br/><br/><br/><br/>
 
 
 

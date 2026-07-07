@@ -246,8 +246,8 @@
           <li><a href="#getstarted" class="nav-link text-white">
             Get Started
           </a></li>
-          <li><a href="#workflow" class="nav-link text-white">
-            Workflow
+          <li><a href="#basics" class="nav-link text-white">
+            Basics
           </a></li>
           <li><a href="#tools" class="nav-link text-white">
             Tools
@@ -264,17 +264,23 @@
           <li><a href="#layers" class="nav-link text-white">
             Layers
           </a></li>
+          <li><a href="#2dview" class="nav-link text-white">
+            2D View
+          </a></li>
           <li><a href="#viewport" class="nav-link text-white">
             Viewport
           </a></li>
           <li><a href="#baking" class="nav-link text-white">
             Baking
           </a></li>
+          <li><a href="#sculpting" class="nav-link text-white">
+            Sculpting
+          </a></li>
+          <li><a href="#scripting" class="nav-link text-white">
+            Scripting
+          </a></li>
           <li><a href="#preferences" class="nav-link text-white">
             Preferences
-          </a></li>
-          <li><a href="#plugins" class="nav-link text-white">
-            Plugins
           </a></li>
           <li><a href="#faq" class="nav-link text-white">
             FAQ
@@ -339,7 +345,7 @@
 <li>Keymap presets can be imported and exported.</li>
 </ul>
 <p><br/><br/><br/><br/><br/></p>
-<h1 id="workflow">Workflow</h1>
+<h1 id="basics">Basics</h1>
 <p><img src="img/manual/d.jpg" alt="" /></p>
 <h4 id="importmeshes">Import Meshes</h4>
 <p>Drag and drop unwrapped <code>.obj</code> file into the viewport. This will replace the currently painted mesh. Up to ~4GB <code>.obj</code> files are supported. <code>.fbx</code>, <code>.blend</code>, <code>.stl</code>, <code>.gltf</code> and <code>.glb</code> files are also supported.</p>
@@ -573,6 +579,8 @@
 <li><code>Delete</code> material.</li>
 <li>Select <code>Opacity mode</code>: <code>Alpha</code> - opacity socket of the <code>Material Output</code> node will affect the opacity of brush stroke, <code>Translucency</code> - opacity of the mesh itself will be affected, use this setting to paint translucent surfaces.</li>
 </ul>
+<p><br/><a href="img/manual/transluc.png" target="_blank"><img src="img/manual/transluc.png" width="200px"/></a>
+<br/><i>translucent opacity mode</i></p>
 <blockquote>
   <p>Drag and drop material into viewport or Layers tab to create a fill layer.</p>
   <p>ArmorPaint material nodes mimick the Cycles nodes. See <a href="https://docs.blender.org/manual/en/latest/render/shader_nodes/index.html">Cycles nodes documentation</a>.</p>
@@ -610,6 +618,11 @@
 <h4 id="upscaleimagenode">Upscale Image Node</h4>
 <p><img src="img/manual/neural/neural_upscale_image.png" alt="" /></p>
 <p>Upscales color input by a factor of 4.</p>
+<h4 id="phototomaterial">Photo to Material</h4>
+<p>Utilize a combination of neural nodes to create a new 4K PBR material.</p>
+<p><img src="img/manual/neural/001.png" alt="" /></p>
+<p>To preview the material, create a new project and select the highly tessellated <code>plane_2048</code> or <code>sphere_2048</code> template. Fill the material onto the layer and press <code>Meshes tab - Edit - Apply Displacement</code> to apply height channel onto the mesh.</p>
+<p><img src="img/manual/neural/002.jpg" alt="" /></p>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="brushes">Brushes</h1>
 <p><img src="img/manual/k.jpg" alt="" /></p>
@@ -710,7 +723,10 @@
 <blockquote>
   <p>Drag textures from <code>Textures tab</code> into the viewport or <code>Layers</code> tab to create mask for active layer.</p>
 </blockquote>
-<h4 id="2dview">2D View</h4>
+<p><br/><a href="img/manual/filter.png" target="_blank"><img src="img/manual/filter.png" width="200px"/></a>
+<br/><i>using a filter</i></p>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="2dview">2D View</h1>
 <p><img src="img/manual/f.jpg" alt="" /></p>
 <p>Click <code>Layers tab - 2D View</code> to show the channels of the selected layer. The 2D View is updated immediately as you paint.</p>
 <ul>
@@ -782,6 +798,24 @@
 <li><code>Fly</code> - Hold <code>right mouse button</code> and move camera freely using the <code>WASD</code> and <code>QE</code> keys.</li>
 <li>Set camera rotation <code>Pivot</code> point to screen <code>Center</code> or paint <code>Cursor</code>:</li>
 </ul>
+<h4 id="workspace">Workspace</h4>
+<p>Set workspace layout in <code>Menu bar - Workspace</code>.</p>
+<p><br/><a href="img/manual/workspace/0.png" target="_blank"><img src="img/manual/workspace/0.png" width="200px"/></a>
+<br/><i>paint 3d</i></p>
+<p><br/><a href="img/manual/workspace/1.png" target="_blank"><img src="img/manual/workspace/1.png" width="200px"/></a>
+<br/><i>paint 2d</i></p>
+<p><br/><a href="img/manual/workspace/2.png" target="_blank"><img src="img/manual/workspace/2.png" width="200px"/></a>
+<br/><i>nodes</i></p>
+<p><br/><a href="img/manual/workspace/3.png" target="_blank"><img src="img/manual/workspace/3.png" width="200px"/></a>
+<br/><i>script</i></p>
+<h5 id="workflow">Workflow</h5>
+<p>Set workflow to configure available <code>Material Output</code> node sockets.</p>
+<p><br/><a href="img/manual/workspace/a.png" target="_blank"><img src="img/manual/workspace/a.png" width="200px"/></a>
+<br/><i>pbr - all channels are available</i></p>
+<p><br/><a href="img/manual/workspace/b.png" target="_blank"><img src="img/manual/workspace/b.png" width="200px"/></a>
+<br/><i>base - restricts painting to base color and opacity</i></p>
+<p><br/><a href="img/manual/workspace/c.png" target="_blank"><img src="img/manual/workspace/c.png" width="200px"/></a>
+<br/><i>sculpt - enables displacement socket</i></p>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="baking">Baking</h1>
 <p><img src="img/manual/i.jpg" alt="" /></p>
@@ -813,6 +847,35 @@
   <br/><a href="img/manual/curvature.jpg" target="_blank"><img src="img/manual/curvature.jpg" width="200px"/></a></p>
 </blockquote>
 <p><br/><br/><br/><br/><br/></p>
+<h1 id="sculpting">Sculpting</h1>
+<p><img src="img/manual/sculpt.jpg" alt="" /></p>
+<p>Press <code>Menu bar - Workspace - Workflow - Sculpt</code> to enter sculpt mode.</p>
+<p><em>work-in-progress</em></p>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="scripting">Scripting</h1>
+<p><img src="img/manual/h.jpg" alt="" /></p>
+<p>Press <code>Plugins tab - Manager</code> to open the plugin manager.</p>
+<ul>
+<li>Click <code>Import</code> to install a new plugin from <code>.c</code> or <code>.zip</code> file.</li>
+<li>Click <code>New</code> to create a new hello-world plugin.</li>
+<li>Enable desired plugins from the list.</li>
+<li>Right-click onto plugin name to expose plugin operations:</li>
+<li><code>Export</code> plugin file for distribution.</li>
+<li><code>Edit</code> plugin in a text editor or scripts tab.</li>
+<li><code>Delete</code> plugin.</li>
+<li>Controls for enabled plugins are displayed in the <code>Plugins tab</code>.</li>
+<li>Some plugins may not expose controls but add new import / export file formats.</li>
+</ul>
+<h4 id="livelink">Live-Link</h4>
+<p>Live-link plugins are currently in development:</p>
+<ul>
+<li><a href="https://github.com/armory3d/armorpaint_unreal">Unreal</a></li>
+<li><a href="https://github.com/armory3d/armorpaint_unity">Unity</a></li>
+<li><a href="https://github.com/armory3d/armorpaint_blender">Blender</a></li>
+</ul>
+<h4 id="plugindevelopment">Plugin Development</h4>
+<p>Plugins are written in a minimal interpreted <code>C</code> variant. For a basic example, see the <a href="https://github.com/armory3d/armorpaint/tree/main/paint/assets/plugins">bundled</a> <code>hello_world.c</code> file located in the <code>ArmorPaint/data/plugins</code> folder.</p>
+<p><br/><br/><br/><br/><br/></p>
 <h1 id="preferences">Preferences</h1>
 <p><img src="img/manual/g.jpg" alt="" /></p>
 <p>Click <code>Menu bar - Edit - Preferences...</code> to show the preferences window.</p>
@@ -831,6 +894,8 @@
 <li>Click <code>Restore - Import...</code> button to import settings from older ArmorPaint version.</li>
 <li>Click <code>Reset Layout</code> button to revert all layout changes.</li>
 </ul>
+<p><br/><a href="img/manual/nodeprev.png" target="_blank"><img src="img/manual/nodeprev.png" width="200px"/></a>
+<br/><i>node previews</i></p>
 <h4 id="theme">Theme</h4>
 <ul>
 <li>Select <code>default</code> (dark), <code>darker</code>, <code>black</code> or <code>light</code> theme.</li>
@@ -910,30 +975,6 @@
 <li>Set neural node output <code>Resolution</code>. Higher resolutions will consume more video memory.</li>
 <li><code>Download</code> or <code>Delete</code> already downloaded models.</li>
 </ul>
-<p><br/><br/><br/><br/><br/></p>
-<h1 id="plugins">Plugins</h1>
-<p><img src="img/manual/h.jpg" alt="" /></p>
-<p>Press <code>Plugins tab - Manager</code> to open the plugin manager.</p>
-<ul>
-<li>Click <code>Import</code> to install a new plugin from <code>.c</code> or <code>.zip</code> file.</li>
-<li>Click <code>New</code> to create a new hello-world plugin.</li>
-<li>Enable desired plugins from the list.</li>
-<li>Right-click onto plugin name to expose plugin operations:</li>
-<li><code>Export</code> plugin file for distribution.</li>
-<li><code>Edit</code> plugin in a text editor or scripts tab.</li>
-<li><code>Delete</code> plugin.</li>
-<li>Controls for enabled plugins are displayed in the <code>Plugins tab</code>.</li>
-<li>Some plugins may not expose controls but add new import / export file formats.</li>
-</ul>
-<h4 id="livelink">Live-Link</h4>
-<p>Live-link plugins are currently in development:</p>
-<ul>
-<li><a href="https://github.com/armory3d/armorpaint_unreal">Unreal</a></li>
-<li><a href="https://github.com/armory3d/armorpaint_unity">Unity</a></li>
-<li><a href="https://github.com/armory3d/armorpaint_blender">Blender</a></li>
-</ul>
-<h4 id="plugindevelopment">Plugin Development</h4>
-<p>Plugins are written in a minimal interpreted <code>C</code> variant. For a basic example, see the <a href="https://github.com/armory3d/armorpaint/tree/main/paint/assets/plugins">bundled</a> <code>hello_world.c</code> file located in the <code>ArmorPaint/data/plugins</code> folder.</p>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="faq">FAQ</h1>
 <p><img src="img/manual/e.jpg" alt="" /></p>
