@@ -406,7 +406,7 @@
 <li>Right-click on texture name and press <code>Delete</code> to delete texture slot.</li>
 <li><code>.json</code> file for each preset is located in the <code>ArmorPaint/data/presets</code> folder.</li>
 </ul>
-<p><br/><a href="img/manual/export_preset.png" target="_blank"><img src="img/manual/export_preset.png" width="200px"/></a></p>
+<p><br/><a href="img/manual/export_preset.png" target="_blank"><img src="img/manual/export_preset.png" width="300px"/></a></p>
 <p>Create object groups in <code>Atlases</code> tab:</p>
 <ul>
 <li>Assign atlas number to objects</li>
@@ -430,7 +430,7 @@
 <li>Click on the <code>+</code> button to save the current path into bookmarks panel.</li>
 <li>Press <code>ctrl+f</code> keys to activate search in the current folder.</li>
 <li>Use arrow keys, enter / backspace to navigate.
-<br/><a href="img/manual/browser.jpg" target="_blank"><img src="img/manual/browser.jpg" width="200px"/></a></li>
+<br/><a href="img/manual/browser.jpg" target="_blank"><img src="img/manual/browser.jpg" width="300px"/></a></li>
 </ul>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="tools">Tools</h1>
@@ -579,11 +579,12 @@
 <li><code>Delete</code> material.</li>
 <li>Select <code>Opacity mode</code>: <code>Alpha</code> - opacity socket of the <code>Material Output</code> node will affect the opacity of brush stroke, <code>Translucency</code> - opacity of the mesh itself will be affected, use this setting to paint translucent surfaces.</li>
 </ul>
-<p><br/><a href="img/manual/transluc.png" target="_blank"><img src="img/manual/transluc.png" width="200px"/></a>
+<p><br/><a href="img/manual/transluc.png" target="_blank"><img src="img/manual/transluc.png" width="300px"/></a>
 <br/><i>translucent opacity mode</i></p>
 <blockquote>
   <p>Drag and drop material into viewport or Layers tab to create a fill layer.</p>
   <p>ArmorPaint material nodes mimick the Cycles nodes. See <a href="https://docs.blender.org/manual/en/latest/render/shader_nodes/index.html">Cycles nodes documentation</a>.</p>
+  <p>See list of <a href="https://github.com/armory3d/armorpaint/tree/main/paint/sources/nodes_material">implemented nodes</a>.</p>
   <p>See <a href="https://armorpaint.org/manual#importmaterials">Import Materials</a>.</p>
   <p>Use <code>Swatches tab</code> to save and load color sets.</p>
 </blockquote>
@@ -647,23 +648,23 @@
 <ul>
 <li>Drag and drop brush mask image into the node editor.</li>
 <li>Connect newly placed <code>Image Texture</code> node to the <code>Brush Output - Opacity</code> socket.
-<br/><a href="img/manual/brush_mask.jpg" target="_blank"><img src="img/manual/brush_mask.jpg" width="200px"/></a></li>
+<br/><a href="img/manual/brush_mask.jpg" target="_blank"><img src="img/manual/brush_mask.jpg" width="300px"/></a></li>
 </ul>
 <h4 id="brushjitter">Brush Jitter</h4>
 <ul>
 <li>Connect <code>Random</code> brush node with <code>Brush Output</code> sockets to jitter desired properties.
-<br/><a href="img/manual/brush_jitter.jpg" target="_blank"><img src="img/manual/brush_jitter.jpg" width="200px"/></a></li>
+<br/><a href="img/manual/brush_jitter.jpg" target="_blank"><img src="img/manual/brush_jitter.jpg" width="300px"/></a></li>
 </ul>
 <h4 id="lazymouse">Lazy Mouse</h4>
 <ul>
 <li>Raise <code>Lazy Radius</code> value of the <code>Input</code> brush node to make the paint cursor follow the mouse in delay. This can be useful to paint smooth strokes.</li>
 <li>Raise <code>Lazy Step</code> value of the <code>Input</code> brush node to paint strokes in steps.
-<br/><a href="img/manual/brush_lazy.jpg" target="_blank"><img src="img/manual/brush_lazy.jpg" width="200px"/></a></li>
+<br/><a href="img/manual/brush_lazy.jpg" target="_blank"><img src="img/manual/brush_lazy.jpg" width="300px"/></a></li>
 </ul>
 <h4 id="directionalbrush">Directional Brush</h4>
 <ul>
 <li>By enabling the <code>Direction</code> value of the <code>Brush Output</code> node, painted strokes will follow the brush path. Decal and brush mask will be oriented to match the direction of a brush.
-<br/><a href="img/manual/brush_directional.jpg" target="_blank"><img src="img/manual/brush_directional.jpg" width="200px"/></a></li>
+<br/><a href="img/manual/brush_directional.jpg" target="_blank"><img src="img/manual/brush_directional.jpg" width="300px"/></a></li>
 </ul>
 <h4 id="brushstencil">Brush Stencil</h4>
 <p>To use image as a brush stencil:</p>
@@ -672,8 +673,11 @@
 <li>Connect newly placed <code>Image Texture</code> node to the <code>Brush Output - Stencil</code> socket.</li>
 <li>Hold <code>ctrl</code> (<code>stencil_transform</code>) key to show transform controls.</li>
 <li>Hold <code>z</code> (<code>stencil_hide</code>) key to make stencil invisible while still taking effect.
-<br/><a href="img/manual/brush_stencil.jpg" target="_blank"><img src="img/manual/brush_stencil.jpg" width="200px"/></a></li>
+<br/><a href="img/manual/brush_stencil.jpg" target="_blank"><img src="img/manual/brush_stencil.jpg" width="300px"/></a></li>
 </ul>
+<blockquote>
+  <p>See list of <a href="https://github.com/armory3d/armorpaint/tree/main/paint/sources/nodes_brush">implemented nodes</a>.</p>
+</blockquote>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="layers">Layers</h1>
 <p><img src="img/manual/c.jpg" alt="" /></p>
@@ -723,8 +727,16 @@
 <blockquote>
   <p>Drag textures from <code>Textures tab</code> into the viewport or <code>Layers</code> tab to create mask for active layer.</p>
 </blockquote>
-<p><br/><a href="img/manual/filter.png" target="_blank"><img src="img/manual/filter.png" width="200px"/></a>
-<br/><i>using a filter</i></p>
+<p><br/><a href="img/manual/teapot_path.jpg" target="_blank"><img src="img/manual/teapot_path.jpg" width="300px"/></a>
+<br/><i>using a path - draw straight lines with editable control points</i></p>
+<p><br/><a href="img/manual/teapot_curve.jpg" target="_blank"><img src="img/manual/teapot_curve.jpg" width="300px"/></a>
+<br/><i>using a curve - draw curved lines with editable control points</i></p>
+<p><br/><a href="img/manual/teapot_decal.jpg" target="_blank"><img src="img/manual/teapot_decal.jpg" width="300px"/></a>
+<br/><i>using a decal - project a sticker using transform controls onto a mesh</i></p>
+<p><br/><a href="img/manual/chair_sewing.jpg" target="_blank"><img src="img/manual/chair_sewing.jpg" width="300px"/></a>
+<br/><i>using a path layer to paint sewing</i></p>
+<p><br/><a href="img/manual/filter.png" target="_blank"><img src="img/manual/filter.png" width="300px"/></a>
+<br/><i>using a filter - edit parent layer using nodes</i></p>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="2dview">2D View</h1>
 <p><img src="img/manual/f.jpg" alt="" /></p>
@@ -767,7 +779,7 @@
   <p>Drag and drop a <code>.hdr</code> file onto the viewport to change the environment map.</p>
   <p>Hold <code>Ctrl</code> + <code>middle mouse button</code> to rotate environment map.</p>
   <p>To simulate pixel-art like painting, disable <code>Filter Textures</code> option and set <code>Super Sample</code> in preferences to <code>0.25x</code>.
-  <br/><a href="img/manual/pixelart.jpg" target="_blank"><img src="img/manual/pixelart.jpg" width="200px"/></a></p>
+  <br/><a href="img/manual/pixelart.jpg" target="_blank"><img src="img/manual/pixelart.jpg" width="300px"/></a></p>
 </blockquote>
 <h4 id="viewportmode">Viewport Mode</h4>
 <p>Set viewport render mode in <code>Menu bar - Mode</code>.</p>
@@ -783,7 +795,6 @@
 <li>Available on iOS with Apple M1 or newer.</li>
 <li>The renderer favors performance instead of correctness.</li>
 </ul>
-<div style="height:300px"><iframe style="top:0;left:0;width:100%;height:100%;max-width:560px;" src="https://www.youtube.com/embed/uQb-LOJdYrE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 <h4 id="camera">Camera</h4>
 <p>Set camera parameters in <code>Menu bar - Camera</code>:</p>
 <ul>
@@ -800,21 +811,21 @@
 </ul>
 <h4 id="workspace">Workspace</h4>
 <p>Set workspace layout in <code>Menu bar - Workspace</code>.</p>
-<p><br/><a href="img/manual/workspace/0.png" target="_blank"><img src="img/manual/workspace/0.png" width="200px"/></a>
-<br/><i>paint 3d</i></p>
-<p><br/><a href="img/manual/workspace/1.png" target="_blank"><img src="img/manual/workspace/1.png" width="200px"/></a>
-<br/><i>paint 2d</i></p>
-<p><br/><a href="img/manual/workspace/2.png" target="_blank"><img src="img/manual/workspace/2.png" width="200px"/></a>
-<br/><i>nodes</i></p>
-<p><br/><a href="img/manual/workspace/3.png" target="_blank"><img src="img/manual/workspace/3.png" width="200px"/></a>
-<br/><i>script</i></p>
+<p><br/><a href="img/manual/workspace/0.png" target="_blank"><img src="img/manual/workspace/0.png" width="300px"/></a>
+<br/><i>paint 3d - draw onto a 3d mesh</i></p>
+<p><br/><a href="img/manual/workspace/1.png" target="_blank"><img src="img/manual/workspace/1.png" width="300px"/></a>
+<br/><i>paint 2d - draw onto a plane</i></p>
+<p><br/><a href="img/manual/workspace/2.png" target="_blank"><img src="img/manual/workspace/2.png" width="300px"/></a>
+<br/><i>nodes - build materials</i></p>
+<p><br/><a href="img/manual/workspace/3.png" target="_blank"><img src="img/manual/workspace/3.png" width="300px"/></a>
+<br/><i>script - create plugins</i></p>
 <h5 id="workflow">Workflow</h5>
 <p>Set workflow to configure available <code>Material Output</code> node sockets.</p>
-<p><br/><a href="img/manual/workspace/a.png" target="_blank"><img src="img/manual/workspace/a.png" width="200px"/></a>
+<p><br/><a href="img/manual/workspace/a.png" target="_blank"><img src="img/manual/workspace/a.png" width="300px"/></a>
 <br/><i>pbr - all channels are available</i></p>
-<p><br/><a href="img/manual/workspace/b.png" target="_blank"><img src="img/manual/workspace/b.png" width="200px"/></a>
-<br/><i>base - restricts painting to base color and opacity</i></p>
-<p><br/><a href="img/manual/workspace/c.png" target="_blank"><img src="img/manual/workspace/c.png" width="200px"/></a>
+<p><br/><a href="img/manual/workspace/b.png" target="_blank"><img src="img/manual/workspace/b.png" width="300px"/></a>
+<br/><i>base - restricts painting to base color and opacity, use for non-PBR projects</i></p>
+<p><br/><a href="img/manual/workspace/c.png" target="_blank"><img src="img/manual/workspace/c.png" width="300px"/></a>
 <br/><i>sculpt - enables displacement socket</i></p>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="baking">Baking</h1>
@@ -822,15 +833,15 @@
 <p>Open material node editor (<code>TAB</code>) and add a <code>Bake Texture</code> node. Pick a bake mode, then click the <code>Bake</code> button. For ray-traced bake modes, multiple samples (set via the <code>Samples</code> option) will get accumulated until the operation is complete.</p>
 <ul>
 <li><p><code>AO (raytracing GPUs)</code>: Bake ambient occlusion. <code>Strength</code>, <code>Radius</code> and <code>Offset</code> can be configured.
-<br/><a href="img/manual/bake/a.jpg" target="_blank"><img src="img/manual/bake/a.jpg" width="200px"/></a></p></li>
+<br/><a href="img/manual/bake/a.jpg" target="_blank"><img src="img/manual/bake/a.jpg" width="300px"/></a></p></li>
 <li><p><code>Curvature</code>: Bake mesh curvature. <code>Strength</code>, <code>Radius</code> and <code>Offset</code> can be configured.
-<br/><a href="img/manual/bake/b.jpg" target="_blank"><img src="img/manual/bake/b.jpg" width="200px"/></a></p></li>
+<br/><a href="img/manual/bake/b.jpg" target="_blank"><img src="img/manual/bake/b.jpg" width="300px"/></a></p></li>
 <li><p><code>Lightmap (raytracing GPUs)</code>: Bake irradiance from the environment.
-<br/><a href="img/manual/bake/e.jpg" target="_blank"><img src="img/manual/bake/e.jpg" width="200px"/></a></p></li>
+<br/><a href="img/manual/bake/e.jpg" target="_blank"><img src="img/manual/bake/e.jpg" width="300px"/></a></p></li>
 <li><p><code>Bent Normal (raytracing GPUs)</code>: Bake the normals indicating the least occluded direction for a point.
-<br/><a href="img/manual/bake/c.jpg" target="_blank"><img src="img/manual/bake/c.jpg" width="200px"/></a></p></li>
+<br/><a href="img/manual/bake/c.jpg" target="_blank"><img src="img/manual/bake/c.jpg" width="300px"/></a></p></li>
 <li><p><code>Thickness (raytracing GPUs)</code>: Bake mesh thickness. Works similar to AO baker, but uses flipped normals.
-<br/><a href="img/manual/bake/d.jpg" target="_blank"><img src="img/manual/bake/d.jpg" width="200px"/></a></p></li>
+<br/><a href="img/manual/bake/d.jpg" target="_blank"><img src="img/manual/bake/d.jpg" width="300px"/></a></p></li>
 <li><p><code>Normal</code>: Bake normal map from high-poly mesh.</p></li>
 <li><p><code>Object Normal</code>: Bake object-space normals encoded into (0-1) range.</p></li>
 <li><p><code>Height</code>: Bake height map from high-poly mesh.</p></li>
@@ -844,7 +855,7 @@
 <blockquote>
   <p>Use <code>AO</code> bake with small <code>Radius</code> to bake <code>Cavity</code>.</p>
   <p>Use <code>Curvature</code> bake to create dirt masks.
-  <br/><a href="img/manual/curvature.jpg" target="_blank"><img src="img/manual/curvature.jpg" width="200px"/></a></p>
+  <br/><a href="img/manual/curvature.jpg" target="_blank"><img src="img/manual/curvature.jpg" width="300px"/></a></p>
 </blockquote>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="sculpting">Sculpting</h1>
@@ -875,6 +886,15 @@
 </ul>
 <h4 id="plugindevelopment">Plugin Development</h4>
 <p>Plugins are written in a minimal interpreted <code>C</code> variant. For a basic example, see the <a href="https://github.com/armory3d/armorpaint/tree/main/paint/assets/plugins">bundled</a> <code>hello_world.c</code> file located in the <code>ArmorPaint/data/plugins</code> folder.</p>
+<h4 id="timelinewip">Timeline <em>wip</em></h4>
+<p>In the timeline tab you can:</p>
+<ul>
+<li>Control skinned meshes</li>
+<li>Add scripts to frames</li>
+<li>Create mesh and layer animations</li>
+</ul>
+<p><br/><a href="img/manual/skin.jpg" target="_blank"><img src="img/manual/skin.jpg" width="300px"/></a>
+<br/><i>skinned mesh</i></p>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="preferences">Preferences</h1>
 <p><img src="img/manual/g.jpg" alt="" /></p>
@@ -894,7 +914,7 @@
 <li>Click <code>Restore - Import...</code> button to import settings from older ArmorPaint version.</li>
 <li>Click <code>Reset Layout</code> button to revert all layout changes.</li>
 </ul>
-<p><br/><a href="img/manual/nodeprev.png" target="_blank"><img src="img/manual/nodeprev.png" width="200px"/></a>
+<p><br/><a href="img/manual/nodeprev.jpg" target="_blank"><img src="img/manual/nodeprev.jpg" width="300px"/></a>
 <br/><i>node previews</i></p>
 <h4 id="theme">Theme</h4>
 <ul>
@@ -916,9 +936,10 @@
 <li><code>Live Material Preview</code>: Update material preview immediately during node editing.</li>
 <li><code>Live Brush Preview</code>: Show brush paint preview in the viewport and 2d view.</li>
 <li><code>Depth Reject / Angle Reject</code>: Depth and angle rejection for 3D cursor.</li>
-<li><code>Alpha Discard</code>: When painting, texture pixels below this opacity will get discarded.
-<br/><a href="https://www.youtube.com/watch?v=O5ccQBbKc48" target="_blank"><img src="img/manual/live_brush.jpg" width="200px"/></a></li>
+<li><code>Alpha Discard</code>: When painting, texture pixels below this opacity will get discarded.</li>
 </ul>
+<p><br/><a href="img/manual/live_brush.jpg" target="_blank"><img src="img/manual/live_brush.jpg" width="300px"/></a>
+<br/><i>live brush preview</i></p>
 <h4 id="camera-1">Camera</h4>
 <ul>
 <li><code>Default Camera Pivot</code>: Cursor or center.</li>
