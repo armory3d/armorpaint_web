@@ -22,10 +22,7 @@ let writeManual = function(fileNameOut, fileNameHeader, fileNameFooter, fileName
 writeHtml('index.html');
 writeHtml('download.html');
 writeHtml('login.html');
-writeHtml('notes.html');
-writeHtml('howto.html');
 writeHtml('privacy.html');
-writeHtml('news.html');
 writeHtml('gallery.html');
 writeManual('manual.html', 'manual_header.html', 'manual_footer.html', '../manual.md');
 
