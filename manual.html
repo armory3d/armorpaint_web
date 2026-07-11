@@ -830,7 +830,9 @@
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="baking">Baking</h1>
 <p><img src="img/manual/i.jpg" alt="" /></p>
-<p>Open material node editor (<code>TAB</code>) and add a <code>Bake Texture</code> node. Pick a bake mode, then click the <code>Bake</code> button. For ray-traced bake modes, multiple samples (set via the <code>Samples</code> option) will get accumulated until the operation is complete. The result can be further processed with nodes, or connected to the <code>Material Output</code> node socket to use it directly.</p>
+<p>Open material node editor (<code>TAB</code>) and add a <code>Bake Texture</code> node. Pick a bake mode, then click the <code>Bake</code> button.</p>
+<p>For ray-traced bake modes, multiple samples (set via the <code>Samples</code> option) will get accumulated until the operation is complete.</p>
+<p>The result can be further processed with nodes, or connected to the <code>Material Output</code> node socket to use it directly. Alternatively, right-click onto the <code>Bake Texture</code> node and press the <code>Capture Output</code> button. This will save the bake result into the <code>Textures tab</code> from where the texture can be exported to disk.</p>
 <ul>
 <li><p><code>AO (raytracing GPUs)</code>: Bake ambient occlusion. <code>Strength</code>, <code>Radius</code> and <code>Offset</code> can be configured.
 <br/><a href="img/manual/bake/a.jpg" target="_blank"><img src="img/manual/bake/a.jpg" width="300px"/></a></p></li>

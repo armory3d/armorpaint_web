@@ -708,7 +708,12 @@ Set workflow to configure available `Material Output` node sockets.
 
 ![](img/manual/i.jpg)
 
-Open material node editor (`TAB`) and add a `Bake Texture` node. Pick a bake mode, then click the `Bake` button. For ray-traced bake modes, multiple samples (set via the `Samples` option) will get accumulated until the operation is complete. The result can be further processed with nodes, or connected to the `Material Output` node socket to use it directly.
+Open material node editor (`TAB`) and add a `Bake Texture` node. Pick a bake mode, then click the `Bake` button.
+
+For ray-traced bake modes, multiple samples (set via the `Samples` option) will get accumulated until the operation is complete.
+
+The result can be further processed with nodes, or connected to the `Material Output` node socket to use it directly. Alternatively, right-click onto the `Bake Texture` node and press the `Capture Output` button. This will save the bake result into the `Textures tab` from where the texture can be exported to disk.
+
 
 - `AO (raytracing GPUs)`: Bake ambient occlusion. `Strength`, `Radius` and `Offset` can be configured.
 <br/><a href="img/manual/bake/a.jpg" target="_blank"><img src="img/manual/bake/a.jpg" width="300px"/></a>
