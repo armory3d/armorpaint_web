@@ -307,8 +307,8 @@ Select `Particle`(`P`) tool from toolbar. Use `left mouse button` / `pen` to app
 
 Select `Color ID`(`C`) tool from toolbar. Drag and drop color-id texture onto the viewport and assign it into the `Color ID Map` field. Afterwards, click on a model to pick a specific color. All drawing operations will now be restricted to this color. Picked color can be removed with a `Clear` button.
 
-- `To Mask`: selected color id will be added as a mask of the active layer.
-- `Viewport Mask`: only mesh faces belonging to the selected color id will be visible.
+- `To Mask`: Selected color id will be added as a mask of the active layer.
+- `Viewport Mask`: Only mesh faces belonging to the selected color id will be visible.
 
 #### Picker
 
@@ -318,7 +318,8 @@ Select `Picker`(`V`) tool from toolbar. Press `left mouse button` / `pen` in vie
 
 - `Add Swatch`: Adds picked values to the `Swatches tab`.
 - `Select Material`: When enabled, the material you pick from the mesh surface will also get auto-selected in the `Materials tab`.
-- `Mask`: When set to `Material`, all drawing operations will be restricted to the surface where picked material is painted.
+- `Paint Mask`: All drawing operations will be restricted to the surface where picked material is painted.
+- `Viewport Mask`: Only mesh faces belonging to the picked material will be visible.
 
 #### Material
 
