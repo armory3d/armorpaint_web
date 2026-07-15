@@ -943,7 +943,7 @@ If the issue persists, triangulating the mesh before importing it to ArmorPaint 
 
 #### Mesh gets painted on multiple places at once
 
-Make sure the UV map has no overlapping faces. It can be resolved by unwrapping the mesh so that each face occupies unique space on the UV map, or using multiple layers to paint objects with [multiple UV sets](https://www.youtube.com/watch?v=ocIPd6sgQBs&list=PLsoJIZPOq9_r2aciBXDB0VBo3Z0lTI2En&index=22).
+Make sure the UV map has no overlapping faces. It can be resolved by unwrapping the mesh so that each face occupies unique space on the UV map, or using multiple layers to paint objects with multiple UV sets.
 
 Simple meshes can be unwrapped directly in ArmorPaint via `Meshes tab - Edit - UV Unwrap`.
 
