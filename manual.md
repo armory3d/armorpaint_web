@@ -1,12 +1,10 @@
 # Welcome
 
-*Version [1.0alpha](https://github.com/armory3d/armorpaint_web/tree/main/manual.md)*
+*Version [1.0](https://github.com/armory3d/armorpaint_web/tree/main/manual.md)*
 
 ![](img/manual/title.jpg)
 
 ArmorPaint is a stand-alone software designed for physically-based texture painting. Drag & drop your 3D models and start painting. Receive instant visual feedback in the viewport as you paint.
-
-> The alpha version has many rough edges and the experience may be frustrating.
 
 ---
 
