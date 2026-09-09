@@ -5,13 +5,44 @@
         <div class="row flex-lg-row-reverse align-items-center g-sm-5 py-5">
           <div class="col-lg-6 rounded pt-3">
             <h1 class="display-5 text-body-emphasis lh-1 mb-3">ArmorPaint 1.0</h1>
-            <p class="lead">Before proceeding, please <a href="https://armorpaint.org/manual">read the manual</a> first to know what parts need more work. ArmorPaint is in active development.</p>
+            <p class="lead">Before proceeding, please <a href="https://armorpaint.org/manual">read the manual</a> first to know what parts need more work.</p>
             <p class="lead">All updates are included for free. Source code is available on <a href="https://github.com/armory3d/armorpaint">GitHub</a>. Thank you for enabling further ArmorPaint development!</p>
           </div>
           <div class="col-lg-6">
 
             <div class="d-block mx-lg-auto img-fluid rounded shadow-lg"  loading="lazy">
-              <iframe class="rounded" width="700" height="394" style="width: 100%; height: auto; aspect-ratio: 16 / 9; padding: 0" src="https://www.youtube-nocookie.com/embed/nu2XahSxPA4?rel=0&amp;fs=0&amp;iv_load_policy=3&amp;playsinline=1&amp;color=white" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+              <div style="position: relative">
+                <video id="demo-video" class="rounded" width="1920" height="1080" style="display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; padding: 0" poster="img/video/ArmorPaint_1.0.jpg" preload="none" playsinline>
+                  <source src="img/video/ArmorPaint_1.0.mp4" type="video/mp4">
+                </video>
+                <button id="demo-video-play" type="button" aria-label="Play video" style="position: absolute; inset: 0; margin: auto; width: 72px; height: 72px; padding: 0; border: 0; border-radius: 50%; background: rgba(0, 0, 0, .55); display: flex; align-items: center; justify-content: center; cursor: pointer">
+                  <svg width="24" height="28" viewBox="0 0 26 30" fill="#fff" aria-hidden="true" style="margin-left: 4px"><path d="M0 0l26 15L0 30z"/></svg>
+                </button>
+                <a id="demo-video-yt" href="https://www.youtube.com/watch?v=nu2XahSxPA4" target="_blank" rel="noopener noreferrer" style="position: absolute; right: 12px; bottom: 12px; padding: 6px 10px; border-radius: 6px; background: rgba(0, 0, 0, .55); display: inline-flex; align-items: center; color: #fff; font-size: 13px; font-weight: 500; line-height: 1; text-decoration: none">
+                  Watch on YouTube
+                </a>
+              </div>
+              <script>
+                (function () {
+                  var v = document.getElementById('demo-video');
+                  var b = document.getElementById('demo-video-play');
+                  var y = document.getElementById('demo-video-yt');
+                  var showPoster = function (on) {
+                    b.style.display = on ? 'flex' : 'none';
+                    y.style.display = on ? 'inline-flex' : 'none';
+                  };
+                  b.addEventListener('click', function () {
+                    showPoster(false);
+                    v.controls = true;
+                    v.play();
+                  });
+                  v.addEventListener('ended', function () {
+                    v.controls = false;
+                    v.load(); // resets to the poster frame
+                    showPoster(true);
+                  });
+                })();
+              </script>
             </div>
 
           </div>
