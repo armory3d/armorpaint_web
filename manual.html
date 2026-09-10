@@ -314,7 +314,7 @@
   <p>See <a href="https://armorpaint.org/manual#preferences">Preferences</a> to tune performance.</p>
 </blockquote>
 <h4 id="updating">Updating</h4>
-<p>Latest builds can be downloaded through your <a href="https://itch.io/my-purchases">Itch Library</a> or <a href="https://gumroad.com/library">Gumroad Library</a>. Learn more <a href="https://armorpaint.org/login">here</a>.</p>
+<p>Latest builds can be downloaded through your <a href="https://itch.io/my-purchases">Itch Library</a>. Learn more <a href="https://armorpaint.org/login">here</a>.</p>
 <blockquote>
   <p>In ArmorPaint, press <code>Help - Check for Updates...</code> to check if newer build is available.</p>
 </blockquote>
@@ -340,6 +340,7 @@
 <li>Controls can be customized in <code>Menu bar - Edit - Preferences... - Keymap</code>.</li>
 <li>Default or Blender keymap preset can be selected.</li>
 <li>Keymap presets can be imported and exported.</li>
+<li>Hold <code>shift</code> + <code>right mouse button</code> to rotate the camera horizontally.</li>
 </ul>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="basics">Basics</h1>
@@ -349,13 +350,16 @@
 <p>In the <code>Import Mesh</code> dialog:</p>
 <ul>
 <li>Set <code>Split By</code> combo to <code>UDIM Tile</code> to parse imported <code>.obj</code> mesh into UDIM tiles.</li>
+<li>Set <code>Split By</code> combo to <code>Material</code> to create separate mesh for each material in the <code>.obj</code> file.</li>
 <li>Enable <code>Apply Skinning</code> to load and apply animation frame from <code>.fbx</code> or <code>.glb</code> file.</li>
+<li>Press <code>&gt; - Append</code> button to keep the existing meshes in the project intact.</li>
 </ul>
 <p>Modifying imported mesh data:</p>
 <ul>
 <li>Normals can be re-calculated with <code>Meshes tab - Edit - Calculate Normals</code>.</li>
 <li>Up axis can be set with <code>Meshes tab - Edit - Rotate</code>.</li>
 <li>Geometry can be re-centered with <code>Meshes tab - Edit - Geometry to Origin</code>.</li>
+<li>All meshes can be merged into a single one with <code>Meshes tab - Edit - Merge Geometry</code>.</li>
 <li>Height output can be applied to geometry with <code>Meshes tab - Edit - Apply Displacement</code>.</li>
 <li>UV map can be auto-generated with <code>Meshes tab - Edit - UV Unwrap</code>.</li>
 <li>Keep in mind that if you modify UV map of the imported mesh, you will have to also <a href="https://armorpaint.org/manual#export-mesh">export the modified mesh</a> back out of ArmorPaint alongside the painted textures so they can be UV mapped properly.</li>
@@ -423,7 +427,8 @@
 <ul>
 <li>Click on the <code>Cloud</code> button to access the <a href="https://armorpaint.org/cloud">ArmorPaint cloud</a>.</li>
 <li>Drag assets from browser into the viewport to import.</li>
-<li>For <code>.arm</code> materials, preview icons are displayed.</li>
+<li>For <code>.arm</code> files - right click and press the <code>Append</code> button to select which meshes and materials to import.</li>
+<li>For <code>.arm</code> materials - preview icons are displayed.</li>
 <li>Click on the <code>+</code> button to save the current path into bookmarks panel.</li>
 <li>Press <code>ctrl+f</code> keys to activate search in the current folder.</li>
 <li>Use arrow keys, enter / backspace to navigate.
@@ -508,6 +513,7 @@
 <li><code>Blending</code>: Blending mode used for painting.</li>
 <li><code>X-Ray</code>: Paint through mesh faces.</li>
 <li><code>Symmetry</code>: Mirror brush strokes on the X, Y and/or Z axis.</li>
+<li><code>Set Source</code> button: Set clone source location without holding the <code>ALT</code> key.</li>
 </ul>
 <h4 id="blur">Blur</h4>
 <p><img src="img/manual/tool_blur.png" alt="" /></p>
@@ -554,6 +560,9 @@
 <h4 id="cursor">Cursor</h4>
 <p><img src="img/manual/tool_cursor.png" alt="" /></p>
 <p>Select <code>Cursor</code>(<code>r</code>) tool from toolbar. A gizmo will appear in the viewport allowing you to adjust the transform of objects in the scene. Location, rotation and scale will be displayed in the header.</p>
+<ul>
+<li>Hold <code>x</code> (<code>grid_snap</code>) key to snap gizmo movement and rotation to steps.</li>
+</ul>
 <h4 id="select">Select</h4>
 <p><img src="img/manual/tool_select.png" alt="" /></p>
 <p>Select <code>Select</code>(<code>m</code>) tool from toolbar. Press <code>left mouse button</code> / <code>pen</code> to draw a rectangular mask in the viewport. The painting operations will now be restricted to this area. Press <code>Clear</code> button to discard the mask.</p>
@@ -622,6 +631,11 @@
 <p><img src="img/manual/neural/001.png" alt="" /></p>
 <p>To preview the material, create a new project and select the highly tessellated <code>plane_2048</code> or <code>sphere_2048</code> template. Fill the material onto the layer and press <code>Meshes tab - Edit - Apply Displacement</code> to apply height channel onto the mesh.</p>
 <p><img src="img/manual/neural/002.jpg" alt="" /></p>
+<h4 id="consolemodel">Console Model</h4>
+<p>Navigate to the <code>Menu bar - Edit - Preferences... - Neural</code> tab and pick the desired <code>console model</code>. By default, <code>Qwen</code> model will be selected which needs to be downloaded via <code>Models - Qwen</code> section. In this case the console prompt will be processed locally. If your machine does not have enough memory, you can change the <code>console model</code> to claude, grok or codex. Note that in this case processing will be done in the cloud and you need to have access to these models set up on your computer.</p>
+<blockquote>
+  <p>See <a href="https://armorpaint.org/manual#scripting">Console Prompt</a>.</p>
+</blockquote>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="brushes">Brushes</h1>
 <p><img src="img/manual/k.jpg" alt="" /></p>
@@ -721,6 +735,12 @@
 <li><code>Apply</code> mask to parent layer.</li>
 <li><code>Delete</code> the mask.</li>
 <li><code>Invert</code> the mask.</li>
+</ul>
+<p>For path layers:</p>
+<ul>
+<li>Press <code>left</code> mouse button onto a mesh to add a new control point.</li>
+<li>Press and hold <code>left</code> mouse button to drag a control point.</li>
+<li>Press <code>delete</code> key to remove the last selected control point.</li>
 </ul>
 <blockquote>
   <p>Drag textures from <code>Textures tab</code> into the viewport or <code>Layers</code> tab to create mask for active layer.</p>
@@ -864,7 +884,8 @@
 <p><em>work-in-progress</em></p>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="scripting">Scripting</h1>
-<p><img src="img/manual/h.jpg" alt="" /></p>
+<p><img src="img/manual/script.jpg" alt="" /></p>
+<h4 id="plugins">Plugins</h4>
 <p>Press <code>Plugins tab - Manager</code> to open the plugin manager.</p>
 <ul>
 <li>Click <code>Import</code> to install a new plugin from <code>.c</code> or <code>.zip</code> file.</li>
@@ -877,6 +898,17 @@
 <li>Controls for enabled plugins are displayed in the <code>Plugins tab</code>.</li>
 <li>Some plugins may not expose controls but add new import / export file formats.</li>
 </ul>
+<h4 id="scriptstab">Scripts Tab</h4>
+<p>Scripts tab allows you to edit and run scripts directly in ArmorPaint. It supports basic code editing, mini map display and syntax coloring.</p>
+<ul>
+<li>Press <code>ctrl + f</code> to search.</li>
+<li>Press <code>ctrl + space</code> to open auto-complete.</li>
+</ul>
+<h4 id="consoleprompt">Console Prompt</h4>
+<p>Once <code>console model</code> is set up, navigate to the <code>Console</code> tab, enter the text prompt and click the <code>Run</code> button. Once done, a script will be generated in the <code>Scripts</code> tab. You can inspect the script and press the <code>Run</code> button to execute it.</p>
+<blockquote>
+  <p>See <a href="https://armorpaint.org/manual#neural-nodes">Console Model</a> setup.</p>
+</blockquote>
 <h4 id="livelink">Live-Link</h4>
 <p>Live-link plugins are currently in development:</p>
 <ul>
@@ -895,6 +927,23 @@
 </ul>
 <p><br/><a href="img/manual/skin.jpg" target="_blank"><img src="img/manual/skin.jpg" width="300px"/></a>
 <br/><i>skinned mesh</i></p>
+<h4 id="commandlineterminal">Command line / terminal</h4>
+<p>Control ArmorPaint via the command line arguments.</p>
+<pre><code>Usage: armorpaint [options] [file]
+Options:
+  --background                      Run without displaying the window
+  --export-textures &lt;type&gt; &lt;preset&gt; &lt;path&gt;
+                                    Export textures to path
+                                    type: png, jpg, exr16, exr32
+  --export-mesh &lt;path&gt;              Export mesh to path
+  --export-material &lt;path&gt;          Export material to path
+  --reload-mesh                     Reimport mesh on startup
+  --script &lt;path&gt;                   Run script on the opened project
+  --api                             Print the scripting API reference
+                                    Contents of the opened project are included
+  --player                          Run in player mode
+  --help                            Show this help message
+</code></pre>
 <p><br/><br/><br/><br/><br/></p>
 <h1 id="preferences">Preferences</h1>
 <p><img src="img/manual/g.jpg" alt="" /></p>
@@ -970,13 +1019,15 @@
 </ul>
 <p>On slower GPUs:</p>
 <ul>
-<li>Disable <code>SSAO (screen-space ambient occlusion)</code> for improved performance.</li>
+<li>Set <code>SSAO (screen-space ambient occlusion)</code> to <code>0.0</code> to fully disable it for improved performance.</li>
 </ul>
 <p>Additional options:</p>
 <ul>
-<li>Set <code>Path Tracer</code> mode: <code>Fast</code> for performance, <code>Full</code> for features. (raytracing GPUs)</li>
+<li>Set <code>Path Tracer</code> mode: <code>Fast</code> for performance, <code>Quality</code> for features. (emission, translucency)(raytracing GPUs)</li>
+<li>Set <code>Multi</code> variant in <code>Path Tracer</code> mode combo: this allows  the path tracer to render up to 1024 instances of 64 unique objects.</li>
+<li>Set <code>Path Trace Frames</code>: the number of frames to accumulate samples.</li>
 <li>Set clipping values with <code>Clip Start</code> and <code>Clip End</code>.</li>
-<li>Enable <code>Bloom</code>.</li>
+<li>Set <code>Bloom</code> strenght, <code>0.0</code> to fully disable.</li>
 <li>Set <code>Vignette</code> intensity.</li>
 <li>Set <code>Noise Grain</code> intensity.</li>
 <li>Set <code>Displacement Strength</code> applied by height channel in the viewport.</li>

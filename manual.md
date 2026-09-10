@@ -22,7 +22,7 @@ Painting process in ArmorPaint runs on the GPU and the performance mainly depend
 
 #### Updating
 
-Latest builds can be downloaded through your [Itch Library](https://itch.io/my-purchases) or [Gumroad Library](https://gumroad.com/library). Learn more [here](https://armorpaint.org/login).
+Latest builds can be downloaded through your [Itch Library](https://itch.io/my-purchases). Learn more [here](https://armorpaint.org/login).
 
 > In ArmorPaint, press `Help - Check for Updates...` to check if newer build is available.
 
@@ -65,6 +65,7 @@ Unpack downloaded archive and run `ArmorPaint.app`.
 - Controls can be customized in `Menu bar - Edit - Preferences... - Keymap`.
 - Default or Blender keymap preset can be selected.
 - Keymap presets can be imported and exported.
+- Hold `shift` + `right mouse button` to rotate the camera horizontally.
 
 <br/><br/><br/><br/><br/>
 
@@ -82,12 +83,15 @@ Drag and drop unwrapped `.obj` file into the viewport. This will replace the cur
 
 In the `Import Mesh` dialog:
 - Set `Split By` combo to `UDIM Tile` to parse imported `.obj` mesh into UDIM tiles.
+- Set `Split By` combo to `Material` to create separate mesh for each material in the `.obj` file.
 - Enable `Apply Skinning` to load and apply animation frame from `.fbx` or `.glb` file.
+- Press `> - Append` button to keep the existing meshes in the project intact.
 
 Modifying imported mesh data:
 - Normals can be re-calculated with `Meshes tab - Edit - Calculate Normals`.
 - Up axis can be set with `Meshes tab - Edit - Rotate`.
 - Geometry can be re-centered with `Meshes tab - Edit - Geometry to Origin`.
+- All meshes can be merged into a single one with `Meshes tab - Edit - Merge Geometry`.
 - Height output can be applied to geometry with `Meshes tab - Edit - Apply Displacement`.
 - UV map can be auto-generated with `Meshes tab - Edit - UV Unwrap`.
 - Keep in mind that if you modify UV map of the imported mesh, you will have to also [export the modified mesh](https://armorpaint.org/manual#export-mesh) back out of ArmorPaint alongside the painted textures so they can be UV mapped properly.
@@ -166,7 +170,8 @@ If the mesh file was modified after it was already imported in ArmorPaint, you c
 Click on the `Status bar - Browser tab` to activate the built-in asset browser.
 - Click on the `Cloud` button to access the [ArmorPaint cloud](https://armorpaint.org/cloud).
 - Drag assets from browser into the viewport to import.
-- For `.arm` materials, preview icons are displayed.
+- For `.arm` files - right click and press the `Append` button to select which meshes and materials to import.
+- For `.arm` materials - preview icons are displayed.
 - Click on the `+` button to save the current path into bookmarks panel.
 - Press `ctrl+f` keys to activate search in the current folder.
 - Use arrow keys, enter / backspace to navigate.
@@ -271,6 +276,7 @@ Select `Clone`(`L`) tool from toolbar. Hold `ALT` to set clone source location. 
 - `Blending`: Blending mode used for painting.
 - `X-Ray`: Paint through mesh faces.
 - `Symmetry`: Mirror brush strokes on the X, Y and/or Z axis.
+- `Set Source` button: Set clone source location without holding the `ALT` key.
 
 #### Blur
 
@@ -330,6 +336,8 @@ Select `Material` tool from toolbar. A live material preview will be displayed i
 ![](img/manual/tool_cursor.png)
 
 Select `Cursor`(`r`) tool from toolbar. A gizmo will appear in the viewport allowing you to adjust the transform of objects in the scene. Location, rotation and scale will be displayed in the header.
+
+- Hold `x` (`grid_snap`) key to snap gizmo movement and rotation to steps.
 
 #### Select
 
@@ -450,6 +458,12 @@ To preview the material, create a new project and select the highly tessellated 
 
 ![](img/manual/neural/002.jpg)
 
+#### Console Model
+
+Navigate to the `Menu bar - Edit - Preferences... - Neural` tab and pick the desired `console model`. By default, `Qwen` model will be selected which needs to be downloaded via `Models - Qwen` section. In this case the console prompt will be processed locally. If your machine does not have enough memory, you can change the `console model` to claude, grok or codex. Note that in this case processing will be done in the cloud and you need to have access to these models set up on your computer.
+
+> See [Console Prompt](https://armorpaint.org/manual#scripting).
+
 <br/><br/><br/><br/><br/>
 
 
@@ -561,6 +575,12 @@ Right-click on the mask to expose mask operations:
 - `Apply` mask to parent layer.
 - `Delete` the mask.
 - `Invert` the mask.
+
+For path layers:
+
+- Press `left` mouse button onto a mesh to add a new control point.
+- Press and hold `left` mouse button to drag a control point.
+- Press `delete` key to remove the last selected control point.
 
 > Drag textures from `Textures tab` into the viewport or `Layers` tab to create mask for active layer.
 
@@ -773,7 +793,9 @@ Press `Menu bar - Workspace - Workflow - Sculpt` to enter sculpt mode.
 
 # Scripting
 
-![](img/manual/h.jpg)
+![](img/manual/script.jpg)
+
+#### Plugins
 
 Press `Plugins tab - Manager` to open the plugin manager.
 
@@ -786,6 +808,19 @@ Press `Plugins tab - Manager` to open the plugin manager.
   - `Delete` plugin.
 - Controls for enabled plugins are displayed in the `Plugins tab`.
 - Some plugins may not expose controls but add new import / export file formats.
+
+#### Scripts Tab
+
+Scripts tab allows you to edit and run scripts directly in ArmorPaint. It supports basic code editing, mini map display and syntax coloring.
+
+- Press `ctrl + f` to search.
+- Press `ctrl + space` to open auto-complete.
+
+#### Console Prompt
+
+Once `console model` is set up, navigate to the `Console` tab, enter the text prompt and click the `Run` button. Once done, a script will be generated in the `Scripts` tab. You can inspect the script and press the `Run` button to execute it.
+
+> See [Console Model](https://armorpaint.org/manual#neural-nodes) setup.
 
 #### Live-Link
 
@@ -807,6 +842,28 @@ In the timeline tab you can:
 
 <br/><a href="img/manual/skin.jpg" target="_blank"><img src="img/manual/skin.jpg" width="300px"/></a>
 <br/><i>skinned mesh</i>
+
+#### Command line / terminal
+
+Control ArmorPaint via the command line arguments.
+
+```
+Usage: armorpaint [options] [file]
+Options:
+  --background                      Run without displaying the window
+  --export-textures <type> <preset> <path>
+                                    Export textures to path
+                                    type: png, jpg, exr16, exr32
+  --export-mesh <path>              Export mesh to path
+  --export-material <path>          Export material to path
+  --reload-mesh                     Reimport mesh on startup
+  --script <path>                   Run script on the opened project
+  --api                             Print the scripting API reference
+                                    Contents of the opened project are included
+  --player                          Run in player mode
+  --help                            Show this help message
+
+```
 
 <br/><br/><br/><br/><br/>
 
@@ -895,12 +952,14 @@ On faster GPUs:
 - Raise `Super Sample` to 2X/4X for improved anti-aliasing.
 
 On slower GPUs:
-- Disable `SSAO (screen-space ambient occlusion)` for improved performance.
+- Set `SSAO (screen-space ambient occlusion)` to `0.0` to fully disable it for improved performance.
 
 Additional options:
-- Set `Path Tracer` mode: `Fast` for performance, `Full` for features. (raytracing GPUs)
+- Set `Path Tracer` mode: `Fast` for performance, `Quality` for features. (emission, translucency)(raytracing GPUs)
+- Set `Multi` variant in `Path Tracer` mode combo: this allows  the path tracer to render up to 1024 instances of 64 unique objects.
+- Set `Path Trace Frames`: the number of frames to accumulate samples.
 - Set clipping values with `Clip Start` and `Clip End`.
-- Enable `Bloom`.
+- Set `Bloom` strenght, `0.0` to fully disable.
 - Set `Vignette` intensity.
 - Set `Noise Grain` intensity.
 - Set `Displacement Strength` applied by height channel in the viewport.
